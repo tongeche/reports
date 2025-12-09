@@ -195,7 +195,7 @@
           <li data-i18n="mom_2">Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%</li>
           <li data-i18n="mom_3">Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%</li>
         </ul>
-        <p class="text-xs text-slate-400 mt-2" data-i18n="source_label">Fonte: outputs/reports/comparative_report.md</p>
+        <p class="text-xs text-slate-400 mt-2" data-i18n="source_label">Fonte: comparative_table.html</p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
         <div class="flex items-center gap-2">
@@ -232,7 +232,7 @@
           <span class="w-2 h-2 rounded-full bg-aqua"></span>
           <h2 class="text-xl font-display font-semibold" data-i18n="charts_title">Gráficos interativos</h2>
         </div>
-        <a class="text-sm text-aqua hover:text-white underline underline-offset-4" href="comparative_report.md" data-i18n="open_report">Abrir relatório comparativo</a>
+        <a class="text-sm text-aqua hover:text-white underline underline-offset-4" href="comparative_table.html" data-i18n="open_report">Abrir tabela comparativa</a>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
@@ -272,12 +272,12 @@
       <div class="glass shadow-panel rounded-2xl p-4">
         <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sources_title">Fontes</p>
         <p data-i18n="source_csv">CSV: <span class="text-white">data/autotrust_ads.csv</span></p>
-        <p data-i18n="source_report">Relatório comparativo: <span class="text-white">comparative_report.md</span></p>
+        <p data-i18n="source_report">Relatório comparativo: <span class="text-white">comparative_table.html</span></p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4 md:col-span-2">
         <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="howto_title">Como visualizar</p>
         <ol class="list-decimal list-inside space-y-1">
-          <li data-i18n="howto_1">Abra este arquivo diretamente no navegador: <span class="text-white">outputs/reports/dashboard.html</span>.</li>
+          <li data-i18n="howto_1">Abra este arquivo diretamente no navegador: <span class="text-white">docs/index.html</span>.</li>
           <li data-i18n="howto_2">Os painéis interativos usam os exports do Plotly em <span class="text-white">outpucharts/</span>.</li>
           <li data-i18n="howto_3">Atualize os dados e rode <code>python src/main.py</code> para regenerar os gráficos antes de recarregar a página.</li>
         </ol>
@@ -322,7 +322,7 @@
         mom_1: "Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%",
         mom_2: "Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%",
         mom_3: "Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%",
-        source_label: "Fonte: comparative_report.md",
+        source_label: "Fonte: comparative_table.html",
         actionable_title: "Sugestões acionáveis",
         act_1: "Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.",
         act_2: "Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.",
@@ -334,7 +334,7 @@
         content_3: "• Combinar visuais: 1 estático com benefício direto + 1 vídeo curto mostrando navegação/resultado.",
         content_4: "• Testar 2–3 CTAs: “Ver ofertas”, “Simular agora”, “Marcar visita” conforme etapa do funil.",
         charts_title: "Gráficos interativos",
-        open_report: "Abrir relatório comparativo",
+        open_report: "Abrir tabela comparativa",
         chart_views: "Visualizações ao longo do tempo",
         chart_spend: "Investimento ao longo do tempo",
         chart_cpv: "Custo por view ao longo do tempo",
@@ -342,10 +342,10 @@
         chart_views_by_campaign: "Visualizações por campanha e mês",
         sources_title: "Fontes",
         source_csv: "CSV: data/autotrust_ads.csv",
-        source_report: "Relatório comparativo: comparative_report.md",
+        source_report: "Relatório comparativo: comparative_table.html",
         howto_title: "Como visualizar",
         howto_1: "Abra este arquivo diretamente no navegador: docs/index.html.",
-        howto_2: "Os painéis interativos usam os exports do Plotly em docs/charts/.",
+        howto_2: "Os painéis interativos usam os exports do Plotly em outpucharts/.",
         howto_3: "Atualize os dados e rode python src/main.py para regenerar os gráficos antes de recarregar a página."
       },
       en: {
@@ -384,7 +384,7 @@
         mom_1: "Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%",
         mom_2: "Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%",
         mom_3: "Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%",
-        source_label: "Source: comparative_report.md",
+        source_label: "Source: comparative_table.html",
         actionable_title: "Actionable recommendations",
         act_1: "Shift ~10–15% of spend from Maia TOF into Remarketing (best CPV/efficiency) to lean into the strongest inventory.",
         act_2: "Reuse Portugal TOF winning creatives (CTR leader) to lift Maia TOF; prioritize mobile-first variants and sharp hooks.",
@@ -396,7 +396,7 @@
         content_3: "• Mix visuals: one static with a direct benefit + one short video showing navigation/result.",
         content_4: "• Test 2–3 CTAs: “View offers”, “Simulate now”, “Book a visit” depending on funnel stage.",
         charts_title: "Interactive charts",
-        open_report: "Open comparative report",
+        open_report: "Open comparative table",
         chart_views: "Views over time",
         chart_spend: "Spend over time",
         chart_cpv: "Cost per view over time",
@@ -404,10 +404,10 @@
         chart_views_by_campaign: "Views by campaign and month",
         sources_title: "Sources",
         source_csv: "CSV: data/autotrust_ads.csv",
-        source_report: "Comparative report: comparative_report.md",
+        source_report: "Comparative table: comparative_table.html",
         howto_title: "How to view",
         howto_1: "Open this file directly in your browser: docs/index.html.",
-        howto_2: "Interactive panels use Plotly exports in docs/charts/.",
+        howto_2: "Interactive panels use Plotly exports in outpucharts/.",
         howto_3: "Update data and run python src/main.py to regenerate charts before refreshing."
       }
     };
