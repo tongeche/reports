@@ -34,6 +34,7 @@
     body { background: radial-gradient(circle at 20% 20%, rgba(57,192,224,0.12), transparent 25%), radial-gradient(circle at 80% 10%, rgba(244,115,143,0.12), transparent 28%), #0b1221; }
     .glass { background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.07); }
     iframe { width: 100%; height: 100%; border: 0; border-radius: 14px; background: #0f172a; }
+    .lang-active { background-color: rgba(255,255,255,0.2); color: #fff; }
   </style>
 </head>
 <body class="font-body text-slate-100">
@@ -41,76 +42,80 @@
     <header class="max-w-6xl mx-auto pt-10 pb-6 flex flex-col gap-4">
       <div class="flex items-center gap-3">
         <span class="px-3 py-1 text-xs uppercase tracking-[0.2em] bg-white/10 rounded-full">AutoTrust Meta Ads</span>
-        <span class="text-xs text-slate-400">Set–Nov 2025</span>
+        <span class="text-xs text-slate-400" data-i18n="period_label">Set–Nov 2025</span>
+        <div class="ml-auto flex gap-2">
+          <button data-set-lang="pt" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">PT</button>
+          <button data-set-lang="en" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">EN</button>
+        </div>
       </div>
       <div class="flex flex-col gap-2">
-        <h1 class="text-3xl sm:text-4xl font-display font-semibold leading-tight">Panorama de Performance — Visão Interativa</h1>
-        <p class="text-slate-300 max-w-3xl">Gráficos interativos, variações mês contra mês e recomendações acionáveis para os últimos três meses das campanhas Meta Ads.</p>
+        <h1 class="text-3xl sm:text-4xl font-display font-semibold leading-tight" data-i18n="hero_title">Panorama de Performance — Visão Interativa</h1>
+        <p class="text-slate-300 max-w-3xl" data-i18n="hero_subtitle">Gráficos interativos, variações mês contra mês e recomendações acionáveis para os últimos três meses das campanhas Meta Ads.</p>
       </div>
     </header>
 
     <nav class="max-w-6xl mx-auto mb-6">
       <div class="glass shadow-panel rounded-2xl px-4 py-3 flex flex-wrap items-center gap-3 text-sm text-slate-200">
-        <span class="uppercase text-xs tracking-wide text-slate-400">Navegar por mês:</span>
+        <span class="uppercase text-xs tracking-wide text-slate-400" data-i18n="nav_label">Navegar por mês:</span>
         <div class="flex flex-wrap gap-2">
-          <a href="#set-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition">Set 2025</a>
-          <a href="#out-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition">Out 2025</a>
-          <a href="#nov-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition">Nov 2025</a>
+          <a href="#set-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_sep">Set 2025</a>
+          <a href="#out-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_oct">Out 2025</a>
+          <a href="#nov-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_nov">Nov 2025</a>
         </div>
       </div>
     </nav>
 
     <section class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400">Visualizações (LPV) recentes</p>
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_views_label">Visualizações (LPV) recentes</p>
         <p class="text-3xl font-display font-semibold">13,531</p>
-        <p class="text-sm text-slate-400">Nov 2025</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_latest_month">Nov 2025</p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400">Investimento recente</p>
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_spend_label">Investimento recente</p>
         <p class="text-3xl font-display font-semibold">€480.66</p>
-        <p class="text-sm text-slate-400">CPV médio €0.04</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_cpv_hint">CPV médio €0.04</p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400">CTR ponderado</p>
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_ctr_label">CTR ponderado</p>
         <p class="text-3xl font-display font-semibold">4.0%</p>
-        <p class="text-sm text-slate-400">Nov vs Out: -0.0 pts</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_ctr_delta">Nov vs Out: -0.0 pts</p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400">Líder em eficiência</p>
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_eff_label">Líder em eficiência</p>
         <p class="text-xl font-display font-semibold">Remarketing</p>
-        <p class="text-sm text-slate-400">CPV €0.02 • CTR 4.2%</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_eff_hint">CPV €0.02 • CTR 4.2%</p>
       </div>
     </section>
 
     <section class="max-w-6xl mx-auto mt-8 flex flex-col gap-4" id="set-2025">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-neon"></span>
-        <h2 class="text-xl font-display font-semibold">Setembro 2025</h2>
+        <h2 class="text-xl font-display font-semibold" data-i18n="sep_heading">Setembro 2025</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">Views</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
           <p class="text-2xl font-display font-semibold">10,885</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">Investimento</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
           <p class="text-2xl font-display font-semibold">€478.17</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">CPV médio</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
           <p class="text-2xl font-display font-semibold">€0.04</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">CTR ponderado</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
           <p class="text-2xl font-display font-semibold">3.7%</p>
         </div>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2">Sugestões para Setembro</p>
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_sep_title">Sugestões para Setembro</p>
         <ul class="space-y-2">
-          <li>• Manter TOF focado em criativos de alta CTR (Portugal) e realocar spend de segmentos com CPV alto.</li>
-          <li>• Testar variações de cópia curta para Remarketing para expandir volume sem perder CPV.</li>
+          <li data-i18n="sug_sep_1">• Manter TOF focado em criativos de alta CTR (Portugal) e realocar spend de segmentos com CPV alto.</li>
+          <li data-i18n="sug_sep_2">• Testar variações de cópia curta para Remarketing para expandir volume sem perder CPV.</li>
         </ul>
       </div>
     </section>
@@ -118,31 +123,31 @@
     <section class="max-w-6xl mx-auto mt-6 flex flex-col gap-4" id="out-2025">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-aqua"></span>
-        <h2 class="text-xl font-display font-semibold">Outubro 2025</h2>
+        <h2 class="text-xl font-display font-semibold" data-i18n="oct_heading">Outubro 2025</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">Views</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
           <p class="text-2xl font-display font-semibold">12,976</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">Investimento</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
           <p class="text-2xl font-display font-semibold">€495.02</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">CPV médio</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
           <p class="text-2xl font-display font-semibold">€0.04</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">CTR ponderado</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
           <p class="text-2xl font-display font-semibold">4.1%</p>
         </div>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2">Sugestões para Outubro</p>
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_oct_title">Sugestões para Outubro</p>
         <ul class="space-y-2">
-          <li>• Preservar CPV: redistribuir 5–10% do spend de Maia TOF para Portugal TOF (melhor CTR) e Remarketing.</li>
-          <li>• Aumentar frequência em Remarketing com criativos atualizados semanalmente para evitar fadiga.</li>
+          <li data-i18n="sug_oct_1">• Preservar CPV: redistribuir 5–10% do spend de Maia TOF para Portugal TOF (melhor CTR) e Remarketing.</li>
+          <li data-i18n="sug_oct_2">• Aumentar frequência em Remarketing com criativos atualizados semanalmente para evitar fadiga.</li>
         </ul>
       </div>
     </section>
@@ -150,31 +155,31 @@
     <section class="max-w-6xl mx-auto mt-6 flex flex-col gap-4" id="nov-2025">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-coral"></span>
-        <h2 class="text-xl font-display font-semibold">Novembro 2025</h2>
+        <h2 class="text-xl font-display font-semibold" data-i18n="nov_heading">Novembro 2025</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">Views</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
           <p class="text-2xl font-display font-semibold">13,531</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">Investimento</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
           <p class="text-2xl font-display font-semibold">€480.66</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">CPV médio</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
           <p class="text-2xl font-display font-semibold">€0.04</p>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400">CTR ponderado</p>
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
           <p class="text-2xl font-display font-semibold">4.0%</p>
         </div>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2">Sugestões para Novembro</p>
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_nov_title">Sugestões para Novembro</p>
         <ul class="space-y-2">
-          <li>• Manter o ganho de views com spend menor: realocar 10–15% de Maia TOF para Remarketing (melhor eficiência).</li>
-          <li>• Replicar criativos vencedores de Portugal TOF em Maia TOF; testar hooks mobile-first e ângulos de prova social.</li>
+          <li data-i18n="sug_nov_1">• Manter o ganho de views com spend menor: realocar 10–15% de Maia TOF para Remarketing (melhor eficiência).</li>
+          <li data-i18n="sug_nov_2">• Replicar criativos vencedores de Portugal TOF em Maia TOF; testar hooks mobile-first e ângulos de prova social.</li>
         </ul>
       </div>
     </section>
@@ -183,25 +188,40 @@
       <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-neon"></span>
-          <p class="text-sm uppercase tracking-wide text-slate-300">Variações MoM — Nov 2025</p>
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="mom_title">Variações MoM — Nov 2025</p>
         </div>
         <ul class="text-sm text-slate-200 space-y-2">
-          <li>Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%</li>
-          <li>Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%</li>
-          <li>Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%</li>
+          <li data-i18n="mom_1">Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%</li>
+          <li data-i18n="mom_2">Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%</li>
+          <li data-i18n="mom_3">Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%</li>
         </ul>
-        <p class="text-xs text-slate-400 mt-2">Fonte: comparative_report.md</p>
+        <p class="text-xs text-slate-400 mt-2" data-i18n="source_label">Fonte: outputs/reports/comparative_report.md</p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-coral"></span>
-          <p class="text-sm uppercase tracking-wide text-slate-300">Sugestões acionáveis</p>
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="actionable_title">Sugestões acionáveis</p>
         </div>
         <ul class="text-sm text-slate-200 space-y-2">
-          <li>Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.</li>
-          <li>Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.</li>
-          <li>Manter o pacing onde as visualizações crescem (views Nov +4.3% com spend -2.9%); pausar bolsões de CPV alto em Maia TOF e reinvestir em Remarketing.</li>
-          <li>Rodar dois testes semanais: (1) refresh de headline/copy para TOF, (2) teste de frequência no retargeting para sustentar CTR sem inflar CPV.</li>
+          <li data-i18n="act_1">Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.</li>
+          <li data-i18n="act_2">Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.</li>
+          <li data-i18n="act_3">Manter o pacing onde as visualizações crescem (views Nov +4.3% com spend -2.9%); pausar bolsões de CPV alto em Maia TOF e reinvestir em Remarketing.</li>
+          <li data-i18n="act_4">Rodar dois testes semanais: (1) refresh de headline/copy para TOF, (2) teste de frequência no retargeting para sustentar CTR sem inflar CPV.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-white"></span>
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="content_title">Sugestões de conteúdo para anúncios</p>
+        </div>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li data-i18n="content_1">• Criativos mobile-first com primeiras linhas fortes destacando valor (ex.: revisão rápida, entrega, confiança/autotrust).</li>
+          <li data-i18n="content_2">• Prova social: depoimentos curtos, classificação média ou números de clientes atendidos.</li>
+          <li data-i18n="content_3">• Combinar visuais: 1 estático com benefício direto + 1 vídeo curto mostrando navegação/resultado.</li>
+          <li data-i18n="content_4">• Testar 2–3 CTAs: “Ver ofertas”, “Simular agora”, “Marcar visita” conforme etapa do funil.</li>
         </ul>
       </div>
     </section>
@@ -210,37 +230,37 @@
       <div class="flex items-center justify-between gap-3">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-aqua"></span>
-          <h2 class="text-xl font-display font-semibold">Gráficos interativos</h2>
+          <h2 class="text-xl font-display font-semibold" data-i18n="charts_title">Gráficos interativos</h2>
         </div>
-        <a class="text-sm text-aqua hover:text-white underline underline-offset-4" href="comparative_report.md">Abrir relatório comparativo</a>
+        <a class="text-sm text-aqua hover:text-white underline underline-offset-4" href="comparative_report.md" data-i18n="open_report">Abrir relatório comparativo</a>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3">Visualizações ao longo do tempo</div>
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_views">Visualizações ao longo do tempo</div>
           <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
             <iframe src="charts/interactive_views_over_time.html" title="Views over time"></iframe>
           </div>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3">Investimento ao longo do tempo</div>
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_spend">Investimento ao longo do tempo</div>
           <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
             <iframe src="charts/interactive_spend_over_time.html" title="Spend over time"></iframe>
           </div>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3">Custo por view ao longo do tempo</div>
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_cpv">Custo por view ao longo do tempo</div>
           <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
             <iframe src="charts/interactive_cost_per_view_over_time.html" title="Cost per view over time"></iframe>
           </div>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3">Tendência de CTR</div>
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_ctr">Tendência de CTR</div>
           <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
             <iframe src="charts/interactive_ctr_trend.html" title="CTR trend"></iframe>
           </div>
         </div>
         <div class="glass shadow-panel rounded-2xl p-4 lg:col-span-2 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3">Visualizações por campanha e mês</div>
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_views_by_campaign">Visualizações por campanha e mês</div>
           <div class="h-[320px] sm:h-[360px] lg:h-[420px]">
             <iframe src="charts/interactive_views_by_campaign_month.html" title="Views by campaign and month"></iframe>
           </div>
@@ -250,19 +270,164 @@
 
     <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300">
       <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2">Fontes</p>
-        <p>CSV: <span class="text-white">data/autotrust_ads.csv</span></p>
-        <p>Relatório comparativo: <span class="text-white">comparative_report.md</span></p>
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sources_title">Fontes</p>
+        <p data-i18n="source_csv">CSV: <span class="text-white">data/autotrust_ads.csv</span></p>
+        <p data-i18n="source_report">Relatório comparativo: <span class="text-white">comparative_report.md</span></p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4 md:col-span-2">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2">Como visualizar</p>
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="howto_title">Como visualizar</p>
         <ol class="list-decimal list-inside space-y-1">
-          <li>Abra este arquivo diretamente no navegador: <span class="text-white">docs/index.html</span>.</li>
-          <li>Os painéis interativos usam os exports do Plotly em <span class="text-white">docs/charts/</span> (gerados no build).</li>
-          <li>Para publicar via GitHub Pages, habilite Pages apontando para <code>/docs</code> na branch <code>main</code>.</li>
+          <li data-i18n="howto_1">Abra este arquivo diretamente no navegador: <span class="text-white">outputs/reports/dashboard.html</span>.</li>
+          <li data-i18n="howto_2">Os painéis interativos usam os exports do Plotly em <span class="text-white">outpucharts/</span>.</li>
+          <li data-i18n="howto_3">Atualize os dados e rode <code>python src/main.py</code> para regenerar os gráficos antes de recarregar a página.</li>
         </ol>
       </div>
     </section>
   </div>
+  <script>
+    const translations = {
+      pt: {
+        period_label: "Set–Nov 2025",
+        hero_title: "Panorama de Performance — Visão Interativa",
+        hero_subtitle: "Gráficos interativos, variações mês contra mês e recomendações acionáveis para os últimos três meses das campanhas Meta Ads.",
+        nav_label: "Navegar por mês:",
+        nav_sep: "Set 2025",
+        nav_oct: "Out 2025",
+        nav_nov: "Nov 2025",
+        summary_views_label: "Visualizações (LPV) recentes",
+        summary_latest_month: "Nov 2025",
+        summary_spend_label: "Investimento recente",
+        summary_cpv_hint: "CPV médio €0.04",
+        summary_ctr_label: "CTR ponderado",
+        summary_ctr_delta: "Nov vs Out: -0.0 pts",
+        summary_eff_label: "Líder em eficiência",
+        summary_eff_hint: "CPV €0.02 • CTR 4.2%",
+        sep_heading: "Setembro 2025",
+        oct_heading: "Outubro 2025",
+        nov_heading: "Novembro 2025",
+        label_views: "Views",
+        label_spend: "Investimento",
+        label_cpv: "CPV médio",
+        label_ctr: "CTR ponderado",
+        sug_sep_title: "Sugestões para Setembro",
+        sug_sep_1: "• Manter TOF focado em criativos de alta CTR (Portugal) e realocar spend de segmentos com CPV alto.",
+        sug_sep_2: "• Testar variações de cópia curta para Remarketing para expandir volume sem perder CPV.",
+        sug_oct_title: "Sugestões para Outubro",
+        sug_oct_1: "• Preservar CPV: redistribuir 5–10% do spend de Maia TOF para Portugal TOF (melhor CTR) e Remarketing.",
+        sug_oct_2: "• Aumentar frequência em Remarketing com criativos atualizados semanalmente para evitar fadiga.",
+        sug_nov_title: "Sugestões para Novembro",
+        sug_nov_1: "• Manter o ganho de views com spend menor: realocar 10–15% de Maia TOF para Remarketing (melhor eficiência).",
+        sug_nov_2: "• Replicar criativos vencedores de Portugal TOF em Maia TOF; testar hooks mobile-first e ângulos de prova social.",
+        mom_title: "Variações MoM — Nov 2025",
+        mom_1: "Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%",
+        mom_2: "Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%",
+        mom_3: "Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%",
+        source_label: "Fonte: comparative_report.md",
+        actionable_title: "Sugestões acionáveis",
+        act_1: "Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.",
+        act_2: "Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.",
+        act_3: "Manter o pacing onde as visualizações crescem (views Nov +4.3% com spend -2.9%); pausar bolsões de CPV alto em Maia TOF e reinvestir em Remarketing.",
+        act_4: "Rodar dois testes semanais: (1) refresh de headline/copy para TOF, (2) teste de frequência no retargeting para sustentar CTR sem inflar CPV.",
+        content_title: "Sugestões de conteúdo para anúncios",
+        content_1: "• Criativos mobile-first com primeiras linhas fortes destacando valor (ex.: revisão rápida, entrega, confiança/autotrust).",
+        content_2: "• Prova social: depoimentos curtos, classificação média ou números de clientes atendidos.",
+        content_3: "• Combinar visuais: 1 estático com benefício direto + 1 vídeo curto mostrando navegação/resultado.",
+        content_4: "• Testar 2–3 CTAs: “Ver ofertas”, “Simular agora”, “Marcar visita” conforme etapa do funil.",
+        charts_title: "Gráficos interativos",
+        open_report: "Abrir relatório comparativo",
+        chart_views: "Visualizações ao longo do tempo",
+        chart_spend: "Investimento ao longo do tempo",
+        chart_cpv: "Custo por view ao longo do tempo",
+        chart_ctr: "Tendência de CTR",
+        chart_views_by_campaign: "Visualizações por campanha e mês",
+        sources_title: "Fontes",
+        source_csv: "CSV: data/autotrust_ads.csv",
+        source_report: "Relatório comparativo: comparative_report.md",
+        howto_title: "Como visualizar",
+        howto_1: "Abra este arquivo diretamente no navegador: docs/index.html.",
+        howto_2: "Os painéis interativos usam os exports do Plotly em docs/charts/.",
+        howto_3: "Atualize os dados e rode python src/main.py para regenerar os gráficos antes de recarregar a página."
+      },
+      en: {
+        period_label: "Sep–Nov 2025",
+        hero_title: "Performance Overview — Interactive",
+        hero_subtitle: "Interactive charts, month-over-month changes, and actionable recommendations for the last three months of Meta Ads.",
+        nav_label: "Jump to month:",
+        nav_sep: "Sep 2025",
+        nav_oct: "Oct 2025",
+        nav_nov: "Nov 2025",
+        summary_views_label: "Recent views (LPV)",
+        summary_latest_month: "Nov 2025",
+        summary_spend_label: "Recent spend",
+        summary_cpv_hint: "Avg CPV €0.04",
+        summary_ctr_label: "Weighted CTR",
+        summary_ctr_delta: "Nov vs Oct: -0.0 pts",
+        summary_eff_label: "Efficiency leader",
+        summary_eff_hint: "CPV €0.02 • CTR 4.2%",
+        sep_heading: "September 2025",
+        oct_heading: "October 2025",
+        nov_heading: "November 2025",
+        label_views: "Views",
+        label_spend: "Spend",
+        label_cpv: "Avg CPV",
+        label_ctr: "Weighted CTR",
+        sug_sep_title: "Suggestions for September",
+        sug_sep_1: "• Keep TOF focused on high-CTR creatives (Portugal) and reallocate spend away from high-CPV segments.",
+        sug_sep_2: "• Test short-copy variants in Remarketing to grow volume without losing CPV.",
+        sug_oct_title: "Suggestions for October",
+        sug_oct_1: "• Protect CPV: shift 5–10% of spend from Maia TOF to Portugal TOF (better CTR) and Remarketing.",
+        sug_oct_2: "• Increase Remarketing frequency with weekly creative refreshes to avoid fatigue.",
+        sug_nov_title: "Suggestions for November",
+        sug_nov_1: "• Keep views growing with less spend: move 10–15% from Maia TOF into Remarketing (highest efficiency).",
+        sug_nov_2: "• Reuse Portugal TOF winners in Maia TOF; test mobile-first hooks and social-proof angles.",
+        mom_title: "MoM changes — Nov 2025",
+        mom_1: "Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%",
+        mom_2: "Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%",
+        mom_3: "Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%",
+        source_label: "Source: comparative_report.md",
+        actionable_title: "Actionable recommendations",
+        act_1: "Shift ~10–15% of spend from Maia TOF into Remarketing (best CPV/efficiency) to lean into the strongest inventory.",
+        act_2: "Reuse Portugal TOF winning creatives (CTR leader) to lift Maia TOF; prioritize mobile-first variants and sharp hooks.",
+        act_3: "Keep pacing where views are expanding (Nov views +4.3% with spend -2.9%); pause high-CPV pockets in Maia TOF and reinvest into Remarketing.",
+        act_4: "Run two weekly tests: (1) headline/copy refresh for TOF, (2) retargeting frequency cap test to sustain CTR without inflating CPV.",
+        content_title: "Ad content ideas",
+        content_1: "• Mobile-first creatives with strong first lines highlighting value (e.g., quick review, delivery, trust/autotrust).",
+        content_2: "• Social proof: short testimonials, average rating, or number of customers served.",
+        content_3: "• Mix visuals: one static with a direct benefit + one short video showing navigation/result.",
+        content_4: "• Test 2–3 CTAs: “View offers”, “Simulate now”, “Book a visit” depending on funnel stage.",
+        charts_title: "Interactive charts",
+        open_report: "Open comparative report",
+        chart_views: "Views over time",
+        chart_spend: "Spend over time",
+        chart_cpv: "Cost per view over time",
+        chart_ctr: "CTR trend",
+        chart_views_by_campaign: "Views by campaign and month",
+        sources_title: "Sources",
+        source_csv: "CSV: data/autotrust_ads.csv",
+        source_report: "Comparative report: comparative_report.md",
+        howto_title: "How to view",
+        howto_1: "Open this file directly in your browser: docs/index.html.",
+        howto_2: "Interactive panels use Plotly exports in docs/charts/.",
+        howto_3: "Update data and run python src/main.py to regenerate charts before refreshing."
+      }
+    };
+
+    const langButtons = document.querySelectorAll("[data-set-lang]");
+    function applyLang(lang) {
+      const dict = translations[lang] || translations.pt;
+      document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.textContent = dict[key];
+      });
+      langButtons.forEach((btn) => {
+        btn.classList.toggle("lang-active", btn.dataset.setLang === lang);
+      });
+    }
+    langButtons.forEach((btn) =>
+      btn.addEventListener("click", () => applyLang(btn.dataset.setLang))
+    );
+    applyLang("pt");
+  </script>
 </body>
 </html>
