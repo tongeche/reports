@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoTrust Meta Ads Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Space Grotesk', 'Inter', 'sans-serif'],
+            body: ['Space Grotesk', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            night: '#0b1221',
+            ink: '#0f172a',
+            neon: '#8be9b4',
+            aqua: '#39c0e0',
+            coral: '#f4738f',
+          },
+          boxShadow: {
+            panel: '0 20px 60px rgba(0,0,0,0.35)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: radial-gradient(circle at 20% 20%, rgba(57,192,224,0.12), transparent 25%), radial-gradient(circle at 80% 10%, rgba(244,115,143,0.12), transparent 28%), #0b1221; }
+    .glass { background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.07); }
+    iframe { width: 100%; height: 100%; border: 0; border-radius: 14px; background: #0f172a; }
+  </style>
+</head>
+<body class="font-body text-slate-100">
+  <div class="min-h-screen px-4 sm:px-8 pb-12">
+    <header class="max-w-6xl mx-auto pt-10 pb-6 flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <span class="px-3 py-1 text-xs uppercase tracking-[0.2em] bg-white/10 rounded-full">AutoTrust Meta Ads</span>
+        <span class="text-xs text-slate-400">Set–Nov 2025</span>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h1 class="text-3xl sm:text-4xl font-display font-semibold leading-tight">Panorama de Performance — Visão Interativa</h1>
+        <p class="text-slate-300 max-w-3xl">Gráficos interativos, variações mês contra mês e recomendações acionáveis para os últimos três meses das campanhas Meta Ads.</p>
+      </div>
+    </header>
+
+    <section class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400">Visualizações (LPV) recentes</p>
+        <p class="text-3xl font-display font-semibold">13,531</p>
+        <p class="text-sm text-slate-400">Nov 2025</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400">Investimento recente</p>
+        <p class="text-3xl font-display font-semibold">€480.66</p>
+        <p class="text-sm text-slate-400">CPV médio €0.04</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400">CTR ponderado</p>
+        <p class="text-3xl font-display font-semibold">4.0%</p>
+        <p class="text-sm text-slate-400">Nov vs Out: -0.0 pts</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400">Líder em eficiência</p>
+        <p class="text-xl font-display font-semibold">Remarketing</p>
+        <p class="text-sm text-slate-400">CPV €0.02 • CTR 4.2%</p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-neon"></span>
+          <p class="text-sm uppercase tracking-wide text-slate-300">Variações MoM — Nov 2025</p>
+        </div>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li>Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%</li>
+          <li>Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%</li>
+          <li>Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%</li>
+        </ul>
+        <p class="text-xs text-slate-400 mt-2">Fonte: comparative_report.md</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-coral"></span>
+          <p class="text-sm uppercase tracking-wide text-slate-300">Sugestões acionáveis</p>
+        </div>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li>Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.</li>
+          <li>Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.</li>
+          <li>Manter o pacing onde as visualizações crescem (views Nov +4.3% com spend -2.9%); pausar bolsões de CPV alto em Maia TOF e reinvestir em Remarketing.</li>
+          <li>Rodar dois testes semanais: (1) refresh de headline/copy para TOF, (2) teste de frequência no retargeting para sustentar CTR sem inflar CPV.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-4">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-aqua"></span>
+          <h2 class="text-xl font-display font-semibold">Gráficos interativos</h2>
+        </div>
+        <a class="text-sm text-aqua hover:text-white underline underline-offset-4" href="comparative_report.md">Abrir relatório comparativo</a>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3">Visualizações ao longo do tempo</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_views_over_time.html" title="Views over time"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3">Investimento ao longo do tempo</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_spend_over_time.html" title="Spend over time"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3">Custo por view ao longo do tempo</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_cost_per_view_over_time.html" title="Cost per view over time"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3">Tendência de CTR</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_ctr_trend.html" title="CTR trend"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 lg:col-span-2 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3">Visualizações por campanha e mês</div>
+          <div class="h-[320px] sm:h-[360px] lg:h-[420px]">
+            <iframe src="charts/interactive_views_by_campaign_month.html" title="Views by campaign and month"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300">
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2">Fontes</p>
+        <p>CSV: <span class="text-white">data/autotrust_ads.csv</span></p>
+        <p>Relatório comparativo: <span class="text-white">comparative_report.md</span></p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4 md:col-span-2">
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2">Como visualizar</p>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Abra este arquivo diretamente no navegador: <span class="text-white">docs/index.html</span>.</li>
+          <li>Os painéis interativos usam os exports do Plotly em <span class="text-white">docs/charts/</span> (gerados no build).</li>
+          <li>Para publicar via GitHub Pages, habilite Pages apontando para <code>/docs</code> na branch <code>main</code>.</li>
+        </ol>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
