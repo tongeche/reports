@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -61,6 +62,8 @@
           <a href="#set-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_sep">Set 2025</a>
           <a href="#out-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_oct">Out 2025</a>
           <a href="#nov-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_nov">Nov 2025</a>
+          <a href="#sales" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_sales">Vendas</a>
+          <a href="#customers" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_customers">Clientes</a>
         </div>
       </div>
     </nav>
@@ -268,11 +271,123 @@
       </div>
     </section>
 
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5" id="sales">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-neon"></span>
+          <h2 class="text-xl font-display font-semibold" data-i18n="sales_title">Resumo de Vendas</h2>
+        </div>
+        <a class="text-sm text-neon hover:text-white underline underline-offset-4" href="sales_report.md" data-i18n="sales_open_report">Abrir relatório de vendas</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_total_label">Vendas totais</p>
+          <p class="text-3xl font-display font-semibold">308</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_period_label">2019–2025</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_revenue_label">Receita total</p>
+          <p class="text-3xl font-display font-semibold">€3.06M</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_ticket_label">Ticket médio €9.93k</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_margin_label">Margem líquida</p>
+          <p class="text-3xl font-display font-semibold">€369k</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_margin_pct">12.1% da receita</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_last12_label">Últimos 12 meses</p>
+          <p class="text-3xl font-display font-semibold">100</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_last12_revenue">€1.05M receita</p>
+        </div>
+      </div>
+
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="sales_chart_live_title">Desempenho mensal (receita e volume)</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-live-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="sales_origin_chart_title">Origem das vendas no período</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-origin-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="sales_2025_chart_title">Variação mensal de vendas — 2025</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-2025-change-chart"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="sales_brand_title">Marcas líderes (top 5 por volume)</p>
+          <ul class="text-sm text-slate-200 space-y-2">
+            <li data-i18n="sales_brand_1">Volkswagen: 33 vendas | €367.7k receita</li>
+            <li data-i18n="sales_brand_2">Renault: 30 vendas | €203.1k receita</li>
+            <li data-i18n="sales_brand_3">Opel: 23 vendas | €152.5k receita</li>
+            <li data-i18n="sales_brand_4">Peugeot: 18 vendas | €233.7k receita</li>
+            <li data-i18n="sales_brand_5">Audi: 17 vendas | €232.4k receita</li>
+          </ul>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="sales_origin_title">Origem do cliente (top 5)</p>
+          <ul class="text-sm text-slate-200 space-y-2">
+            <li data-i18n="sales_origin_1">StandVirtual: 140 vendas | €1.71M receita</li>
+            <li data-i18n="sales_origin_2">Amigo: 40 vendas | €347.7k receita</li>
+            <li data-i18n="sales_origin_3">Outro: 21 vendas | €198.2k receita</li>
+            <li data-i18n="sales_origin_4">Redes Sociais: 16 vendas | €141.9k receita</li>
+            <li data-i18n="sales_origin_5">Google: 4 vendas | €32.1k receita</li>
+          </ul>
+        </div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="sales_insights_title">Interpretacao dos graficos</p>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li data-i18n="sales_insight_1">• A receita mensal oscila com picos no segundo semestre de 2025, mostrando concentracao de volume entre julho e setembro.</li>
+          <li data-i18n="sales_insight_2">• A origem StandVirtual domina o periodo com mais de metade das vendas, indicando forte dependencia desse canal.</li>
+          <li data-i18n="sales_insight_3">• Em 2025, os maiores saltos de vendas ocorrem em fevereiro e agosto; quedas mais fortes em junho e marco.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5" id="customers">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-aqua"></span>
+          <h2 class="text-xl font-display font-semibold" data-i18n="customers_title">Origem dos Clientes</h2>
+        </div>
+        <span class="text-sm text-slate-400" data-i18n="customers_source_hint">Base: data/client202512231650395.xlsx</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="customers_total_label">Clientes totais</p>
+          <p class="text-3xl font-display font-semibold">332</p>
+          <p class="text-sm text-slate-400" data-i18n="customers_period_label">2023–2025</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="customers_top_label">Origem líder</p>
+          <p class="text-3xl font-display font-semibold">Stand Virtual</p>
+          <p class="text-sm text-slate-400" data-i18n="customers_top_share">160 clientes (48.2%)</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="customers_focus_label">Foco recomendado</p>
+          <p class="text-3xl font-display font-semibold" data-i18n="customers_focus_value">Diversificar canais</p>
+          <p class="text-sm text-slate-400" data-i18n="customers_focus_hint">Reduzir dependencia do top 1</p>
+        </div>
+      </div>
+
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="customers_chart_title">Distribuicao de origens no periodo</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="customers-origin-chart"></div>
+      </div>
+    </section>
+
     <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300">
       <div class="glass shadow-panel rounded-2xl p-4">
         <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sources_title">Fontes</p>
         <p data-i18n="source_csv">CSV: <span class="text-white">data/autotrust_ads.csv</span></p>
         <p data-i18n="source_report">Relatório comparativo: <span class="text-white">outputs/reports/comparative_report.md</span></p>
+        <p data-i18n="source_sales">Vendas: <span class="text-white">data/sale2025122315296397.xlsx</span></p>
+        <p data-i18n="source_customers">Clientes: <span class="text-white">data/client202512231650395.xlsx</span></p>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4 md:col-span-2">
         <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="howto_title">Como visualizar</p>
@@ -285,6 +400,211 @@
     </section>
   </div>
   <script>
+    const salesChartData = {
+      months: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
+      revenue: [28390.0,23400.0,50700.0,31300.0,61400.0,17800.0,8415.0,34200.0,14900.0,24050.0,43500.0,32850.0,15500.0,22800.0,41500.0,21400.0,10900.0,23300.0,38200.0,16400.0,52700.0,15400.0,11900.0,107100.0,82500.0,30300.0,71700.0,25500.0,16800.0,24900.0,5350.0,20000.0,42400.0,78000.0,17000.0,42390.0,35000.0,55300.0,4800.0,19900.0,1350.0,2700.0,59800.0,17200.0,22400.0,12200.0,17700.0,24400.0,15700.0,56700.0,53400.0,12000.0,43900.0,12700.0,9300.0,89900.0,54700.0,48600.0,80900.0,34300.0,69100.0,29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0],
+      sales: [2,5,9,5,10,2,3,5,4,3,5,6,2,1,4,1,3,1,3,2,3,2,2,4,4,2,5,3,2,1,2,1,5,2,0,3,2,2,1,2,1,1,6,2,2,2,2,2,1,4,4,3,4,2,2,6,7,5,7,3,5,4,11,4,8,12,5,8,13,10,8,8,5],
+      netMargin: [6831.36,5750.14,11565.26,3332.65,12881.68,2955.01,231.04,4647.27,1700.6,3224.71,6734.34,4332.64,3685.48,3226.51,7600.61,1340.49,1131.75,3124.41,5213.82,1208.24,7941.28,-48.43,967.27,11883.97,9203.32,5534.27,1478.05,2033.05,91.48,2476.71,126.96,4246.54,4177.13,4633.55,2810.73,6435.91,-2013.81,6590.65,452.21,2918.01,-1806.97,-1940.62,12702.48,3679.73,4309.65,3141.45,3589.58,472.09,1139.65,2441.94,8030.84,1384.01,5357.67,1662.5,1242.6,8178.0,2572.15,8572.2,9583.07,4496.44,5691.36,4807.22,18857.79,4258.38,1012.27,10373.83,5751.72,6322.71,18145.66,10314.76,10124.77,16837.48,15299.97]
+    };
+    const salesOriginData = {
+      origins: ["StandVirtual","Amigo","Outro","Redes Sociais","Google","Referência","OLX","Visita ao Stand"],
+      sales: [140,40,21,16,4,4,2,1],
+      revenue: [1708540.0,347650.0,198200.0,141950.0,32100.0,43600.0,15000.0,11382.11]
+    };
+    const sales2025Data = {
+      months: ["2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
+      sales: [4,11,4,8,12,5,8,13,10,8,8,5],
+      salesDelta: [null,7,-7,4,4,-7,3,5,-3,-2,0,-3],
+      revenue: [29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0]
+    };
+
+    function renderSalesChart() {
+      const chartEl = document.getElementById("sales-live-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const revenueTrace = {
+        x: salesChartData.months,
+        y: salesChartData.revenue,
+        type: "bar",
+        name: "Receita",
+        marker: { color: "rgba(57,192,224,0.7)" },
+        hovertemplate: "%{x}<br>Receita: €%{y:,.0f}<extra></extra>"
+      };
+
+      const salesTrace = {
+        x: salesChartData.months,
+        y: salesChartData.sales,
+        type: "scatter",
+        mode: "lines+markers",
+        name: "Vendas",
+        yaxis: "y2",
+        line: { color: "#8be9b4", width: 2 },
+        marker: { size: 6 },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 60, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -45,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Receita (€)",
+          titlefont: { color: "#39c0e0" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis2: {
+          title: "Vendas",
+          overlaying: "y",
+          side: "right",
+          tickfont: { color: "#cbd5f5" },
+          titlefont: { color: "#8be9b4" }
+        },
+        legend: {
+          orientation: "h",
+          y: 1.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [revenueTrace, salesTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSalesOriginChart() {
+      const chartEl = document.getElementById("sales-origin-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const salesTrace = {
+        x: salesOriginData.origins,
+        y: salesOriginData.sales,
+        type: "bar",
+        name: "Vendas",
+        marker: { color: "rgba(244,115,143,0.7)" },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const revenueTrace = {
+        x: salesOriginData.origins,
+        y: salesOriginData.revenue,
+        type: "scatter",
+        mode: "lines+markers",
+        name: "Receita",
+        yaxis: "y2",
+        line: { color: "#39c0e0", width: 2 },
+        marker: { size: 6 },
+        hovertemplate: "%{x}<br>Receita: €%{y:,.0f}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 60, t: 20, b: 80 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -35,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Vendas",
+          titlefont: { color: "#f4738f" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis2: {
+          title: "Receita (€)",
+          overlaying: "y",
+          side: "right",
+          tickfont: { color: "#cbd5f5" },
+          titlefont: { color: "#39c0e0" }
+        },
+        legend: {
+          orientation: "h",
+          y: 1.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [salesTrace, revenueTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSales2025ChangeChart() {
+      const chartEl = document.getElementById("sales-2025-change-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const deltaTrace = {
+        x: sales2025Data.months,
+        y: sales2025Data.salesDelta,
+        type: "bar",
+        name: "Δ Vendas",
+        marker: {
+          color: sales2025Data.salesDelta.map((value) =>
+            value >= 0 ? "rgba(139,233,180,0.7)" : "rgba(244,115,143,0.7)"
+          )
+        },
+        hovertemplate: "%{x}<br>Δ Vendas: %{y:+d}<extra></extra>"
+      };
+
+      const salesTrace = {
+        x: sales2025Data.months,
+        y: sales2025Data.sales,
+        type: "scatter",
+        mode: "lines+markers",
+        name: "Vendas",
+        yaxis: "y2",
+        line: { color: "#39c0e0", width: 2 },
+        marker: { size: 6 },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 60, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -35,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Δ Vendas",
+          titlefont: { color: "#e2e8f0" },
+          tickfont: { color: "#cbd5f5" },
+          zeroline: true,
+          zerolinecolor: "rgba(148,163,184,0.35)",
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis2: {
+          title: "Vendas",
+          overlaying: "y",
+          side: "right",
+          tickfont: { color: "#cbd5f5" },
+          titlefont: { color: "#39c0e0" }
+        },
+        legend: {
+          orientation: "h",
+          y: 1.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [deltaTrace, salesTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+
     const translations = {
       pt: {
         period_label: "Set–Nov 2025",
@@ -294,6 +614,7 @@
         nav_sep: "Set 2025",
         nav_oct: "Out 2025",
         nav_nov: "Nov 2025",
+        nav_sales: "Vendas",
         summary_views_label: "Visualizações (LPV) recentes",
         summary_latest_month: "Nov 2025",
         summary_spend_label: "Investimento recente",
@@ -340,9 +661,42 @@
         chart_cpv: "Custo por view ao longo do tempo",
         chart_ctr: "Tendência de CTR",
         chart_views_by_campaign: "Visualizações por campanha e mês",
+        sales_title: "Resumo de Vendas",
+        sales_open_report: "Abrir relatório de vendas",
+        sales_total_label: "Vendas totais",
+        sales_period_label: "2019–2025",
+        sales_revenue_label: "Receita total",
+        sales_ticket_label: "Ticket médio €9.93k",
+        sales_margin_label: "Margem líquida",
+        sales_margin_pct: "12.1% da receita",
+        sales_last12_label: "Últimos 12 meses",
+        sales_last12_revenue: "€1.05M receita",
+        sales_chart_revenue: "Receita mensal",
+        sales_chart_count: "Vendas por mês",
+        sales_chart_margin: "Margem líquida mensal",
+        sales_chart_live_title: "Desempenho mensal (receita e volume)",
+        sales_origin_chart_title: "Origem das vendas no período",
+        sales_2025_chart_title: "Variação mensal de vendas — 2025",
+        sales_brand_title: "Marcas líderes (top 5 por volume)",
+        sales_brand_1: "Volkswagen: 33 vendas | €367.7k receita",
+        sales_brand_2: "Renault: 30 vendas | €203.1k receita",
+        sales_brand_3: "Opel: 23 vendas | €152.5k receita",
+        sales_brand_4: "Peugeot: 18 vendas | €233.7k receita",
+        sales_brand_5: "Audi: 17 vendas | €232.4k receita",
+        sales_origin_title: "Origem do cliente (top 5)",
+        sales_origin_1: "StandVirtual: 140 vendas | €1.71M receita",
+        sales_origin_2: "Amigo: 40 vendas | €347.7k receita",
+        sales_origin_3: "Outro: 21 vendas | €198.2k receita",
+        sales_origin_4: "Redes Sociais: 16 vendas | €141.9k receita",
+        sales_origin_5: "Google: 4 vendas | €32.1k receita",
+        sales_insights_title: "Interpretacao dos graficos",
+        sales_insight_1: "• A receita mensal oscila com picos no segundo semestre de 2025, mostrando concentracao de volume entre julho e setembro.",
+        sales_insight_2: "• A origem StandVirtual domina o periodo com mais de metade das vendas, indicando forte dependencia desse canal.",
+        sales_insight_3: "• Em 2025, os maiores saltos de vendas ocorrem em fevereiro e agosto; quedas mais fortes em junho e marco.",
         sources_title: "Fontes",
         source_csv: "CSV: data/autotrust_ads.csv",
         source_report: "Relatório comparativo: outputs/reports/comparative_report.md",
+        source_sales: "Vendas: data/sale2025122315296397.xlsx",
         howto_title: "Como visualizar",
         howto_1: "Abra este arquivo diretamente no navegador: outputs/reports/dashboard.html.",
         howto_2: "Os painéis interativos usam os exports do Plotly em outputs/charts/.",
@@ -356,6 +710,7 @@
         nav_sep: "Sep 2025",
         nav_oct: "Oct 2025",
         nav_nov: "Nov 2025",
+        nav_sales: "Sales",
         summary_views_label: "Recent views (LPV)",
         summary_latest_month: "Nov 2025",
         summary_spend_label: "Recent spend",
@@ -402,9 +757,42 @@
         chart_cpv: "Cost per view over time",
         chart_ctr: "CTR trend",
         chart_views_by_campaign: "Views by campaign and month",
+        sales_title: "Sales Overview",
+        sales_open_report: "Open sales report",
+        sales_total_label: "Total sales",
+        sales_period_label: "2019–2025",
+        sales_revenue_label: "Total revenue",
+        sales_ticket_label: "Avg ticket €9.93k",
+        sales_margin_label: "Net margin",
+        sales_margin_pct: "12.1% of revenue",
+        sales_last12_label: "Last 12 months",
+        sales_last12_revenue: "€1.05M revenue",
+        sales_chart_revenue: "Monthly revenue",
+        sales_chart_count: "Sales per month",
+        sales_chart_margin: "Monthly net margin",
+        sales_chart_live_title: "Monthly performance (revenue and volume)",
+        sales_origin_chart_title: "Sales sources over the period",
+        sales_2025_chart_title: "Monthly sales change — 2025",
+        sales_brand_title: "Top brands (by volume)",
+        sales_brand_1: "Volkswagen: 33 sales | €367.7k revenue",
+        sales_brand_2: "Renault: 30 sales | €203.1k revenue",
+        sales_brand_3: "Opel: 23 sales | €152.5k revenue",
+        sales_brand_4: "Peugeot: 18 sales | €233.7k revenue",
+        sales_brand_5: "Audi: 17 sales | €232.4k revenue",
+        sales_origin_title: "Customer source (top 5)",
+        sales_origin_1: "StandVirtual: 140 sales | €1.71M revenue",
+        sales_origin_2: "Friend: 40 sales | €347.7k revenue",
+        sales_origin_3: "Other: 21 sales | €198.2k revenue",
+        sales_origin_4: "Social media: 16 sales | €141.9k revenue",
+        sales_origin_5: "Google: 4 sales | €32.1k revenue",
+        sales_insights_title: "Chart interpretation",
+        sales_insight_1: "• Monthly revenue fluctuates with peaks in H2 2025, concentrating volume between July and September.",
+        sales_insight_2: "• StandVirtual leads the period with over half of sales, showing heavy channel dependence.",
+        sales_insight_3: "• In 2025, biggest jumps appear in February and August; sharpest drops in June and March.",
         sources_title: "Sources",
         source_csv: "CSV: data/autotrust_ads.csv",
         source_report: "Comparative report: outputs/reports/comparative_report.md",
+        source_sales: "Sales: data/sale2025122315296397.xlsx",
         howto_title: "How to view",
         howto_1: "Open this file directly in your browser: outputs/reports/dashboard.html.",
         howto_2: "Interactive panels use Plotly exports in outputs/charts/.",
@@ -428,6 +816,9 @@
       btn.addEventListener("click", () => applyLang(btn.dataset.setLang))
     );
     applyLang("pt");
+    window.addEventListener("load", renderSalesChart);
+    window.addEventListener("load", renderSalesOriginChart);
+    window.addEventListener("load", renderSales2025ChangeChart);
   </script>
 </body>
 </html>
