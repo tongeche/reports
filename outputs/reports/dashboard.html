@@ -36,34 +36,65 @@
     .glass { background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.07); }
     iframe { width: 100%; height: 100%; border: 0; border-radius: 14px; background: #0f172a; }
     .lang-active { background-color: rgba(255,255,255,0.2); color: #fff; }
+    .tab-active { background-color: rgba(255,255,255,0.22); color: #fff; }
   </style>
 </head>
 <body class="font-body text-slate-100">
   <div class="min-h-screen px-4 sm:px-8 pb-12">
-    <header class="max-w-6xl mx-auto pt-10 pb-6 flex flex-col gap-4">
-      <div class="flex items-center gap-3">
-        <span class="px-3 py-1 text-xs uppercase tracking-[0.2em] bg-white/10 rounded-full">AutoTrust Meta Ads</span>
-        <span class="text-xs text-slate-400" data-i18n="period_label">Set–Nov 2025</span>
-        <div class="ml-auto flex gap-2">
-          <button data-set-lang="pt" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">PT</button>
-          <button data-set-lang="en" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">EN</button>
+    <main class="flex-1">
+      <div class="max-w-6xl mx-auto pt-6">
+        <div class="glass shadow-panel rounded-2xl px-4 py-3 flex flex-wrap items-center gap-3 text-sm text-slate-200 sticky top-4 z-20">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-400" data-i18n="tab_title">Dashboard</span>
+          <div class="flex flex-wrap gap-2">
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="landing" data-i18n="tab_overview">Visão geral</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="ads" data-i18n="tab_ads">Meta Ads</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="sales" data-i18n="tab_sales">Vendas</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="customers" data-i18n="tab_customers">Clientes</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="sources" data-i18n="tab_sources">Fontes</button>
+          </div>
+          <div class="ml-auto flex gap-2">
+            <button data-set-lang="pt" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">PT</button>
+            <button data-set-lang="en" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">EN</button>
+          </div>
         </div>
       </div>
-      <div class="flex flex-col gap-2">
-        <h1 class="text-3xl sm:text-4xl font-display font-semibold leading-tight" data-i18n="hero_title">Panorama de Performance — Visão Interativa</h1>
-        <p class="text-slate-300 max-w-3xl" data-i18n="hero_subtitle">Gráficos interativos, variações mês contra mês e recomendações acionáveis para os últimos três meses das campanhas Meta Ads.</p>
-      </div>
-    </header>
 
-    <nav class="max-w-6xl mx-auto mb-6">
+      <section class="max-w-6xl mx-auto pt-10 pb-6 flex flex-col gap-6" data-tab-panel="landing">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 text-xs uppercase tracking-[0.2em] bg-white/10 rounded-full" data-i18n="landing_badge">AutoTrust Overview</span>
+          <span class="text-xs text-slate-400" data-i18n="period_label">Set–Nov 2025</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h1 class="text-3xl sm:text-4xl font-display font-semibold leading-tight" data-i18n="landing_title">Resumo centralizado</h1>
+          <p class="text-slate-300 max-w-3xl" data-i18n="landing_subtitle">Escolha a area para explorar: Meta Ads, Vendas ou Clientes. Cada aba traz graficos completos e recomendacoes.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <button class="glass shadow-panel rounded-2xl p-4 text-left hover:bg-white/10 transition" data-tab-link="ads">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="landing_ads_kicker">Meta Ads</p>
+            <p class="text-lg font-display font-semibold" data-i18n="landing_ads_title">Performance e insights</p>
+            <p class="text-sm text-slate-400" data-i18n="landing_ads_hint">CTR, CPV e recomendacoes.</p>
+          </button>
+          <button class="glass shadow-panel rounded-2xl p-4 text-left hover:bg-white/10 transition" data-tab-link="sales">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="landing_sales_kicker">Vendas</p>
+            <p class="text-lg font-display font-semibold" data-i18n="landing_sales_title">Receita e margem</p>
+            <p class="text-sm text-slate-400" data-i18n="landing_sales_hint">Tendencias e variacoes.</p>
+          </button>
+          <button class="glass shadow-panel rounded-2xl p-4 text-left hover:bg-white/10 transition" data-tab-link="customers">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="landing_customers_kicker">Clientes</p>
+            <p class="text-lg font-display font-semibold" data-i18n="landing_customers_title">Origem e alinhamento</p>
+            <p class="text-sm text-slate-400" data-i18n="landing_customers_hint">Canais e performance.</p>
+          </button>
+        </div>
+      </section>
+
+      <section class="max-w-6xl mx-auto pt-10 flex flex-col gap-6 hidden" data-tab-panel="ads">
+      <nav class="max-w-6xl mx-auto mb-6">
       <div class="glass shadow-panel rounded-2xl px-4 py-3 flex flex-wrap items-center gap-3 text-sm text-slate-200">
         <span class="uppercase text-xs tracking-wide text-slate-400" data-i18n="nav_label">Navegar por mês:</span>
         <div class="flex flex-wrap gap-2">
           <a href="#set-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_sep">Set 2025</a>
           <a href="#out-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_oct">Out 2025</a>
           <a href="#nov-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_nov">Nov 2025</a>
-          <a href="#sales" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_sales">Vendas</a>
-          <a href="#customers" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_customers">Clientes</a>
         </div>
       </div>
     </nav>
@@ -270,8 +301,9 @@
         </div>
       </div>
     </section>
+      </section>
 
-    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5" id="sales">
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5 hidden" data-tab-panel="sales" id="sales">
       <div class="flex items-center justify-between gap-3">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-neon"></span>
@@ -312,7 +344,23 @@
         <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-origin-chart"></div>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4">
-        <div class="text-sm text-slate-300 mb-3" data-i18n="sales_2025_chart_title">Variação mensal de vendas — 2025</div>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+          <div class="text-sm text-slate-300" data-i18n="sales_monthly_title">Vendas mensais</div>
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span data-i18n="sales_monthly_year_label">Ano:</span>
+            <select id="sales-monthly-year-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+          </div>
+        </div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-2025-monthly-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+          <div class="text-sm text-slate-300" data-i18n="sales_change_title">Variação mensal de vendas</div>
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span data-i18n="sales_change_year_label">Ano:</span>
+            <select id="sales-change-year-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+          </div>
+        </div>
         <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-2025-change-chart"></div>
       </div>
 
@@ -348,7 +396,7 @@
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5" id="customers">
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5 hidden" data-tab-panel="customers" id="customers">
       <div class="flex items-center justify-between gap-3">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-aqua"></span>
@@ -379,9 +427,24 @@
         <div class="text-sm text-slate-300 mb-3" data-i18n="customers_chart_title">Distribuicao de origens no periodo</div>
         <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="customers-origin-chart"></div>
       </div>
+
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+          <div class="text-sm text-slate-300" data-i18n="customers_alignment_title">Clientes vs vendas por origem (mensal)</div>
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span data-i18n="customers_alignment_filter">Origem:</span>
+            <select id="customers-source-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+          </div>
+        </div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="customers-alignment-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="customers_margin_title">Margem líquida por cliente (por origem)</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="customers-margin-chart"></div>
+      </div>
     </section>
 
-    <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300">
+    <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300 hidden" data-tab-panel="sources" id="sources">
       <div class="glass shadow-panel rounded-2xl p-4">
         <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sources_title">Fontes</p>
         <p data-i18n="source_csv">CSV: <span class="text-white">data/autotrust_ads.csv</span></p>
@@ -398,8 +461,10 @@
         </ol>
       </div>
     </section>
+    </main>
   </div>
   <script>
+    let currentLang = "pt";
     const salesChartData = {
       months: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
       revenue: [28390.0,23400.0,50700.0,31300.0,61400.0,17800.0,8415.0,34200.0,14900.0,24050.0,43500.0,32850.0,15500.0,22800.0,41500.0,21400.0,10900.0,23300.0,38200.0,16400.0,52700.0,15400.0,11900.0,107100.0,82500.0,30300.0,71700.0,25500.0,16800.0,24900.0,5350.0,20000.0,42400.0,78000.0,17000.0,42390.0,35000.0,55300.0,4800.0,19900.0,1350.0,2700.0,59800.0,17200.0,22400.0,12200.0,17700.0,24400.0,15700.0,56700.0,53400.0,12000.0,43900.0,12700.0,9300.0,89900.0,54700.0,48600.0,80900.0,34300.0,69100.0,29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0],
@@ -416,6 +481,74 @@
       sales: [4,11,4,8,12,5,8,13,10,8,8,5],
       salesDelta: [null,7,-7,4,4,-7,3,5,-3,-2,0,-3],
       revenue: [29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0]
+    };
+    const customersOriginData = {
+      origins: ["stand_virtual","Sem origem","friend","other","social_media","google","reference","olx","stand_visit"],
+      counts: [160,77,46,22,16,4,4,2,1]
+    };
+    const customersSalesAlignmentData = {
+      sources: ["friend","google","olx","other","reference","social_media","stand_virtual","stand_visit"],
+      months: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
+      series: {
+        friend: {
+          clients: [0,0,0,1,1,2,0,2,0,0,0,0,1,0,0,1,1,0,1,0,0,2,0,2,1,2,2,1,0,0,0,1,0,1,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,3,3,0,0,0,3,1,2,2,0,2,0,0,2],
+          sales: [0,0,0,1,1,2,0,2,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0,2,3,0,2,1,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,2,1,1,0,3,1,3,1,2,0,0,0,2]
+        },
+        google: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,1,0,0],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0]
+        },
+        olx: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        },
+        other: {
+          clients: [0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,1,0,2,0,0,1,1,0,0,1,0],
+          sales: [0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,1,1,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,1,0,2,0,0,1,1,0,0,1,0]
+        },
+        reference: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1]
+        },
+        social_media: {
+          clients: [0,0,1,1,0,0,0,2,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,1,1,1,0],
+          sales: [0,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,1,1,1,0]
+        },
+        stand_virtual: {
+          clients: [0,0,1,2,5,2,0,2,2,1,1,2,0,2,4,1,1,3,1,1,1,1,1,1,1,2,1,4,0,3,0,0,0,3,1,1,0,1,2,2,0,0,4,0,0,2,1,1,2,3,2,4,2,1,0,4,6,3,4,3,4,1,8,2,5,8,3,8,6,9,4,2,2],
+          sales: [0,0,2,2,6,0,0,2,2,1,2,1,0,2,4,1,1,2,1,0,1,1,1,2,1,2,2,1,1,2,0,0,2,1,1,1,1,1,1,2,0,0,4,0,1,1,1,1,1,3,2,3,3,1,0,4,4,3,3,2,3,2,8,3,3,8,3,6,8,7,6,2,1]
+        },
+        stand_visit: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]
+        }
+      }
+    };
+    const customersMarginPerClientData = {
+      origins: ["reference","stand_visit","stand_virtual","google","friend","other","social_media","olx"],
+      marginPerClient: [2230.16,2174.45,1222.89,1046.65,970.52,958.97,661.49,532.39]
+    };
+    const customerOriginLabels = {
+      stand_virtual: "Stand Virtual",
+      "Sem origem": "Sem origem",
+      friend: "Amigo",
+      other: "Outro",
+      social_media: "Redes Sociais",
+      google: "Google",
+      reference: "Referencia",
+      olx: "OLX",
+      stand_visit: "Visita ao Stand"
+    };
+    const customerOriginLabelsEn = {
+      stand_virtual: "Stand Virtual",
+      "Sem origem": "Unknown",
+      friend: "Friend",
+      other: "Other",
+      social_media: "Social Media",
+      google: "Google",
+      reference: "Reference",
+      olx: "OLX",
+      stand_visit: "Stand Visit"
     };
 
     function renderSalesChart() {
@@ -540,31 +673,46 @@
     }
     function renderSales2025ChangeChart() {
       const chartEl = document.getElementById("sales-2025-change-chart");
-      if (!chartEl || !window.Plotly) return;
+      const selectEl = document.getElementById("sales-change-year-select");
+      if (!chartEl || !selectEl || !window.Plotly) return;
+
+      if (!selectEl.dataset.ready) {
+        const years = Array.from(
+          new Set(salesChartData.months.map((m) => m.slice(0, 4)))
+        );
+        years.forEach((year) => {
+          const option = document.createElement("option");
+          option.value = year;
+          option.textContent = year;
+          selectEl.appendChild(option);
+        });
+        selectEl.value = years[years.length - 1];
+        selectEl.addEventListener("change", () => renderSales2025ChangeChart());
+        selectEl.dataset.ready = "true";
+      }
+
+      const selectedYear = selectEl.value;
+      const months = [];
+      const delta = [];
+      let prev = null;
+      salesChartData.months.forEach((month, idx) => {
+        if (month.startsWith(selectedYear)) {
+          const value = salesChartData.sales[idx];
+          months.push(month);
+          delta.push(prev === null ? 0 : value - prev);
+          prev = value;
+        }
+      });
 
       const deltaTrace = {
-        x: sales2025Data.months,
-        y: sales2025Data.salesDelta,
-        type: "bar",
-        name: "Δ Vendas",
-        marker: {
-          color: sales2025Data.salesDelta.map((value) =>
-            value >= 0 ? "rgba(139,233,180,0.7)" : "rgba(244,115,143,0.7)"
-          )
-        },
-        hovertemplate: "%{x}<br>Δ Vendas: %{y:+d}<extra></extra>"
-      };
-
-      const salesTrace = {
-        x: sales2025Data.months,
-        y: sales2025Data.sales,
+        x: months,
+        y: delta,
         type: "scatter",
         mode: "lines+markers",
-        name: "Vendas",
-        yaxis: "y2",
-        line: { color: "#39c0e0", width: 2 },
+        name: "Δ Vendas",
+        line: { color: "#8be9b4", width: 2 },
         marker: { size: 6 },
-        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+        hovertemplate: "%{x}<br>Δ Vendas: %{y:+d}<extra></extra>"
       };
 
       const layout = {
@@ -584,13 +732,6 @@
           zerolinecolor: "rgba(148,163,184,0.35)",
           gridcolor: "rgba(148,163,184,0.15)"
         },
-        yaxis2: {
-          title: "Vendas",
-          overlaying: "y",
-          side: "right",
-          tickfont: { color: "#cbd5f5" },
-          titlefont: { color: "#39c0e0" }
-        },
         legend: {
           orientation: "h",
           y: 1.1,
@@ -599,7 +740,241 @@
         }
       };
 
-      Plotly.newPlot(chartEl, [deltaTrace, salesTrace], layout, {
+      Plotly.newPlot(chartEl, [deltaTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSales2025MonthlyChart() {
+      const chartEl = document.getElementById("sales-2025-monthly-chart");
+      const selectEl = document.getElementById("sales-monthly-year-select");
+      if (!chartEl || !selectEl || !window.Plotly) return;
+
+      if (!selectEl.dataset.ready) {
+        const years = Array.from(
+          new Set(salesChartData.months.map((m) => m.slice(0, 4)))
+        );
+        years.forEach((year) => {
+          const option = document.createElement("option");
+          option.value = year;
+          option.textContent = year;
+          selectEl.appendChild(option);
+        });
+        selectEl.value = years[years.length - 1];
+        selectEl.addEventListener("change", () => renderSales2025MonthlyChart());
+        selectEl.dataset.ready = "true";
+      }
+
+      const selectedYear = selectEl.value;
+      const months = [];
+      const sales = [];
+      salesChartData.months.forEach((month, idx) => {
+        if (month.startsWith(selectedYear)) {
+          months.push(month);
+          sales.push(salesChartData.sales[idx]);
+        }
+      });
+
+      const trace = {
+        x: months,
+        y: sales,
+        type: "bar",
+        name: "Vendas",
+        marker: { color: "rgba(57,192,224,0.7)" },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -35,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Vendas",
+          titlefont: { color: "#39c0e0" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderCustomerOriginChart() {
+      const chartEl = document.getElementById("customers-origin-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const labels = customersOriginData.origins.map(
+        (origin) => customerOriginLabels[origin] || origin
+      );
+
+      const trace = {
+        x: customersOriginData.counts,
+        y: labels,
+        type: "bar",
+        orientation: "h",
+        marker: { color: "rgba(57,192,224,0.7)" },
+        hovertemplate: "%{y}<br>Clientes: %{x}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 160, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          title: "Clientes",
+          titlefont: { color: "#39c0e0" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          tickfont: { color: "#cbd5f5" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderCustomerSalesAlignmentChart() {
+      const selectEl = document.getElementById("customers-source-select");
+      const chartEl = document.getElementById("customers-alignment-chart");
+      if (!selectEl || !chartEl || !window.Plotly) return;
+
+      const sources = customersSalesAlignmentData.sources;
+      const defaultKey = sources.includes("stand_virtual") ? "stand_virtual" : sources[0];
+
+      function getSourceLabel(key, lang) {
+        const labels = lang === "en" ? customerOriginLabelsEn : customerOriginLabels;
+        return labels[key] || key;
+      }
+
+      function populateSelect(lang) {
+        const selected = selectEl.value || defaultKey;
+        selectEl.innerHTML = "";
+        sources.forEach((key) => {
+          const option = document.createElement("option");
+          option.value = key;
+          option.textContent = getSourceLabel(key, lang);
+          if (key === selected) option.selected = true;
+          selectEl.appendChild(option);
+        });
+      }
+
+      function buildChart(key, lang) {
+        const series = customersSalesAlignmentData.series[key];
+        if (!series) return;
+        const clientsName = lang === "en" ? "Clients" : "Clientes";
+        const salesName = lang === "en" ? "Sales" : "Vendas";
+
+        const clientsTrace = {
+          x: customersSalesAlignmentData.months,
+          y: series.clients,
+          type: "scatter",
+          mode: "lines+markers",
+          name: clientsName,
+          line: { color: "#8be9b4", width: 2 },
+          marker: { size: 6 }
+        };
+        const salesTrace = {
+          x: customersSalesAlignmentData.months,
+          y: series.sales,
+          type: "scatter",
+          mode: "lines+markers",
+          name: salesName,
+          yaxis: "y2",
+          line: { color: "#39c0e0", width: 2 },
+          marker: { size: 6 }
+        };
+
+        const layout = {
+          margin: { l: 60, r: 60, t: 20, b: 40 },
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)",
+          xaxis: {
+            tickangle: -35,
+            tickfont: { color: "#cbd5f5" },
+            gridcolor: "rgba(148,163,184,0.15)"
+          },
+          yaxis: {
+            title: clientsName,
+            titlefont: { color: "#8be9b4" },
+            tickfont: { color: "#cbd5f5" },
+            gridcolor: "rgba(148,163,184,0.15)"
+          },
+          yaxis2: {
+            title: salesName,
+            overlaying: "y",
+            side: "right",
+            titlefont: { color: "#39c0e0" },
+            tickfont: { color: "#cbd5f5" }
+          },
+          legend: {
+            orientation: "h",
+            y: 1.1,
+            x: 0,
+            font: { color: "#e2e8f0" }
+          }
+        };
+
+        Plotly.react(chartEl, [clientsTrace, salesTrace], layout, {
+          displayModeBar: false,
+          responsive: true
+        });
+      }
+
+      populateSelect(currentLang);
+      buildChart(selectEl.value || defaultKey, currentLang);
+
+      selectEl.addEventListener("change", () => {
+        buildChart(selectEl.value, currentLang);
+      });
+
+      window.updateCustomerAlignmentChart = (lang) => {
+        populateSelect(lang);
+        buildChart(selectEl.value || defaultKey, lang);
+      };
+    }
+    function renderCustomerMarginPerClientChart() {
+      const chartEl = document.getElementById("customers-margin-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const labels = customersMarginPerClientData.origins.map((origin) =>
+        (currentLang === "en" ? customerOriginLabelsEn : customerOriginLabels)[origin] || origin
+      );
+
+      const trace = {
+        x: customersMarginPerClientData.marginPerClient,
+        y: labels,
+        type: "bar",
+        orientation: "h",
+        marker: { color: "rgba(139,233,180,0.75)" },
+        hovertemplate: "%{y}<br>€%{x:,.0f} por cliente<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 160, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          title: currentLang === "en" ? "Net margin per client (€)" : "Margem líquida por cliente (€)",
+          titlefont: { color: "#8be9b4" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          tickfont: { color: "#cbd5f5" }
+        }
+      };
+
+      Plotly.react(chartEl, [trace], layout, {
         displayModeBar: false,
         responsive: true
       });
@@ -615,6 +990,31 @@
         nav_oct: "Out 2025",
         nav_nov: "Nov 2025",
         nav_sales: "Vendas",
+        nav_customers: "Clientes",
+        tab_title: "Dashboard",
+        tab_overview: "Visao geral",
+        tab_ads: "Meta Ads",
+        tab_sales: "Vendas",
+        tab_customers: "Clientes",
+        tab_sources: "Fontes",
+        landing_badge: "AutoTrust Overview",
+        landing_title: "Resumo centralizado",
+        landing_subtitle: "Escolha a area para explorar: Meta Ads, Vendas ou Clientes. Cada aba traz graficos completos e recomendacoes.",
+        landing_ads_kicker: "Meta Ads",
+        landing_ads_title: "Performance e insights",
+        landing_ads_hint: "CTR, CPV e recomendacoes.",
+        landing_sales_kicker: "Vendas",
+        landing_sales_title: "Receita e margem",
+        landing_sales_hint: "Tendencias e variacoes.",
+        landing_customers_kicker: "Clientes",
+        landing_customers_title: "Origem e alinhamento",
+        landing_customers_hint: "Canais e performance.",
+        side_title: "Dashboard",
+        side_overview: "Visao geral",
+        side_ads: "Meta Ads",
+        side_sales: "Vendas",
+        side_customers: "Clientes",
+        side_sources: "Fontes",
         summary_views_label: "Visualizações (LPV) recentes",
         summary_latest_month: "Nov 2025",
         summary_spend_label: "Investimento recente",
@@ -676,7 +1076,10 @@
         sales_chart_margin: "Margem líquida mensal",
         sales_chart_live_title: "Desempenho mensal (receita e volume)",
         sales_origin_chart_title: "Origem das vendas no período",
-        sales_2025_chart_title: "Variação mensal de vendas — 2025",
+        sales_monthly_title: "Vendas mensais",
+        sales_monthly_year_label: "Ano:",
+        sales_change_title: "Variação mensal de vendas",
+        sales_change_year_label: "Ano:",
         sales_brand_title: "Marcas líderes (top 5 por volume)",
         sales_brand_1: "Volkswagen: 33 vendas | €367.7k receita",
         sales_brand_2: "Renault: 30 vendas | €203.1k receita",
@@ -693,10 +1096,24 @@
         sales_insight_1: "• A receita mensal oscila com picos no segundo semestre de 2025, mostrando concentracao de volume entre julho e setembro.",
         sales_insight_2: "• A origem StandVirtual domina o periodo com mais de metade das vendas, indicando forte dependencia desse canal.",
         sales_insight_3: "• Em 2025, os maiores saltos de vendas ocorrem em fevereiro e agosto; quedas mais fortes em junho e marco.",
+        customers_title: "Origem dos Clientes",
+        customers_source_hint: "Base: data/client202512231650395.xlsx",
+        customers_total_label: "Clientes totais",
+        customers_period_label: "2023–2025",
+        customers_top_label: "Origem lider",
+        customers_top_share: "160 clientes (48.2%)",
+        customers_focus_label: "Foco recomendado",
+        customers_focus_value: "Diversificar canais",
+        customers_focus_hint: "Reduzir dependencia do top 1",
+        customers_chart_title: "Distribuicao de origens no periodo",
+        customers_alignment_title: "Clientes vs vendas por origem (mensal)",
+        customers_alignment_filter: "Origem:",
+        customers_margin_title: "Margem liquida por cliente (por origem)",
         sources_title: "Fontes",
         source_csv: "CSV: data/autotrust_ads.csv",
         source_report: "Relatório comparativo: outputs/reports/comparative_report.md",
         source_sales: "Vendas: data/sale2025122315296397.xlsx",
+        source_customers: "Clientes: data/client202512231650395.xlsx",
         howto_title: "Como visualizar",
         howto_1: "Abra este arquivo diretamente no navegador: outputs/reports/dashboard.html.",
         howto_2: "Os painéis interativos usam os exports do Plotly em outputs/charts/.",
@@ -711,6 +1128,31 @@
         nav_oct: "Oct 2025",
         nav_nov: "Nov 2025",
         nav_sales: "Sales",
+        nav_customers: "Customers",
+        tab_title: "Dashboard",
+        tab_overview: "Overview",
+        tab_ads: "Meta Ads",
+        tab_sales: "Sales",
+        tab_customers: "Customers",
+        tab_sources: "Sources",
+        landing_badge: "AutoTrust Overview",
+        landing_title: "One place to start",
+        landing_subtitle: "Choose where to explore: Meta Ads, Sales, or Customers. Each tab opens full charts and recommendations.",
+        landing_ads_kicker: "Meta Ads",
+        landing_ads_title: "Performance and insights",
+        landing_ads_hint: "CTR, CPV, and recommendations.",
+        landing_sales_kicker: "Sales",
+        landing_sales_title: "Revenue and margin",
+        landing_sales_hint: "Trends and changes.",
+        landing_customers_kicker: "Customers",
+        landing_customers_title: "Source and alignment",
+        landing_customers_hint: "Channels and performance.",
+        side_title: "Dashboard",
+        side_overview: "Overview",
+        side_ads: "Meta Ads",
+        side_sales: "Sales",
+        side_customers: "Customers",
+        side_sources: "Sources",
         summary_views_label: "Recent views (LPV)",
         summary_latest_month: "Nov 2025",
         summary_spend_label: "Recent spend",
@@ -772,7 +1214,10 @@
         sales_chart_margin: "Monthly net margin",
         sales_chart_live_title: "Monthly performance (revenue and volume)",
         sales_origin_chart_title: "Sales sources over the period",
-        sales_2025_chart_title: "Monthly sales change — 2025",
+        sales_monthly_title: "Monthly sales",
+        sales_monthly_year_label: "Year:",
+        sales_change_title: "Monthly sales change",
+        sales_change_year_label: "Year:",
         sales_brand_title: "Top brands (by volume)",
         sales_brand_1: "Volkswagen: 33 sales | €367.7k revenue",
         sales_brand_2: "Renault: 30 sales | €203.1k revenue",
@@ -789,10 +1234,24 @@
         sales_insight_1: "• Monthly revenue fluctuates with peaks in H2 2025, concentrating volume between July and September.",
         sales_insight_2: "• StandVirtual leads the period with over half of sales, showing heavy channel dependence.",
         sales_insight_3: "• In 2025, biggest jumps appear in February and August; sharpest drops in June and March.",
+        customers_title: "Customer Sources",
+        customers_source_hint: "Source: data/client202512231650395.xlsx",
+        customers_total_label: "Total customers",
+        customers_period_label: "2023–2025",
+        customers_top_label: "Top origin",
+        customers_top_share: "160 customers (48.2%)",
+        customers_focus_label: "Recommended focus",
+        customers_focus_value: "Diversify channels",
+        customers_focus_hint: "Reduce dependence on top 1",
+        customers_chart_title: "Origin distribution over the period",
+        customers_alignment_title: "Clients vs sales by source (monthly)",
+        customers_alignment_filter: "Source:",
+        customers_margin_title: "Net margin per client (by source)",
         sources_title: "Sources",
         source_csv: "CSV: data/autotrust_ads.csv",
         source_report: "Comparative report: outputs/reports/comparative_report.md",
         source_sales: "Sales: data/sale2025122315296397.xlsx",
+        source_customers: "Customers: data/client202512231650395.xlsx",
         howto_title: "How to view",
         howto_1: "Open this file directly in your browser: outputs/reports/dashboard.html.",
         howto_2: "Interactive panels use Plotly exports in outputs/charts/.",
@@ -800,8 +1259,42 @@
       }
     };
 
+    const tabButtons = document.querySelectorAll("[data-tab-target]");
+    const tabPanels = document.querySelectorAll("[data-tab-panel]");
+    const tabLinks = document.querySelectorAll("[data-tab-link]");
+
+    function setTab(tab) {
+      currentTab = tab;
+      tabPanels.forEach((panel) => {
+        panel.classList.toggle("hidden", panel.dataset.tabPanel !== tab);
+      });
+      tabButtons.forEach((btn) => {
+        btn.classList.toggle("tab-active", btn.dataset.tabTarget === tab);
+      });
+      if (tab === "sales") {
+        renderSalesChart();
+        renderSalesOriginChart();
+        renderSales2025MonthlyChart();
+        renderSales2025ChangeChart();
+      }
+      if (tab === "customers") {
+        renderCustomerOriginChart();
+        renderCustomerSalesAlignmentChart();
+        renderCustomerMarginPerClientChart();
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabButtons.forEach((btn) =>
+      btn.addEventListener("click", () => setTab(btn.dataset.tabTarget))
+    );
+    tabLinks.forEach((btn) =>
+      btn.addEventListener("click", () => setTab(btn.dataset.tabLink))
+    );
+
     const langButtons = document.querySelectorAll("[data-set-lang]");
     function applyLang(lang) {
+      currentLang = lang === "en" ? "en" : "pt";
       const dict = translations[lang] || translations.pt;
       document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
       document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -811,14 +1304,18 @@
       langButtons.forEach((btn) => {
         btn.classList.toggle("lang-active", btn.dataset.setLang === lang);
       });
+      if (typeof window.updateCustomerAlignmentChart === "function") {
+        window.updateCustomerAlignmentChart(currentLang);
+      }
+      if (typeof renderCustomerMarginPerClientChart === "function") {
+        renderCustomerMarginPerClientChart();
+      }
     }
     langButtons.forEach((btn) =>
       btn.addEventListener("click", () => applyLang(btn.dataset.setLang))
     );
     applyLang("pt");
-    window.addEventListener("load", renderSalesChart);
-    window.addEventListener("load", renderSalesOriginChart);
-    window.addEventListener("load", renderSales2025ChangeChart);
+    setTab("landing");
   </script>
 </body>
 </html>
