@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoTrust Meta Ads Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Space Grotesk', 'Inter', 'sans-serif'],
+            body: ['Space Grotesk', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            night: '#0b1221',
+            ink: '#0f172a',
+            neon: '#8be9b4',
+            aqua: '#39c0e0',
+            coral: '#f4738f',
+          },
+          boxShadow: {
+            panel: '0 20px 60px rgba(0,0,0,0.35)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: radial-gradient(circle at 20% 20%, rgba(57,192,224,0.12), transparent 25%), radial-gradient(circle at 80% 10%, rgba(244,115,143,0.12), transparent 28%), #0b1221; }
+    .glass { background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.07); }
+    iframe { width: 100%; height: 100%; border: 0; border-radius: 14px; background: #0f172a; }
+    .lang-active { background-color: rgba(255,255,255,0.2); color: #fff; }
+    .tab-active { background-color: rgba(255,255,255,0.22); color: #fff; }
+  </style>
+</head>
+<body class="font-body text-slate-100">
+  <div class="min-h-screen px-4 sm:px-8 pb-12">
+    <main class="flex-1">
+      <div class="max-w-6xl mx-auto pt-6">
+        <div class="glass shadow-panel rounded-2xl px-4 py-3 flex flex-wrap items-center gap-3 text-sm text-slate-200 sticky top-4 z-20">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-400" data-i18n="tab_title">Dashboard</span>
+          <div class="flex flex-wrap gap-2">
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="landing" data-i18n="tab_overview">Visão geral</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="ads" data-i18n="tab_ads">Meta Ads</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="sales" data-i18n="tab_sales">Vendas</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="customers" data-i18n="tab_customers">Clientes</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="sources" data-i18n="tab_sources">Fontes</button>
+          </div>
+          <div class="ml-auto flex gap-2">
+            <button data-set-lang="pt" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">PT</button>
+            <button data-set-lang="en" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">EN</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="max-w-6xl mx-auto pt-10 pb-6 flex flex-col gap-6" data-tab-panel="landing">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 text-xs uppercase tracking-[0.2em] bg-white/10 rounded-full" data-i18n="landing_badge">AutoTrust Overview</span>
+          <span class="text-xs text-slate-400" data-i18n="period_label">Set–Nov 2025</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h1 class="text-3xl sm:text-4xl font-display font-semibold leading-tight" data-i18n="landing_title">Resumo centralizado</h1>
+          <p class="text-slate-300 max-w-3xl" data-i18n="landing_subtitle">Escolha a area para explorar: Meta Ads, Vendas ou Clientes. Cada aba traz graficos completos e recomendacoes.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <button class="glass shadow-panel rounded-2xl p-4 text-left hover:bg-white/10 transition" data-tab-link="ads">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="landing_ads_kicker">Meta Ads</p>
+            <p class="text-lg font-display font-semibold" data-i18n="landing_ads_title">Performance e insights</p>
+            <p class="text-sm text-slate-400" data-i18n="landing_ads_hint">CTR, CPV e recomendacoes.</p>
+          </button>
+          <button class="glass shadow-panel rounded-2xl p-4 text-left hover:bg-white/10 transition" data-tab-link="sales">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="landing_sales_kicker">Vendas</p>
+            <p class="text-lg font-display font-semibold" data-i18n="landing_sales_title">Receita e margem</p>
+            <p class="text-sm text-slate-400" data-i18n="landing_sales_hint">Tendencias e variacoes.</p>
+          </button>
+          <button class="glass shadow-panel rounded-2xl p-4 text-left hover:bg-white/10 transition" data-tab-link="customers">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="landing_customers_kicker">Clientes</p>
+            <p class="text-lg font-display font-semibold" data-i18n="landing_customers_title">Origem e alinhamento</p>
+            <p class="text-sm text-slate-400" data-i18n="landing_customers_hint">Canais e performance.</p>
+          </button>
+        </div>
+      </section>
+
+      <section class="max-w-6xl mx-auto pt-10 flex flex-col gap-6 hidden" data-tab-panel="ads">
+      <nav class="max-w-6xl mx-auto mb-6">
+      <div class="glass shadow-panel rounded-2xl px-4 py-3 flex flex-wrap items-center gap-3 text-sm text-slate-200">
+        <span class="uppercase text-xs tracking-wide text-slate-400" data-i18n="nav_label">Navegar por mês:</span>
+        <div class="flex flex-wrap gap-2">
+          <a href="#set-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_sep">Set 2025</a>
+          <a href="#out-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_oct">Out 2025</a>
+          <a href="#nov-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_nov">Nov 2025</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_views_label">Visualizações (LPV) recentes</p>
+        <p class="text-3xl font-display font-semibold">13,531</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_latest_month">Nov 2025</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_spend_label">Investimento recente</p>
+        <p class="text-3xl font-display font-semibold">€480.66</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_cpv_hint">CPV médio €0.04</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_ctr_label">CTR ponderado</p>
+        <p class="text-3xl font-display font-semibold">4.0%</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_ctr_delta">Nov vs Out: -0.0 pts</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_eff_label">Líder em eficiência</p>
+        <p class="text-xl font-display font-semibold">Remarketing</p>
+        <p class="text-sm text-slate-400" data-i18n="summary_eff_hint">CPV €0.02 • CTR 4.2%</p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-8 flex flex-col gap-4" id="set-2025">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-neon"></span>
+        <h2 class="text-xl font-display font-semibold" data-i18n="sep_heading">Setembro 2025</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
+          <p class="text-2xl font-display font-semibold">10,885</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
+          <p class="text-2xl font-display font-semibold">€478.17</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
+          <p class="text-2xl font-display font-semibold">€0.04</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
+          <p class="text-2xl font-display font-semibold">3.7%</p>
+        </div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_sep_title">Sugestões para Setembro</p>
+        <ul class="space-y-2">
+          <li data-i18n="sug_sep_1">• Manter TOF focado em criativos de alta CTR (Portugal) e realocar spend de segmentos com CPV alto.</li>
+          <li data-i18n="sug_sep_2">• Testar variações de cópia curta para Remarketing para expandir volume sem perder CPV.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-6 flex flex-col gap-4" id="out-2025">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-aqua"></span>
+        <h2 class="text-xl font-display font-semibold" data-i18n="oct_heading">Outubro 2025</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
+          <p class="text-2xl font-display font-semibold">12,976</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
+          <p class="text-2xl font-display font-semibold">€495.02</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
+          <p class="text-2xl font-display font-semibold">€0.04</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
+          <p class="text-2xl font-display font-semibold">4.1%</p>
+        </div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_oct_title">Sugestões para Outubro</p>
+        <ul class="space-y-2">
+          <li data-i18n="sug_oct_1">• Preservar CPV: redistribuir 5–10% do spend de Maia TOF para Portugal TOF (melhor CTR) e Remarketing.</li>
+          <li data-i18n="sug_oct_2">• Aumentar frequência em Remarketing com criativos atualizados semanalmente para evitar fadiga.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-6 flex flex-col gap-4" id="nov-2025">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-coral"></span>
+        <h2 class="text-xl font-display font-semibold" data-i18n="nov_heading">Novembro 2025</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
+          <p class="text-2xl font-display font-semibold">13,531</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
+          <p class="text-2xl font-display font-semibold">€480.66</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
+          <p class="text-2xl font-display font-semibold">€0.04</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
+          <p class="text-2xl font-display font-semibold">4.0%</p>
+        </div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_nov_title">Sugestões para Novembro</p>
+        <ul class="space-y-2">
+          <li data-i18n="sug_nov_1">• Manter o ganho de views com spend menor: realocar 10–15% de Maia TOF para Remarketing (melhor eficiência).</li>
+          <li data-i18n="sug_nov_2">• Replicar criativos vencedores de Portugal TOF em Maia TOF; testar hooks mobile-first e ângulos de prova social.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-neon"></span>
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="mom_title">Variações MoM — Nov 2025</p>
+        </div>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li data-i18n="mom_1">Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%</li>
+          <li data-i18n="mom_2">Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%</li>
+          <li data-i18n="mom_3">Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%</li>
+        </ul>
+        <p class="text-xs text-slate-400 mt-2" data-i18n="source_label">Fonte: comparative_report.md</p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-coral"></span>
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="actionable_title">Sugestões acionáveis</p>
+        </div>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li data-i18n="act_1">Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.</li>
+          <li data-i18n="act_2">Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.</li>
+          <li data-i18n="act_3">Manter o pacing onde as visualizações crescem (views Nov +4.3% com spend -2.9%); pausar bolsões de CPV alto em Maia TOF e reinvestir em Remarketing.</li>
+          <li data-i18n="act_4">Rodar dois testes semanais: (1) refresh de headline/copy para TOF, (2) teste de frequência no retargeting para sustentar CTR sem inflar CPV.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-white"></span>
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="content_title">Sugestões de conteúdo para anúncios</p>
+        </div>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li data-i18n="content_1">• Criativos mobile-first com primeiras linhas fortes destacando valor (ex.: revisão rápida, entrega, confiança/autotrust).</li>
+          <li data-i18n="content_2">• Prova social: depoimentos curtos, classificação média ou números de clientes atendidos.</li>
+          <li data-i18n="content_3">• Combinar visuais: 1 estático com benefício direto + 1 vídeo curto mostrando navegação/resultado.</li>
+          <li data-i18n="content_4">• Testar 2–3 CTAs: “Ver ofertas”, “Simular agora”, “Marcar visita” conforme etapa do funil.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-4">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-aqua"></span>
+          <h2 class="text-xl font-display font-semibold" data-i18n="charts_title">Gráficos interativos</h2>
+        </div>
+        <a class="text-sm text-aqua hover:text-white underline underline-offset-4" href="comparative_report.md" data-i18n="open_report">Abrir relatório comparativo</a>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_views">Visualizações ao longo do tempo</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_views_over_time.html" title="Views over time"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_spend">Investimento ao longo do tempo</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_spend_over_time.html" title="Spend over time"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_cpv">Custo por view ao longo do tempo</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_cost_per_view_over_time.html" title="Cost per view over time"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_ctr">Tendência de CTR</div>
+          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
+            <iframe src="charts/interactive_ctr_trend.html" title="CTR trend"></iframe>
+          </div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 lg:col-span-2 min-h-[360px]">
+          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_views_by_campaign">Visualizações por campanha e mês</div>
+          <div class="h-[320px] sm:h-[360px] lg:h-[420px]">
+            <iframe src="charts/interactive_views_by_campaign_month.html" title="Views by campaign and month"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+      </section>
+
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5 hidden" data-tab-panel="sales" id="sales">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-neon"></span>
+          <h2 class="text-xl font-display font-semibold" data-i18n="sales_title">Resumo de Vendas</h2>
+        </div>
+        <a class="text-sm text-neon hover:text-white underline underline-offset-4" href="sales_report.md" data-i18n="sales_open_report">Abrir relatório de vendas</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_total_label">Vendas totais</p>
+          <p class="text-3xl font-display font-semibold">308</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_period_label">2019–2025</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_revenue_label">Receita total</p>
+          <p class="text-3xl font-display font-semibold">€3.06M</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_ticket_label">Ticket médio €9.93k</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_margin_label">Margem líquida</p>
+          <p class="text-3xl font-display font-semibold">€369k</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_margin_pct">12.1% da receita</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="sales_last12_label">Últimos 12 meses</p>
+          <p class="text-3xl font-display font-semibold">100</p>
+          <p class="text-sm text-slate-400" data-i18n="sales_last12_revenue">€1.05M receita</p>
+        </div>
+      </div>
+
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="sales_chart_live_title">Desempenho mensal (receita e volume)</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-live-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="sales_origin_chart_title">Origem das vendas no período</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-origin-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+          <div class="text-sm text-slate-300" data-i18n="sales_monthly_title">Vendas mensais</div>
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span data-i18n="sales_monthly_year_label">Ano:</span>
+            <select id="sales-monthly-year-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+          </div>
+        </div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-2025-monthly-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+          <div class="text-sm text-slate-300" data-i18n="sales_change_title">Variação mensal de vendas</div>
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span data-i18n="sales_change_year_label">Ano:</span>
+            <select id="sales-change-year-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+          </div>
+        </div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-2025-change-chart"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="sales_brand_title">Marcas líderes (top 5 por volume)</p>
+          <ul class="text-sm text-slate-200 space-y-2">
+            <li data-i18n="sales_brand_1">Volkswagen: 33 vendas | €367.7k receita</li>
+            <li data-i18n="sales_brand_2">Renault: 30 vendas | €203.1k receita</li>
+            <li data-i18n="sales_brand_3">Opel: 23 vendas | €152.5k receita</li>
+            <li data-i18n="sales_brand_4">Peugeot: 18 vendas | €233.7k receita</li>
+            <li data-i18n="sales_brand_5">Audi: 17 vendas | €232.4k receita</li>
+          </ul>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="sales_origin_title">Origem do cliente (top 5)</p>
+          <ul class="text-sm text-slate-200 space-y-2">
+            <li data-i18n="sales_origin_1">StandVirtual: 140 vendas | €1.71M receita</li>
+            <li data-i18n="sales_origin_2">Amigo: 40 vendas | €347.7k receita</li>
+            <li data-i18n="sales_origin_3">Outro: 21 vendas | €198.2k receita</li>
+            <li data-i18n="sales_origin_4">Redes Sociais: 16 vendas | €141.9k receita</li>
+            <li data-i18n="sales_origin_5">Google: 4 vendas | €32.1k receita</li>
+          </ul>
+        </div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
+        <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="sales_insights_title">Interpretacao dos graficos</p>
+        <ul class="text-sm text-slate-200 space-y-2">
+          <li data-i18n="sales_insight_1">• A receita mensal oscila com picos no segundo semestre de 2025, mostrando concentracao de volume entre julho e setembro.</li>
+          <li data-i18n="sales_insight_2">• A origem StandVirtual domina o periodo com mais de metade das vendas, indicando forte dependencia desse canal.</li>
+          <li data-i18n="sales_insight_3">• Em 2025, os maiores saltos de vendas ocorrem em fevereiro e agosto; quedas mais fortes em junho e marco.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5 hidden" data-tab-panel="customers" id="customers">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-aqua"></span>
+          <h2 class="text-xl font-display font-semibold" data-i18n="customers_title">Origem dos Clientes</h2>
+        </div>
+        <span class="text-sm text-slate-400" data-i18n="customers_source_hint">Base: data/client202512231650395.xlsx</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="customers_total_label">Clientes totais</p>
+          <p class="text-3xl font-display font-semibold">332</p>
+          <p class="text-sm text-slate-400" data-i18n="customers_period_label">2023–2025</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="customers_top_label">Origem líder</p>
+          <p class="text-3xl font-display font-semibold">Stand Virtual</p>
+          <p class="text-sm text-slate-400" data-i18n="customers_top_share">160 clientes (48.2%)</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="customers_focus_label">Foco recomendado</p>
+          <p class="text-3xl font-display font-semibold" data-i18n="customers_focus_value">Diversificar canais</p>
+          <p class="text-sm text-slate-400" data-i18n="customers_focus_hint">Reduzir dependencia do top 1</p>
+        </div>
+      </div>
+
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="customers_chart_title">Distribuicao de origens no periodo</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="customers-origin-chart"></div>
+      </div>
+
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+          <div class="text-sm text-slate-300" data-i18n="customers_alignment_title">Clientes vs vendas por origem (mensal)</div>
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span data-i18n="customers_alignment_filter">Origem:</span>
+            <select id="customers-source-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+          </div>
+        </div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="customers-alignment-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="customers_margin_title">Margem líquida por cliente (por origem)</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="customers-margin-chart"></div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300 hidden" data-tab-panel="sources" id="sources">
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sources_title">Fontes</p>
+        <p data-i18n="source_csv">CSV: <span class="text-white">data/autotrust_ads.csv</span></p>
+        <p data-i18n="source_report">Relatório comparativo: <span class="text-white">comparative_report.md</span></p>
+        <p data-i18n="source_sales">Vendas: <span class="text-white">data/sale2025122315296397.xlsx</span></p>
+        <p data-i18n="source_customers">Clientes: <span class="text-white">data/client202512231650395.xlsx</span></p>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4 md:col-span-2">
+        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="howto_title">Como visualizar</p>
+        <ol class="list-decimal list-inside space-y-1">
+          <li data-i18n="howto_1">Abra este arquivo diretamente no navegador: <span class="text-white">dashboard.html</span>.</li>
+          <li data-i18n="howto_2">Os painéis interativos usam os exports do Plotly em <span class="text-white">charts/</span>.</li>
+          <li data-i18n="howto_3">Atualize os dados e rode <code>python src/main.py</code> para regenerar os gráficos antes de recarregar a página.</li>
+        </ol>
+      </div>
+    </section>
+    </main>
+  </div>
+  <script>
+    let currentLang = "pt";
+    const salesChartData = {
+      months: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
+      revenue: [28390.0,23400.0,50700.0,31300.0,61400.0,17800.0,8415.0,34200.0,14900.0,24050.0,43500.0,32850.0,15500.0,22800.0,41500.0,21400.0,10900.0,23300.0,38200.0,16400.0,52700.0,15400.0,11900.0,107100.0,82500.0,30300.0,71700.0,25500.0,16800.0,24900.0,5350.0,20000.0,42400.0,78000.0,17000.0,42390.0,35000.0,55300.0,4800.0,19900.0,1350.0,2700.0,59800.0,17200.0,22400.0,12200.0,17700.0,24400.0,15700.0,56700.0,53400.0,12000.0,43900.0,12700.0,9300.0,89900.0,54700.0,48600.0,80900.0,34300.0,69100.0,29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0],
+      sales: [2,5,9,5,10,2,3,5,4,3,5,6,2,1,4,1,3,1,3,2,3,2,2,4,4,2,5,3,2,1,2,1,5,2,0,3,2,2,1,2,1,1,6,2,2,2,2,2,1,4,4,3,4,2,2,6,7,5,7,3,5,4,11,4,8,12,5,8,13,10,8,8,5],
+      netMargin: [6831.36,5750.14,11565.26,3332.65,12881.68,2955.01,231.04,4647.27,1700.6,3224.71,6734.34,4332.64,3685.48,3226.51,7600.61,1340.49,1131.75,3124.41,5213.82,1208.24,7941.28,-48.43,967.27,11883.97,9203.32,5534.27,1478.05,2033.05,91.48,2476.71,126.96,4246.54,4177.13,4633.55,2810.73,6435.91,-2013.81,6590.65,452.21,2918.01,-1806.97,-1940.62,12702.48,3679.73,4309.65,3141.45,3589.58,472.09,1139.65,2441.94,8030.84,1384.01,5357.67,1662.5,1242.6,8178.0,2572.15,8572.2,9583.07,4496.44,5691.36,4807.22,18857.79,4258.38,1012.27,10373.83,5751.72,6322.71,18145.66,10314.76,10124.77,16837.48,15299.97]
+    };
+    const salesOriginData = {
+      origins: ["StandVirtual","Amigo","Outro","Redes Sociais","Google","Referência","OLX","Visita ao Stand"],
+      sales: [140,40,21,16,4,4,2,1],
+      revenue: [1708540.0,347650.0,198200.0,141950.0,32100.0,43600.0,15000.0,11382.11]
+    };
+    const sales2025Data = {
+      months: ["2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
+      sales: [4,11,4,8,12,5,8,13,10,8,8,5],
+      salesDelta: [null,7,-7,4,4,-7,3,5,-3,-2,0,-3],
+      revenue: [29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0]
+    };
+    const customersOriginData = {
+      origins: ["stand_virtual","Sem origem","friend","other","social_media","google","reference","olx","stand_visit"],
+      counts: [160,77,46,22,16,4,4,2,1]
+    };
+    const customersSalesAlignmentData = {
+      sources: ["friend","google","olx","other","reference","social_media","stand_virtual","stand_visit"],
+      months: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
+      series: {
+        friend: {
+          clients: [0,0,0,1,1,2,0,2,0,0,0,0,1,0,0,1,1,0,1,0,0,2,0,2,1,2,2,1,0,0,0,1,0,1,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,3,3,0,0,0,3,1,2,2,0,2,0,0,2],
+          sales: [0,0,0,1,1,2,0,2,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0,2,3,0,2,1,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,2,1,1,0,3,1,3,1,2,0,0,0,2]
+        },
+        google: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,1,0,0],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0]
+        },
+        olx: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        },
+        other: {
+          clients: [0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,1,0,2,0,0,1,1,0,0,1,0],
+          sales: [0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,1,1,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,1,0,2,0,0,1,1,0,0,1,0]
+        },
+        reference: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1]
+        },
+        social_media: {
+          clients: [0,0,1,1,0,0,0,2,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,1,1,1,0],
+          sales: [0,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,1,1,1,0]
+        },
+        stand_virtual: {
+          clients: [0,0,1,2,5,2,0,2,2,1,1,2,0,2,4,1,1,3,1,1,1,1,1,1,1,2,1,4,0,3,0,0,0,3,1,1,0,1,2,2,0,0,4,0,0,2,1,1,2,3,2,4,2,1,0,4,6,3,4,3,4,1,8,2,5,8,3,8,6,9,4,2,2],
+          sales: [0,0,2,2,6,0,0,2,2,1,2,1,0,2,4,1,1,2,1,0,1,1,1,2,1,2,2,1,1,2,0,0,2,1,1,1,1,1,1,2,0,0,4,0,1,1,1,1,1,3,2,3,3,1,0,4,4,3,3,2,3,2,8,3,3,8,3,6,8,7,6,2,1]
+        },
+        stand_visit: {
+          clients: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+          sales: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]
+        }
+      }
+    };
+    const customersMarginPerClientData = {
+      origins: ["reference","stand_visit","stand_virtual","google","friend","other","social_media","olx"],
+      marginPerClient: [2230.16,2174.45,1222.89,1046.65,970.52,958.97,661.49,532.39]
+    };
+    const customerOriginLabels = {
+      stand_virtual: "Stand Virtual",
+      "Sem origem": "Sem origem",
+      friend: "Amigo",
+      other: "Outro",
+      social_media: "Redes Sociais",
+      google: "Google",
+      reference: "Referencia",
+      olx: "OLX",
+      stand_visit: "Visita ao Stand"
+    };
+    const customerOriginLabelsEn = {
+      stand_virtual: "Stand Virtual",
+      "Sem origem": "Unknown",
+      friend: "Friend",
+      other: "Other",
+      social_media: "Social Media",
+      google: "Google",
+      reference: "Reference",
+      olx: "OLX",
+      stand_visit: "Stand Visit"
+    };
+
+    function renderSalesChart() {
+      const chartEl = document.getElementById("sales-live-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const revenueTrace = {
+        x: salesChartData.months,
+        y: salesChartData.revenue,
+        type: "bar",
+        name: "Receita",
+        marker: { color: "rgba(57,192,224,0.7)" },
+        hovertemplate: "%{x}<br>Receita: €%{y:,.0f}<extra></extra>"
+      };
+
+      const salesTrace = {
+        x: salesChartData.months,
+        y: salesChartData.sales,
+        type: "scatter",
+        mode: "lines+markers",
+        name: "Vendas",
+        yaxis: "y2",
+        line: { color: "#8be9b4", width: 2 },
+        marker: { size: 6 },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 60, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -45,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Receita (€)",
+          titlefont: { color: "#39c0e0" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis2: {
+          title: "Vendas",
+          overlaying: "y",
+          side: "right",
+          tickfont: { color: "#cbd5f5" },
+          titlefont: { color: "#8be9b4" }
+        },
+        legend: {
+          orientation: "h",
+          y: 1.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [revenueTrace, salesTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSalesOriginChart() {
+      const chartEl = document.getElementById("sales-origin-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const salesTrace = {
+        x: salesOriginData.origins,
+        y: salesOriginData.sales,
+        type: "bar",
+        name: "Vendas",
+        marker: { color: "rgba(244,115,143,0.7)" },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const revenueTrace = {
+        x: salesOriginData.origins,
+        y: salesOriginData.revenue,
+        type: "scatter",
+        mode: "lines+markers",
+        name: "Receita",
+        yaxis: "y2",
+        line: { color: "#39c0e0", width: 2 },
+        marker: { size: 6 },
+        hovertemplate: "%{x}<br>Receita: €%{y:,.0f}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 60, t: 20, b: 80 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -35,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Vendas",
+          titlefont: { color: "#f4738f" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis2: {
+          title: "Receita (€)",
+          overlaying: "y",
+          side: "right",
+          tickfont: { color: "#cbd5f5" },
+          titlefont: { color: "#39c0e0" }
+        },
+        legend: {
+          orientation: "h",
+          y: 1.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [salesTrace, revenueTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSales2025ChangeChart() {
+      const chartEl = document.getElementById("sales-2025-change-chart");
+      const selectEl = document.getElementById("sales-change-year-select");
+      if (!chartEl || !selectEl || !window.Plotly) return;
+
+      if (!selectEl.dataset.ready) {
+        const years = Array.from(
+          new Set(salesChartData.months.map((m) => m.slice(0, 4)))
+        );
+        years.forEach((year) => {
+          const option = document.createElement("option");
+          option.value = year;
+          option.textContent = year;
+          selectEl.appendChild(option);
+        });
+        selectEl.value = years[years.length - 1];
+        selectEl.addEventListener("change", () => renderSales2025ChangeChart());
+        selectEl.dataset.ready = "true";
+      }
+
+      const selectedYear = selectEl.value;
+      const months = [];
+      const delta = [];
+      let prev = null;
+      salesChartData.months.forEach((month, idx) => {
+        if (month.startsWith(selectedYear)) {
+          const value = salesChartData.sales[idx];
+          months.push(month);
+          delta.push(prev === null ? 0 : value - prev);
+          prev = value;
+        }
+      });
+
+      const deltaTrace = {
+        x: months,
+        y: delta,
+        type: "scatter",
+        mode: "lines+markers",
+        name: "Δ Vendas",
+        line: { color: "#8be9b4", width: 2 },
+        marker: { size: 6 },
+        hovertemplate: "%{x}<br>Δ Vendas: %{y:+d}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 60, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -35,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Δ Vendas",
+          titlefont: { color: "#e2e8f0" },
+          tickfont: { color: "#cbd5f5" },
+          zeroline: true,
+          zerolinecolor: "rgba(148,163,184,0.35)",
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        legend: {
+          orientation: "h",
+          y: 1.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [deltaTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSales2025MonthlyChart() {
+      const chartEl = document.getElementById("sales-2025-monthly-chart");
+      const selectEl = document.getElementById("sales-monthly-year-select");
+      if (!chartEl || !selectEl || !window.Plotly) return;
+
+      if (!selectEl.dataset.ready) {
+        const years = Array.from(
+          new Set(salesChartData.months.map((m) => m.slice(0, 4)))
+        );
+        years.forEach((year) => {
+          const option = document.createElement("option");
+          option.value = year;
+          option.textContent = year;
+          selectEl.appendChild(option);
+        });
+        selectEl.value = years[years.length - 1];
+        selectEl.addEventListener("change", () => renderSales2025MonthlyChart());
+        selectEl.dataset.ready = "true";
+      }
+
+      const selectedYear = selectEl.value;
+      const months = [];
+      const sales = [];
+      salesChartData.months.forEach((month, idx) => {
+        if (month.startsWith(selectedYear)) {
+          months.push(month);
+          sales.push(salesChartData.sales[idx]);
+        }
+      });
+
+      const trace = {
+        x: months,
+        y: sales,
+        type: "bar",
+        name: "Vendas",
+        marker: { color: "rgba(57,192,224,0.7)" },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -35,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Vendas",
+          titlefont: { color: "#39c0e0" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderCustomerOriginChart() {
+      const chartEl = document.getElementById("customers-origin-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const labels = customersOriginData.origins.map(
+        (origin) => customerOriginLabels[origin] || origin
+      );
+
+      const trace = {
+        x: customersOriginData.counts,
+        y: labels,
+        type: "bar",
+        orientation: "h",
+        marker: { color: "rgba(57,192,224,0.7)" },
+        hovertemplate: "%{y}<br>Clientes: %{x}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 160, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          title: "Clientes",
+          titlefont: { color: "#39c0e0" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          tickfont: { color: "#cbd5f5" }
+        }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderCustomerSalesAlignmentChart() {
+      const selectEl = document.getElementById("customers-source-select");
+      const chartEl = document.getElementById("customers-alignment-chart");
+      if (!selectEl || !chartEl || !window.Plotly) return;
+
+      const sources = customersSalesAlignmentData.sources;
+      const defaultKey = sources.includes("stand_virtual") ? "stand_virtual" : sources[0];
+
+      function getSourceLabel(key, lang) {
+        const labels = lang === "en" ? customerOriginLabelsEn : customerOriginLabels;
+        return labels[key] || key;
+      }
+
+      function populateSelect(lang) {
+        const selected = selectEl.value || defaultKey;
+        selectEl.innerHTML = "";
+        sources.forEach((key) => {
+          const option = document.createElement("option");
+          option.value = key;
+          option.textContent = getSourceLabel(key, lang);
+          if (key === selected) option.selected = true;
+          selectEl.appendChild(option);
+        });
+      }
+
+      function buildChart(key, lang) {
+        const series = customersSalesAlignmentData.series[key];
+        if (!series) return;
+        const clientsName = lang === "en" ? "Clients" : "Clientes";
+        const salesName = lang === "en" ? "Sales" : "Vendas";
+
+        const clientsTrace = {
+          x: customersSalesAlignmentData.months,
+          y: series.clients,
+          type: "scatter",
+          mode: "lines+markers",
+          name: clientsName,
+          line: { color: "#8be9b4", width: 2 },
+          marker: { size: 6 }
+        };
+        const salesTrace = {
+          x: customersSalesAlignmentData.months,
+          y: series.sales,
+          type: "scatter",
+          mode: "lines+markers",
+          name: salesName,
+          yaxis: "y2",
+          line: { color: "#39c0e0", width: 2 },
+          marker: { size: 6 }
+        };
+
+        const layout = {
+          margin: { l: 60, r: 60, t: 20, b: 40 },
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)",
+          xaxis: {
+            tickangle: -35,
+            tickfont: { color: "#cbd5f5" },
+            gridcolor: "rgba(148,163,184,0.15)"
+          },
+          yaxis: {
+            title: clientsName,
+            titlefont: { color: "#8be9b4" },
+            tickfont: { color: "#cbd5f5" },
+            gridcolor: "rgba(148,163,184,0.15)"
+          },
+          yaxis2: {
+            title: salesName,
+            overlaying: "y",
+            side: "right",
+            titlefont: { color: "#39c0e0" },
+            tickfont: { color: "#cbd5f5" }
+          },
+          legend: {
+            orientation: "h",
+            y: 1.1,
+            x: 0,
+            font: { color: "#e2e8f0" }
+          }
+        };
+
+        Plotly.react(chartEl, [clientsTrace, salesTrace], layout, {
+          displayModeBar: false,
+          responsive: true
+        });
+      }
+
+      populateSelect(currentLang);
+      buildChart(selectEl.value || defaultKey, currentLang);
+
+      selectEl.addEventListener("change", () => {
+        buildChart(selectEl.value, currentLang);
+      });
+
+      window.updateCustomerAlignmentChart = (lang) => {
+        populateSelect(lang);
+        buildChart(selectEl.value || defaultKey, lang);
+      };
+    }
+    function renderCustomerMarginPerClientChart() {
+      const chartEl = document.getElementById("customers-margin-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const labels = customersMarginPerClientData.origins.map((origin) =>
+        (currentLang === "en" ? customerOriginLabelsEn : customerOriginLabels)[origin] || origin
+      );
+
+      const trace = {
+        x: customersMarginPerClientData.marginPerClient,
+        y: labels,
+        type: "bar",
+        orientation: "h",
+        marker: { color: "rgba(139,233,180,0.75)" },
+        hovertemplate: "%{y}<br>€%{x:,.0f} por cliente<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 160, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          title: currentLang === "en" ? "Net margin per client (€)" : "Margem líquida por cliente (€)",
+          titlefont: { color: "#8be9b4" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          tickfont: { color: "#cbd5f5" }
+        }
+      };
+
+      Plotly.react(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+
+    const translations = {
+      pt: {
+        period_label: "Set–Nov 2025",
+        hero_title: "Panorama de Performance — Visão Interativa",
+        hero_subtitle: "Gráficos interativos, variações mês contra mês e recomendações acionáveis para os últimos três meses das campanhas Meta Ads.",
+        nav_label: "Navegar por mês:",
+        nav_sep: "Set 2025",
+        nav_oct: "Out 2025",
+        nav_nov: "Nov 2025",
+        nav_sales: "Vendas",
+        nav_customers: "Clientes",
+        tab_title: "Dashboard",
+        tab_overview: "Visao geral",
+        tab_ads: "Meta Ads",
+        tab_sales: "Vendas",
+        tab_customers: "Clientes",
+        tab_sources: "Fontes",
+        landing_badge: "AutoTrust Overview",
+        landing_title: "Resumo centralizado",
+        landing_subtitle: "Escolha a area para explorar: Meta Ads, Vendas ou Clientes. Cada aba traz graficos completos e recomendacoes.",
+        landing_ads_kicker: "Meta Ads",
+        landing_ads_title: "Performance e insights",
+        landing_ads_hint: "CTR, CPV e recomendacoes.",
+        landing_sales_kicker: "Vendas",
+        landing_sales_title: "Receita e margem",
+        landing_sales_hint: "Tendencias e variacoes.",
+        landing_customers_kicker: "Clientes",
+        landing_customers_title: "Origem e alinhamento",
+        landing_customers_hint: "Canais e performance.",
+        side_title: "Dashboard",
+        side_overview: "Visao geral",
+        side_ads: "Meta Ads",
+        side_sales: "Vendas",
+        side_customers: "Clientes",
+        side_sources: "Fontes",
+        summary_views_label: "Visualizações (LPV) recentes",
+        summary_latest_month: "Nov 2025",
+        summary_spend_label: "Investimento recente",
+        summary_cpv_hint: "CPV médio €0.04",
+        summary_ctr_label: "CTR ponderado",
+        summary_ctr_delta: "Nov vs Out: -0.0 pts",
+        summary_eff_label: "Líder em eficiência",
+        summary_eff_hint: "CPV €0.02 • CTR 4.2%",
+        sep_heading: "Setembro 2025",
+        oct_heading: "Outubro 2025",
+        nov_heading: "Novembro 2025",
+        label_views: "Views",
+        label_spend: "Investimento",
+        label_cpv: "CPV médio",
+        label_ctr: "CTR ponderado",
+        sug_sep_title: "Sugestões para Setembro",
+        sug_sep_1: "• Manter TOF focado em criativos de alta CTR (Portugal) e realocar spend de segmentos com CPV alto.",
+        sug_sep_2: "• Testar variações de cópia curta para Remarketing para expandir volume sem perder CPV.",
+        sug_oct_title: "Sugestões para Outubro",
+        sug_oct_1: "• Preservar CPV: redistribuir 5–10% do spend de Maia TOF para Portugal TOF (melhor CTR) e Remarketing.",
+        sug_oct_2: "• Aumentar frequência em Remarketing com criativos atualizados semanalmente para evitar fadiga.",
+        sug_nov_title: "Sugestões para Novembro",
+        sug_nov_1: "• Manter o ganho de views com spend menor: realocar 10–15% de Maia TOF para Remarketing (melhor eficiência).",
+        sug_nov_2: "• Replicar criativos vencedores de Portugal TOF em Maia TOF; testar hooks mobile-first e ângulos de prova social.",
+        mom_title: "Variações MoM — Nov 2025",
+        mom_1: "Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%",
+        mom_2: "Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%",
+        mom_3: "Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%",
+        source_label: "Fonte: comparative_report.md",
+        actionable_title: "Sugestões acionáveis",
+        act_1: "Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.",
+        act_2: "Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.",
+        act_3: "Manter o pacing onde as visualizações crescem (views Nov +4.3% com spend -2.9%); pausar bolsões de CPV alto em Maia TOF e reinvestir em Remarketing.",
+        act_4: "Rodar dois testes semanais: (1) refresh de headline/copy para TOF, (2) teste de frequência no retargeting para sustentar CTR sem inflar CPV.",
+        content_title: "Sugestões de conteúdo para anúncios",
+        content_1: "• Criativos mobile-first com primeiras linhas fortes destacando valor (ex.: revisão rápida, entrega, confiança/autotrust).",
+        content_2: "• Prova social: depoimentos curtos, classificação média ou números de clientes atendidos.",
+        content_3: "• Combinar visuais: 1 estático com benefício direto + 1 vídeo curto mostrando navegação/resultado.",
+        content_4: "• Testar 2–3 CTAs: “Ver ofertas”, “Simular agora”, “Marcar visita” conforme etapa do funil.",
+        charts_title: "Gráficos interativos",
+        open_report: "Abrir relatório comparativo",
+        chart_views: "Visualizações ao longo do tempo",
+        chart_spend: "Investimento ao longo do tempo",
+        chart_cpv: "Custo por view ao longo do tempo",
+        chart_ctr: "Tendência de CTR",
+        chart_views_by_campaign: "Visualizações por campanha e mês",
+        sales_title: "Resumo de Vendas",
+        sales_open_report: "Abrir relatório de vendas",
+        sales_total_label: "Vendas totais",
+        sales_period_label: "2019–2025",
+        sales_revenue_label: "Receita total",
+        sales_ticket_label: "Ticket médio €9.93k",
+        sales_margin_label: "Margem líquida",
+        sales_margin_pct: "12.1% da receita",
+        sales_last12_label: "Últimos 12 meses",
+        sales_last12_revenue: "€1.05M receita",
+        sales_chart_revenue: "Receita mensal",
+        sales_chart_count: "Vendas por mês",
+        sales_chart_margin: "Margem líquida mensal",
+        sales_chart_live_title: "Desempenho mensal (receita e volume)",
+        sales_origin_chart_title: "Origem das vendas no período",
+        sales_monthly_title: "Vendas mensais",
+        sales_monthly_year_label: "Ano:",
+        sales_change_title: "Variação mensal de vendas",
+        sales_change_year_label: "Ano:",
+        sales_brand_title: "Marcas líderes (top 5 por volume)",
+        sales_brand_1: "Volkswagen: 33 vendas | €367.7k receita",
+        sales_brand_2: "Renault: 30 vendas | €203.1k receita",
+        sales_brand_3: "Opel: 23 vendas | €152.5k receita",
+        sales_brand_4: "Peugeot: 18 vendas | €233.7k receita",
+        sales_brand_5: "Audi: 17 vendas | €232.4k receita",
+        sales_origin_title: "Origem do cliente (top 5)",
+        sales_origin_1: "StandVirtual: 140 vendas | €1.71M receita",
+        sales_origin_2: "Amigo: 40 vendas | €347.7k receita",
+        sales_origin_3: "Outro: 21 vendas | €198.2k receita",
+        sales_origin_4: "Redes Sociais: 16 vendas | €141.9k receita",
+        sales_origin_5: "Google: 4 vendas | €32.1k receita",
+        sales_insights_title: "Interpretacao dos graficos",
+        sales_insight_1: "• A receita mensal oscila com picos no segundo semestre de 2025, mostrando concentracao de volume entre julho e setembro.",
+        sales_insight_2: "• A origem StandVirtual domina o periodo com mais de metade das vendas, indicando forte dependencia desse canal.",
+        sales_insight_3: "• Em 2025, os maiores saltos de vendas ocorrem em fevereiro e agosto; quedas mais fortes em junho e marco.",
+        customers_title: "Origem dos Clientes",
+        customers_source_hint: "Base: data/client202512231650395.xlsx",
+        customers_total_label: "Clientes totais",
+        customers_period_label: "2023–2025",
+        customers_top_label: "Origem lider",
+        customers_top_share: "160 clientes (48.2%)",
+        customers_focus_label: "Foco recomendado",
+        customers_focus_value: "Diversificar canais",
+        customers_focus_hint: "Reduzir dependencia do top 1",
+        customers_chart_title: "Distribuicao de origens no periodo",
+        customers_alignment_title: "Clientes vs vendas por origem (mensal)",
+        customers_alignment_filter: "Origem:",
+        customers_margin_title: "Margem liquida por cliente (por origem)",
+        sources_title: "Fontes",
+        source_csv: "CSV: data/autotrust_ads.csv",
+        source_report: "Relatório comparativo: comparative_report.md",
+        source_sales: "Vendas: data/sale2025122315296397.xlsx",
+        source_customers: "Clientes: data/client202512231650395.xlsx",
+        howto_title: "Como visualizar",
+        howto_1: "Abra este arquivo diretamente no navegador: dashboard.html.",
+        howto_2: "Os painéis interativos usam os exports do Plotly em charts/.",
+        howto_3: "Atualize os dados e rode python src/main.py para regenerar os gráficos antes de recarregar a página."
+      },
+      en: {
+        period_label: "Sep–Nov 2025",
+        hero_title: "Performance Overview — Interactive",
+        hero_subtitle: "Interactive charts, month-over-month changes, and actionable recommendations for the last three months of Meta Ads.",
+        nav_label: "Jump to month:",
+        nav_sep: "Sep 2025",
+        nav_oct: "Oct 2025",
+        nav_nov: "Nov 2025",
+        nav_sales: "Sales",
+        nav_customers: "Customers",
+        tab_title: "Dashboard",
+        tab_overview: "Overview",
+        tab_ads: "Meta Ads",
+        tab_sales: "Sales",
+        tab_customers: "Customers",
+        tab_sources: "Sources",
+        landing_badge: "AutoTrust Overview",
+        landing_title: "One place to start",
+        landing_subtitle: "Choose where to explore: Meta Ads, Sales, or Customers. Each tab opens full charts and recommendations.",
+        landing_ads_kicker: "Meta Ads",
+        landing_ads_title: "Performance and insights",
+        landing_ads_hint: "CTR, CPV, and recommendations.",
+        landing_sales_kicker: "Sales",
+        landing_sales_title: "Revenue and margin",
+        landing_sales_hint: "Trends and changes.",
+        landing_customers_kicker: "Customers",
+        landing_customers_title: "Source and alignment",
+        landing_customers_hint: "Channels and performance.",
+        side_title: "Dashboard",
+        side_overview: "Overview",
+        side_ads: "Meta Ads",
+        side_sales: "Sales",
+        side_customers: "Customers",
+        side_sources: "Sources",
+        summary_views_label: "Recent views (LPV)",
+        summary_latest_month: "Nov 2025",
+        summary_spend_label: "Recent spend",
+        summary_cpv_hint: "Avg CPV €0.04",
+        summary_ctr_label: "Weighted CTR",
+        summary_ctr_delta: "Nov vs Oct: -0.0 pts",
+        summary_eff_label: "Efficiency leader",
+        summary_eff_hint: "CPV €0.02 • CTR 4.2%",
+        sep_heading: "September 2025",
+        oct_heading: "October 2025",
+        nov_heading: "November 2025",
+        label_views: "Views",
+        label_spend: "Spend",
+        label_cpv: "Avg CPV",
+        label_ctr: "Weighted CTR",
+        sug_sep_title: "Suggestions for September",
+        sug_sep_1: "• Keep TOF focused on high-CTR creatives (Portugal) and reallocate spend away from high-CPV segments.",
+        sug_sep_2: "• Test short-copy variants in Remarketing to grow volume without losing CPV.",
+        sug_oct_title: "Suggestions for October",
+        sug_oct_1: "• Protect CPV: shift 5–10% of spend from Maia TOF to Portugal TOF (better CTR) and Remarketing.",
+        sug_oct_2: "• Increase Remarketing frequency with weekly creative refreshes to avoid fatigue.",
+        sug_nov_title: "Suggestions for November",
+        sug_nov_1: "• Keep views growing with less spend: move 10–15% from Maia TOF into Remarketing (highest efficiency).",
+        sug_nov_2: "• Reuse Portugal TOF winners in Maia TOF; test mobile-first hooks and social-proof angles.",
+        mom_title: "MoM changes — Nov 2025",
+        mom_1: "Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%",
+        mom_2: "Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%",
+        mom_3: "Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%",
+        source_label: "Source: comparative_report.md",
+        actionable_title: "Actionable recommendations",
+        act_1: "Shift ~10–15% of spend from Maia TOF into Remarketing (best CPV/efficiency) to lean into the strongest inventory.",
+        act_2: "Reuse Portugal TOF winning creatives (CTR leader) to lift Maia TOF; prioritize mobile-first variants and sharp hooks.",
+        act_3: "Keep pacing where views are expanding (Nov views +4.3% with spend -2.9%); pause high-CPV pockets in Maia TOF and reinvest into Remarketing.",
+        act_4: "Run two weekly tests: (1) headline/copy refresh for TOF, (2) retargeting frequency cap test to sustain CTR without inflating CPV.",
+        content_title: "Ad content ideas",
+        content_1: "• Mobile-first creatives with strong first lines highlighting value (e.g., quick review, delivery, trust/autotrust).",
+        content_2: "• Social proof: short testimonials, average rating, or number of customers served.",
+        content_3: "• Mix visuals: one static with a direct benefit + one short video showing navigation/result.",
+        content_4: "• Test 2–3 CTAs: “View offers”, “Simulate now”, “Book a visit” depending on funnel stage.",
+        charts_title: "Interactive charts",
+        open_report: "Open comparative report",
+        chart_views: "Views over time",
+        chart_spend: "Spend over time",
+        chart_cpv: "Cost per view over time",
+        chart_ctr: "CTR trend",
+        chart_views_by_campaign: "Views by campaign and month",
+        sales_title: "Sales Overview",
+        sales_open_report: "Open sales report",
+        sales_total_label: "Total sales",
+        sales_period_label: "2019–2025",
+        sales_revenue_label: "Total revenue",
+        sales_ticket_label: "Avg ticket €9.93k",
+        sales_margin_label: "Net margin",
+        sales_margin_pct: "12.1% of revenue",
+        sales_last12_label: "Last 12 months",
+        sales_last12_revenue: "€1.05M revenue",
+        sales_chart_revenue: "Monthly revenue",
+        sales_chart_count: "Sales per month",
+        sales_chart_margin: "Monthly net margin",
+        sales_chart_live_title: "Monthly performance (revenue and volume)",
+        sales_origin_chart_title: "Sales sources over the period",
+        sales_monthly_title: "Monthly sales",
+        sales_monthly_year_label: "Year:",
+        sales_change_title: "Monthly sales change",
+        sales_change_year_label: "Year:",
+        sales_brand_title: "Top brands (by volume)",
+        sales_brand_1: "Volkswagen: 33 sales | €367.7k revenue",
+        sales_brand_2: "Renault: 30 sales | €203.1k revenue",
+        sales_brand_3: "Opel: 23 sales | €152.5k revenue",
+        sales_brand_4: "Peugeot: 18 sales | €233.7k revenue",
+        sales_brand_5: "Audi: 17 sales | €232.4k revenue",
+        sales_origin_title: "Customer source (top 5)",
+        sales_origin_1: "StandVirtual: 140 sales | €1.71M revenue",
+        sales_origin_2: "Friend: 40 sales | €347.7k revenue",
+        sales_origin_3: "Other: 21 sales | €198.2k revenue",
+        sales_origin_4: "Social media: 16 sales | €141.9k revenue",
+        sales_origin_5: "Google: 4 sales | €32.1k revenue",
+        sales_insights_title: "Chart interpretation",
+        sales_insight_1: "• Monthly revenue fluctuates with peaks in H2 2025, concentrating volume between July and September.",
+        sales_insight_2: "• StandVirtual leads the period with over half of sales, showing heavy channel dependence.",
+        sales_insight_3: "• In 2025, biggest jumps appear in February and August; sharpest drops in June and March.",
+        customers_title: "Customer Sources",
+        customers_source_hint: "Source: data/client202512231650395.xlsx",
+        customers_total_label: "Total customers",
+        customers_period_label: "2023–2025",
+        customers_top_label: "Top origin",
+        customers_top_share: "160 customers (48.2%)",
+        customers_focus_label: "Recommended focus",
+        customers_focus_value: "Diversify channels",
+        customers_focus_hint: "Reduce dependence on top 1",
+        customers_chart_title: "Origin distribution over the period",
+        customers_alignment_title: "Clients vs sales by source (monthly)",
+        customers_alignment_filter: "Source:",
+        customers_margin_title: "Net margin per client (by source)",
+        sources_title: "Sources",
+        source_csv: "CSV: data/autotrust_ads.csv",
+        source_report: "Comparative report: comparative_report.md",
+        source_sales: "Sales: data/sale2025122315296397.xlsx",
+        source_customers: "Customers: data/client202512231650395.xlsx",
+        howto_title: "How to view",
+        howto_1: "Open this file directly in your browser: dashboard.html.",
+        howto_2: "Interactive panels use Plotly exports in charts/.",
+        howto_3: "Update data and run python src/main.py to regenerate charts before refreshing."
+      }
+    };
+
+    const tabButtons = document.querySelectorAll("[data-tab-target]");
+    const tabPanels = document.querySelectorAll("[data-tab-panel]");
+    const tabLinks = document.querySelectorAll("[data-tab-link]");
+
+    function setTab(tab) {
+      currentTab = tab;
+      tabPanels.forEach((panel) => {
+        panel.classList.toggle("hidden", panel.dataset.tabPanel !== tab);
+      });
+      tabButtons.forEach((btn) => {
+        btn.classList.toggle("tab-active", btn.dataset.tabTarget === tab);
+      });
+      if (tab === "sales") {
+        renderSalesChart();
+        renderSalesOriginChart();
+        renderSales2025MonthlyChart();
+        renderSales2025ChangeChart();
+      }
+      if (tab === "customers") {
+        renderCustomerOriginChart();
+        renderCustomerSalesAlignmentChart();
+        renderCustomerMarginPerClientChart();
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabButtons.forEach((btn) =>
+      btn.addEventListener("click", () => setTab(btn.dataset.tabTarget))
+    );
+    tabLinks.forEach((btn) =>
+      btn.addEventListener("click", () => setTab(btn.dataset.tabLink))
+    );
+
+    const langButtons = document.querySelectorAll("[data-set-lang]");
+    function applyLang(lang) {
+      currentLang = lang === "en" ? "en" : "pt";
+      const dict = translations[lang] || translations.pt;
+      document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.textContent = dict[key];
+      });
+      langButtons.forEach((btn) => {
+        btn.classList.toggle("lang-active", btn.dataset.setLang === lang);
+      });
+      if (typeof window.updateCustomerAlignmentChart === "function") {
+        window.updateCustomerAlignmentChart(currentLang);
+      }
+      if (typeof renderCustomerMarginPerClientChart === "function") {
+        renderCustomerMarginPerClientChart();
+      }
+    }
+    langButtons.forEach((btn) =>
+      btn.addEventListener("click", () => applyLang(btn.dataset.setLang))
+    );
+    applyLang("pt");
+    setTab("landing");
+  </script>
+</body>
+</html>
