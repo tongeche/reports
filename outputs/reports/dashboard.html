@@ -340,6 +340,10 @@
         <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-live-chart"></div>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="text-sm text-slate-300 mb-3" data-i18n="sales_yearly_chart_title">Total de carros vendidos por ano</div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-yearly-chart"></div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
         <div class="text-sm text-slate-300 mb-3" data-i18n="sales_origin_chart_title">Origem das vendas no período</div>
         <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-origin-chart"></div>
       </div>
@@ -667,6 +671,49 @@
       };
 
       Plotly.newPlot(chartEl, [salesTrace, revenueTrace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSalesYearlyChart() {
+      const chartEl = document.getElementById("sales-yearly-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      const totals = salesChartData.months.reduce((acc, month, idx) => {
+        const year = month.slice(0, 4);
+        const value = salesChartData.sales[idx] || 0;
+        acc[year] = (acc[year] || 0) + value;
+        return acc;
+      }, {});
+      const years = Object.keys(totals).sort();
+      const values = years.map((year) => totals[year]);
+
+      const trace = {
+        x: years,
+        y: values,
+        type: "bar",
+        name: "Vendas",
+        marker: { color: "rgba(139,233,180,0.7)" },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Carros vendidos",
+          titlefont: { color: "#8be9b4" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
         displayModeBar: false,
         responsive: true
       });
@@ -1076,6 +1123,7 @@
         sales_chart_margin: "Margem líquida mensal",
         sales_chart_live_title: "Desempenho mensal (receita e volume)",
         sales_origin_chart_title: "Origem das vendas no período",
+        sales_yearly_chart_title: "Total de carros vendidos por ano",
         sales_monthly_title: "Vendas mensais",
         sales_monthly_year_label: "Ano:",
         sales_change_title: "Variação mensal de vendas",
@@ -1214,6 +1262,7 @@
         sales_chart_margin: "Monthly net margin",
         sales_chart_live_title: "Monthly performance (revenue and volume)",
         sales_origin_chart_title: "Sales sources over the period",
+        sales_yearly_chart_title: "Total cars sold per year",
         sales_monthly_title: "Monthly sales",
         sales_monthly_year_label: "Year:",
         sales_change_title: "Monthly sales change",
@@ -1274,6 +1323,7 @@
       if (tab === "sales") {
         renderSalesChart();
         renderSalesOriginChart();
+        renderSalesYearlyChart();
         renderSales2025MonthlyChart();
         renderSales2025ChangeChart();
       }
