@@ -2,3 +2,4 @@ pandas>=2.1
 matplotlib>=3.7
 python-dotenv>=1.0
 plotly>=5.18
+pypdf>=6.5

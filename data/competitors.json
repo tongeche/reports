@@ -1,0 +1,452 @@
+[
+  {
+    "competitor_id": "AT-COMP-001",
+    "name": "Filinto Mota",
+    "category": "High-Threat Competitors",
+    "email": "geral@filintomota.pt",
+    "mobile": "800 22 55 88",
+    "links": [
+      "filintomota.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-002",
+    "name": "Tribalcar",
+    "category": "High-Threat Competitors",
+    "email": "ruifilipemelo@tribalcar.pt",
+    "mobile": "912 750 509",
+    "links": [
+      "tribalcar.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-003",
+    "name": "Auto Maiamotor",
+    "category": "High-Threat Competitors",
+    "email": "geral@automaiamotor.pt",
+    "mobile": "229 414 134",
+    "links": [
+      "automaiamotor.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-004",
+    "name": "VF Motors",
+    "category": "High-Threat Competitors",
+    "email": "vendas@vfmotors.pt",
+    "mobile": "220 946 007",
+    "links": [
+      "vfmotors.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-005",
+    "name": "Nortecar",
+    "category": "High-Threat Competitors",
+    "email": "geral@nortecar.com",
+    "mobile": "910 283 338",
+    "links": [
+      "nortecar.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-006",
+    "name": "GTBAuto",
+    "category": "High-Threat Competitors",
+    "email": "marketing@gtbauto.pt",
+    "mobile": "221 143 585",
+    "links": [
+      "gtbauto.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-007",
+    "name": "DGAuto",
+    "category": "High-Threat Competitors",
+    "email": "vendas@dgauto.pt",
+    "mobile": "934 003 544",
+    "links": [
+      "dgauto.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-008",
+    "name": "NN Automóveis",
+    "category": "High-Threat Competitors",
+    "email": "geralnnautomoveis@sapo.pt",
+    "mobile": "967 067 771",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-009",
+    "name": "Oportocar",
+    "category": "High-Threat Competitors",
+    "email": "oportocar@gmail.com",
+    "mobile": "917 000 505",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-010",
+    "name": "AV Sport Automóveis",
+    "category": "High-Threat Competitors",
+    "email": "avsport@sapo.pt",
+    "mobile": "917 347 452",
+    "links": [
+      "sapo.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-011",
+    "name": "Stand Nacional",
+    "category": "High-Threat Competitors",
+    "email": "standnacional@standnacional.com",
+    "mobile": "911 118 528",
+    "links": [
+      "standnacional.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-012",
+    "name": "Soca Automóveis",
+    "category": "High-Threat Competitors",
+    "email": "geral@soca.pt",
+    "mobile": "915 253 839",
+    "links": [
+      "soca.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-013",
+    "name": "Daniel Auto",
+    "category": "High-Threat Competitors",
+    "email": "daniel.automoveis.lda@gmail.com",
+    "mobile": "227 451 311",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-014",
+    "name": "Equação Motor",
+    "category": "High-Threat Competitors",
+    "email": "equacaomotor@easyleads.pt",
+    "mobile": "960 473 853",
+    "links": [
+      "easyleads.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-015",
+    "name": "F2Car",
+    "category": "High-Threat Competitors",
+    "email": "geral@f2car.com",
+    "mobile": "220 964 548",
+    "links": [
+      "f2car.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-016",
+    "name": "Pinto & Sousa",
+    "category": "Strong Regional",
+    "email": "standpintoesousaautomoveis@gmail.com",
+    "mobile": "919 471 070",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-017",
+    "name": "Rafael Leitão Automóveis",
+    "category": "Strong Regional",
+    "email": "leitaoautomoveis@gmail.com",
+    "mobile": "912 264 662",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-018",
+    "name": "Stand 222",
+    "category": "Strong Regional",
+    "email": "geral@stand222.pt",
+    "mobile": "919 695 948",
+    "links": [
+      "stand222.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-019",
+    "name": "Automóveis Alvarinho",
+    "category": "Strong Regional",
+    "email": "automoveis.alvarinho@gmail.com",
+    "mobile": "224 642 609",
+    "links": [
+      "gmail.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-020",
+    "name": "Auto 29",
+    "category": "Strong Regional",
+    "email": "auto29automoveis@sapo.pt",
+    "mobile": "913 011 512",
+    "links": [
+      "sapo.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-021",
+    "name": "AlmeidaCar",
+    "category": "Strong Regional",
+    "email": "geral@almeidacar.com",
+    "mobile": "913 083 011",
+    "links": [
+      "almeidacar.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-022",
+    "name": "STS Automóveis",
+    "category": "Strong Regional",
+    "email": "sts.pedropereira@gmail.com",
+    "mobile": "933 877 487",
+    "links": [
+      "gmail.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-023",
+    "name": "Camões Car",
+    "category": "Strong Regional",
+    "email": "geral@camoescar.pt",
+    "mobile": "963 072 873",
+    "links": [
+      "camoescar.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-024",
+    "name": "RS CAR",
+    "category": "Strong Regional",
+    "email": "geral@standrscar.pt",
+    "mobile": "917 582 780",
+    "links": [
+      "standrscar.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-025",
+    "name": "OP Automóveis",
+    "category": "Strong Regional",
+    "email": "geral@opautomoveis.com",
+    "mobile": "917 515 141",
+    "links": [
+      "opautomoveis.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-026",
+    "name": "Iatcar",
+    "category": "Strong Regional",
+    "email": "comercial@iatcar.com",
+    "mobile": "911 154 991",
+    "links": [
+      "iatcar.com"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-027",
+    "name": "Carmisio",
+    "category": "Strong Regional",
+    "email": "miguelramalho@carmisio.pt",
+    "mobile": "229 371 080",
+    "links": [
+      "carmisio.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-028",
+    "name": "Navicar",
+    "category": "Strong Regional",
+    "email": "Geral@navicar.pt",
+    "mobile": "915 641 665",
+    "links": [
+      "navicar.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-029",
+    "name": "JP Automóveis",
+    "category": "Strong Regional",
+    "email": "jpautomovel2022@gmail.com",
+    "mobile": "914 412 413",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-030",
+    "name": "504 Automóveis",
+    "category": "Strong Regional",
+    "email": "504automoveis@gmail.com",
+    "mobile": "916 831 974",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-031",
+    "name": "Look Car Automóveis",
+    "category": "Strong Regional",
+    "email": "lookcarautomoveis@gmail.com",
+    "mobile": "914 860 695",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-032",
+    "name": "THECAR",
+    "category": "Indirect Competitors",
+    "email": "geral@thecar.pt",
+    "mobile": "919 703 290",
+    "links": [
+      "thecar.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-033",
+    "name": "FL Automóveis",
+    "category": "Indirect Competitors",
+    "email": "geral.flautomoveis@gmail.com",
+    "mobile": "911 899 090",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-034",
+    "name": "APMotors",
+    "category": "Indirect Competitors",
+    "email": "geral@apmotors.pt",
+    "mobile": "916 407 644",
+    "links": [
+      "apmotors.pt"
+    ]
+  },
+  {
+    "competitor_id": "AT-COMP-035",
+    "name": "S&S Car",
+    "category": "Indirect Competitors",
+    "email": "santoscar2015@outlook.pt",
+    "mobile": "938 273 822",
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-036",
+    "name": "VRP Automóveis",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-037",
+    "name": "Auto4S",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-038",
+    "name": "Moreira Automóveis",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-039",
+    "name": "Roger Ajato Automóveis",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-040",
+    "name": "ADS Automóveis",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-041",
+    "name": "CarSousa",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-042",
+    "name": "Adriano Santos Automóveis",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-043",
+    "name": "Benecar",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-044",
+    "name": "Carplus",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-045",
+    "name": "Souto Automóveis",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-046",
+    "name": "Standvirtual",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-047",
+    "name": "CustoJusto",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-048",
+    "name": "OLX Autos",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-049",
+    "name": "Facebook Marketplace",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  },
+  {
+    "competitor_id": "AT-COMP-050",
+    "name": "Dealer informal FB groups",
+    "category": "Indirect Competitors",
+    "email": null,
+    "mobile": null,
+    "links": []
+  }
+]

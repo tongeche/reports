@@ -1,0 +1,138 @@
+{
+  "generatedAt": "2026-01-06T16:46:15Z",
+  "reports": [
+    {
+      "source": "Relatório - Meta Ads @ Autotrust.pdf",
+      "period": null,
+      "label": null,
+      "status": "no_text",
+      "notes": [
+        "Text extraction failed; the PDF may be image-based. Provide OCR or a text-friendly version."
+      ]
+    },
+    {
+      "source": "Relatório novembro - Meta Ads @ Autotrust.pdf",
+      "period": "2025-11",
+      "label": "Novembro 2025",
+      "overall": {
+        "landingPageViews": 13531,
+        "spend": 480.66,
+        "currency": "EUR",
+        "cpv": 0.0355
+      },
+      "funnels": [
+        {
+          "name": "Topo de funil - Maia",
+          "landingPageViews": 2899,
+          "spend": 149.76,
+          "currency": "EUR",
+          "cpv": 0.05,
+          "ctr": 2.98,
+          "bestAds": [
+            {
+              "name": "BMW 330e",
+              "landingPageViews": 1162
+            },
+            {
+              "name": "BMW CE 04",
+              "landingPageViews": 463
+            }
+          ]
+        },
+        {
+          "name": "Topo de funil - Portugal",
+          "landingPageViews": 7245,
+          "spend": 195.46,
+          "currency": "EUR",
+          "cpv": 0.03,
+          "ctr": 4.29,
+          "bestAds": [
+            {
+              "name": "BMW 520",
+              "landingPageViews": 4142
+            },
+            {
+              "name": "Citröen C4",
+              "landingPageViews": 485
+            }
+          ]
+        },
+        {
+          "name": "Remarketing",
+          "landingPageViews": 5587,
+          "spend": 135.44,
+          "currency": "EUR",
+          "cpv": 0.02,
+          "ctr": 4.19,
+          "bestAds": [
+            {
+              "name": "BMW 325d",
+              "landingPageViews": 3181
+            }
+          ]
+        }
+      ],
+      "soldCars": [],
+      "status": "ok"
+    },
+    {
+      "source": "Relatório outubro - Meta Ads @ Autotrust.pdf",
+      "period": "2025-10",
+      "label": "Outubro 2025",
+      "overall": {
+        "landingPageViews": 12976,
+        "spend": 495.02,
+        "currency": "EUR",
+        "cpv": 0.0381
+      },
+      "funnels": [
+        {
+          "name": "Topo de funil - Maia",
+          "landingPageViews": 2566,
+          "spend": 154.76,
+          "currency": "EUR",
+          "cpv": 0.06,
+          "ctr": 2.7,
+          "bestAds": [
+            {
+              "name": "BMW 330e",
+              "landingPageViews": 2283
+            }
+          ]
+        },
+        {
+          "name": "Topo de funil - Portugal",
+          "landingPageViews": 7042,
+          "spend": 201.02,
+          "currency": "EUR",
+          "cpv": 0.03,
+          "ctr": 4.67,
+          "bestAds": [
+            {
+              "name": "Audi Sportback S-Line",
+              "landingPageViews": 4116
+            }
+          ]
+        },
+        {
+          "name": "Remarketing",
+          "landingPageViews": 3368,
+          "spend": 139.24,
+          "currency": "EUR",
+          "cpv": 0.04,
+          "ctr": 3.82,
+          "bestAds": [
+            {
+              "name": "VW Golf 1.6 TD",
+              "landingPageViews": 2692
+            }
+          ]
+        }
+      ],
+      "soldCars": [
+        "VW Golf Variant"
+      ],
+      "status": "ok"
+    }
+  ]
+}

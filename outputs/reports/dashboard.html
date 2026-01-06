@@ -46,11 +46,10 @@
         <div class="glass shadow-panel rounded-2xl px-4 py-3 flex flex-wrap items-center gap-3 text-sm text-slate-200 sticky top-4 z-20">
           <span class="text-xs uppercase tracking-[0.2em] text-slate-400" data-i18n="tab_title">Dashboard</span>
           <div class="flex flex-wrap gap-2">
-            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="landing" data-i18n="tab_overview">Visão geral</button>
-            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="ads" data-i18n="tab_ads">Meta Ads</button>
-            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="sales" data-i18n="tab_sales">Vendas</button>
-            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="customers" data-i18n="tab_customers">Clientes</button>
-            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="sources" data-i18n="tab_sources">Fontes</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="sales">Vendas</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="competitors">Competition</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="ads">Ads</button>
+            <button class="tab-button px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-tab-target="customers">leads</button>
           </div>
           <div class="ml-auto flex gap-2">
             <button data-set-lang="pt" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-xs">PT</button>
@@ -88,219 +87,37 @@
       </section>
 
       <section class="max-w-6xl mx-auto pt-10 flex flex-col gap-6 hidden" data-tab-panel="ads">
-      <nav class="max-w-6xl mx-auto mb-6">
-      <div class="glass shadow-panel rounded-2xl px-4 py-3 flex flex-wrap items-center gap-3 text-sm text-slate-200">
-        <span class="uppercase text-xs tracking-wide text-slate-400" data-i18n="nav_label">Navegar por mês:</span>
-        <div class="flex flex-wrap gap-2">
-          <a href="#set-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_sep">Set 2025</a>
-          <a href="#out-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_oct">Out 2025</a>
-          <a href="#nov-2025" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="nav_nov">Nov 2025</a>
-        </div>
-      </div>
-    </nav>
-
-    <section class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_views_label">Visualizações (LPV) recentes</p>
-        <p class="text-3xl font-display font-semibold">13,531</p>
-        <p class="text-sm text-slate-400" data-i18n="summary_latest_month">Nov 2025</p>
-      </div>
-      <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_spend_label">Investimento recente</p>
-        <p class="text-3xl font-display font-semibold">€480.66</p>
-        <p class="text-sm text-slate-400" data-i18n="summary_cpv_hint">CPV médio €0.04</p>
-      </div>
-      <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_ctr_label">CTR ponderado</p>
-        <p class="text-3xl font-display font-semibold">4.0%</p>
-        <p class="text-sm text-slate-400" data-i18n="summary_ctr_delta">Nov vs Out: -0.0 pts</p>
-      </div>
-      <div class="glass shadow-panel rounded-2xl p-4">
-        <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="summary_eff_label">Líder em eficiência</p>
-        <p class="text-xl font-display font-semibold">Remarketing</p>
-        <p class="text-sm text-slate-400" data-i18n="summary_eff_hint">CPV €0.02 • CTR 4.2%</p>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto mt-8 flex flex-col gap-4" id="set-2025">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-neon"></span>
-        <h2 class="text-xl font-display font-semibold" data-i18n="sep_heading">Setembro 2025</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
-          <p class="text-2xl font-display font-semibold">10,885</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
-          <p class="text-2xl font-display font-semibold">€478.17</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
-          <p class="text-2xl font-display font-semibold">€0.04</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
-          <p class="text-2xl font-display font-semibold">3.7%</p>
-        </div>
-      </div>
-      <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_sep_title">Sugestões para Setembro</p>
-        <ul class="space-y-2">
-          <li data-i18n="sug_sep_1">• Manter TOF focado em criativos de alta CTR (Portugal) e realocar spend de segmentos com CPV alto.</li>
-          <li data-i18n="sug_sep_2">• Testar variações de cópia curta para Remarketing para expandir volume sem perder CPV.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto mt-6 flex flex-col gap-4" id="out-2025">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-aqua"></span>
-        <h2 class="text-xl font-display font-semibold" data-i18n="oct_heading">Outubro 2025</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
-          <p class="text-2xl font-display font-semibold">12,976</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
-          <p class="text-2xl font-display font-semibold">€495.02</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
-          <p class="text-2xl font-display font-semibold">€0.04</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
-          <p class="text-2xl font-display font-semibold">4.1%</p>
-        </div>
-      </div>
-      <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_oct_title">Sugestões para Outubro</p>
-        <ul class="space-y-2">
-          <li data-i18n="sug_oct_1">• Preservar CPV: redistribuir 5–10% do spend de Maia TOF para Portugal TOF (melhor CTR) e Remarketing.</li>
-          <li data-i18n="sug_oct_2">• Aumentar frequência em Remarketing com criativos atualizados semanalmente para evitar fadiga.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto mt-6 flex flex-col gap-4" id="nov-2025">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-coral"></span>
-        <h2 class="text-xl font-display font-semibold" data-i18n="nov_heading">Novembro 2025</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_views">Views</p>
-          <p class="text-2xl font-display font-semibold">13,531</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_spend">Investimento</p>
-          <p class="text-2xl font-display font-semibold">€480.66</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_cpv">CPV médio</p>
-          <p class="text-2xl font-display font-semibold">€0.04</p>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4">
-          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="label_ctr">CTR ponderado</p>
-          <p class="text-2xl font-display font-semibold">4.0%</p>
-        </div>
-      </div>
-      <div class="glass shadow-panel rounded-2xl p-4 text-sm text-slate-200">
-        <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sug_nov_title">Sugestões para Novembro</p>
-        <ul class="space-y-2">
-          <li data-i18n="sug_nov_1">• Manter o ganho de views com spend menor: realocar 10–15% de Maia TOF para Remarketing (melhor eficiência).</li>
-          <li data-i18n="sug_nov_2">• Replicar criativos vencedores de Portugal TOF em Maia TOF; testar hooks mobile-first e ângulos de prova social.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
-      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-neon"></span>
-          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="mom_title">Variações MoM — Nov 2025</p>
-        </div>
-        <ul class="text-sm text-slate-200 space-y-2">
-          <li data-i18n="mom_1">Remarketing: Views 65.9%, Spend -2.7%, CPV -50.0%, CTR 9.7%</li>
-          <li data-i18n="mom_2">Maia TOF: Views 13.0%, Spend -3.2%, CPV -16.7%, CTR 10.4%</li>
-          <li data-i18n="mom_3">Portugal TOF: Views 2.9%, Spend -2.8%, CPV 0.0%, CTR -8.1%</li>
-        </ul>
-        <p class="text-xs text-slate-400 mt-2" data-i18n="source_label">Fonte: outputs/reports/comparative_report.md</p>
-      </div>
-      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-coral"></span>
-          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="actionable_title">Sugestões acionáveis</p>
-        </div>
-        <ul class="text-sm text-slate-200 space-y-2">
-          <li data-i18n="act_1">Realocar ~10–15% do investimento de Maia TOF para Remarketing (melhor CPV/eficiência) para explorar o inventário mais forte.</li>
-          <li data-i18n="act_2">Reaproveitar criativos vencedores de Portugal TOF (líder em CTR) para elevar Maia TOF; priorizar variações mobile-first e ganchos curtos.</li>
-          <li data-i18n="act_3">Manter o pacing onde as visualizações crescem (views Nov +4.3% com spend -2.9%); pausar bolsões de CPV alto em Maia TOF e reinvestir em Remarketing.</li>
-          <li data-i18n="act_4">Rodar dois testes semanais: (1) refresh de headline/copy para TOF, (2) teste de frequência no retargeting para sustentar CTR sem inflar CPV.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
-      <div class="glass shadow-panel rounded-2xl p-6 flex flex-col gap-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-white"></span>
-          <p class="text-sm uppercase tracking-wide text-slate-300" data-i18n="content_title">Sugestões de conteúdo para anúncios</p>
-        </div>
-        <ul class="text-sm text-slate-200 space-y-2">
-          <li data-i18n="content_1">• Criativos mobile-first com primeiras linhas fortes destacando valor (ex.: revisão rápida, entrega, confiança/autotrust).</li>
-          <li data-i18n="content_2">• Prova social: depoimentos curtos, classificação média ou números de clientes atendidos.</li>
-          <li data-i18n="content_3">• Combinar visuais: 1 estático com benefício direto + 1 vídeo curto mostrando navegação/resultado.</li>
-          <li data-i18n="content_4">• Testar 2–3 CTAs: “Ver ofertas”, “Simular agora”, “Marcar visita” conforme etapa do funil.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-4">
-      <div class="flex items-center justify-between gap-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-aqua"></span>
-          <h2 class="text-xl font-display font-semibold" data-i18n="charts_title">Gráficos interativos</h2>
-        </div>
-        <a class="text-sm text-aqua hover:text-white underline underline-offset-4" href="comparative_report.md" data-i18n="open_report">Abrir relatório comparativo</a>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_views">Visualizações ao longo do tempo</div>
-          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
-            <iframe src="../charts/interactive_views_over_time.html" title="Views over time"></iframe>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="glass shadow-panel rounded-2xl p-4">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="ads_total_spend_label">Investimento total</p>
+            <p class="text-3xl font-display font-semibold" id="ads-total-spend">—</p>
+            <p class="text-sm text-slate-400">
+              <span data-i18n="ads_period_label">Período:</span>
+              <span id="ads-period-value">—</span>
+            </p>
+          </div>
+          <div class="glass shadow-panel rounded-2xl p-4">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="ads_total_views_label">Visualizações totais (LPV)</p>
+            <p class="text-3xl font-display font-semibold" id="ads-total-views">—</p>
+            <p class="text-sm text-slate-400">
+              <span data-i18n="ads_reports_label">Relatórios:</span>
+              <span id="ads-reports-value">—</span>
+            </p>
+          </div>
+          <div class="glass shadow-panel rounded-2xl p-4">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="ads_avg_cpv_label">CPV médio</p>
+            <p class="text-3xl font-display font-semibold" id="ads-avg-cpv">—</p>
+            <p class="text-sm text-slate-400" data-i18n="ads_avg_cpv_hint">€ por visualização</p>
+          </div>
+          <div class="glass shadow-panel rounded-2xl p-4">
+            <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="ads_best_ctr_label">Melhor CTR</p>
+            <p class="text-3xl font-display font-semibold" id="ads-best-ctr">—</p>
+            <p class="text-sm text-slate-400">
+              <span data-i18n="ads_best_ctr_hint">Funil:</span>
+              <span id="ads-best-ctr-name">—</span>
+            </p>
           </div>
         </div>
-        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_spend">Investimento ao longo do tempo</div>
-          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
-            <iframe src="../charts/interactive_spend_over_time.html" title="Spend over time"></iframe>
-          </div>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_cpv">Custo por view ao longo do tempo</div>
-          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
-            <iframe src="../charts/interactive_cost_per_view_over_time.html" title="Cost per view over time"></iframe>
-          </div>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_ctr">Tendência de CTR</div>
-          <div class="h-[300px] sm:h-[320px] lg:h-[340px]">
-            <iframe src="../charts/interactive_ctr_trend.html" title="CTR trend"></iframe>
-          </div>
-        </div>
-        <div class="glass shadow-panel rounded-2xl p-4 lg:col-span-2 min-h-[360px]">
-          <div class="text-sm text-slate-300 mb-3" data-i18n="chart_views_by_campaign">Visualizações por campanha e mês</div>
-          <div class="h-[320px] sm:h-[360px] lg:h-[420px]">
-            <iframe src="../charts/interactive_views_by_campaign_month.html" title="Views by campaign and month"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
       </section>
 
     <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5 hidden" data-tab-panel="sales" id="sales">
@@ -346,6 +163,32 @@
       <div class="glass shadow-panel rounded-2xl p-4">
         <div class="text-sm text-slate-300 mb-3" data-i18n="sales_origin_chart_title">Origem das vendas no período</div>
         <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-origin-chart"></div>
+      </div>
+      <div class="flex justify-end">
+        <div class="flex items-center gap-2 text-xs text-slate-300">
+          <span data-i18n="sales_make_model_year_label">Ano:</span>
+          <select id="sales-make-model-year-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <div class="text-sm text-slate-300 mb-3" data-i18n="sales_make_chart_title">Vendas por marca</div>
+          <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-make-chart"></div>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4">
+          <div class="text-sm text-slate-300 mb-3" data-i18n="sales_model_chart_title">Vendas por modelo</div>
+          <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-model-chart"></div>
+        </div>
+      </div>
+      <div class="glass shadow-panel rounded-2xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+          <div class="text-sm text-slate-300" data-i18n="sales_brand_monthly_title">Vendas mensais por marca</div>
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span data-i18n="sales_brand_label">Marca:</span>
+            <select id="sales-brand-monthly-select" class="bg-white/10 border border-white/10 rounded-full px-3 py-1 text-slate-100"></select>
+          </div>
+        </div>
+        <div class="h-[320px] sm:h-[380px] lg:h-[420px]" id="sales-brand-monthly-chart"></div>
       </div>
       <div class="glass shadow-panel rounded-2xl p-4">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
@@ -448,6 +291,31 @@
       </div>
     </section>
 
+    <section class="max-w-6xl mx-auto mt-10 flex flex-col gap-5 hidden" data-tab-panel="competitors" id="competitors">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-coral"></span>
+          <h2 class="text-xl font-display font-semibold" data-i18n="competitors_title">Análise de Concorrentes</h2>
+        </div>
+        <span class="text-sm text-slate-400" data-i18n="competitors_source_hint">Base: data/competitors.json</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass shadow-panel rounded-2xl p-4 flex flex-col gap-2">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="competitors_overview_title">Visão geral</p>
+          <p class="text-sm text-slate-200" data-i18n="competitors_overview_body">Os concorrentes já estão estruturados em JSON para análise. Próximo passo: adicionar métricas e insights.</p>
+        </div>
+        <div class="glass shadow-panel rounded-2xl p-4 flex flex-col gap-2">
+          <p class="text-xs uppercase tracking-wide text-slate-400" data-i18n="competitors_next_title">Próximos passos</p>
+          <ul class="text-sm text-slate-200 space-y-2">
+            <li data-i18n="competitors_next_1">• Definir critérios (preço, inventário, alcance digital, região).</li>
+            <li data-i18n="competitors_next_2">• Pontuar por categoria para gerar ranking.</li>
+            <li data-i18n="competitors_next_3">• Cruzar com canais de aquisição e ofertas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300 hidden" data-tab-panel="sources" id="sources">
       <div class="glass shadow-panel rounded-2xl p-4">
         <p class="uppercase text-xs tracking-wide text-slate-400 mb-2" data-i18n="sources_title">Fontes</p>
@@ -463,28 +331,2688 @@
           <li data-i18n="howto_2">Os painéis interativos usam os exports do Plotly em <span class="text-white">outputs/charts/</span>.</li>
           <li data-i18n="howto_3">Atualize os dados e rode <code>python src/main.py</code> para regenerar os gráficos antes de recarregar a página.</li>
         </ol>
+        <div class="mt-3 flex flex-col gap-2 text-xs text-slate-300">
+          <div class="flex flex-wrap items-center gap-2">
+            <span data-i18n="update_command_label">Atualizar dashboards de vendas:</span>
+            <code class="px-2 py-1 rounded bg-white/10">make refresh-sales</code>
+            <button id="copy-sales-command" class="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition" data-i18n="update_command_copy">Copiar comando</button>
+            <span id="copy-sales-command-status" class="text-slate-400"></span>
+          </div>
+          <div class="text-slate-400" data-i18n="update_command_alt">Alternativa: python3 src/sales_dashboard.py</div>
+        </div>
       </div>
     </section>
     </main>
   </div>
   <script>
     let currentLang = "pt";
+    const adsReportsData = {
+      "generatedAt": "",
+      "reports": []
+    };
     const salesChartData = {
-      months: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
-      revenue: [28390.0,23400.0,50700.0,31300.0,61400.0,17800.0,8415.0,34200.0,14900.0,24050.0,43500.0,32850.0,15500.0,22800.0,41500.0,21400.0,10900.0,23300.0,38200.0,16400.0,52700.0,15400.0,11900.0,107100.0,82500.0,30300.0,71700.0,25500.0,16800.0,24900.0,5350.0,20000.0,42400.0,78000.0,17000.0,42390.0,35000.0,55300.0,4800.0,19900.0,1350.0,2700.0,59800.0,17200.0,22400.0,12200.0,17700.0,24400.0,15700.0,56700.0,53400.0,12000.0,43900.0,12700.0,9300.0,89900.0,54700.0,48600.0,80900.0,34300.0,69100.0,29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0],
-      sales: [2,5,9,5,10,2,3,5,4,3,5,6,2,1,4,1,3,1,3,2,3,2,2,4,4,2,5,3,2,1,2,1,5,2,0,3,2,2,1,2,1,1,6,2,2,2,2,2,1,4,4,3,4,2,2,6,7,5,7,3,5,4,11,4,8,12,5,8,13,10,8,8,5],
-      netMargin: [6831.36,5750.14,11565.26,3332.65,12881.68,2955.01,231.04,4647.27,1700.6,3224.71,6734.34,4332.64,3685.48,3226.51,7600.61,1340.49,1131.75,3124.41,5213.82,1208.24,7941.28,-48.43,967.27,11883.97,9203.32,5534.27,1478.05,2033.05,91.48,2476.71,126.96,4246.54,4177.13,4633.55,2810.73,6435.91,-2013.81,6590.65,452.21,2918.01,-1806.97,-1940.62,12702.48,3679.73,4309.65,3141.45,3589.58,472.09,1139.65,2441.94,8030.84,1384.01,5357.67,1662.5,1242.6,8178.0,2572.15,8572.2,9583.07,4496.44,5691.36,4807.22,18857.79,4258.38,1012.27,10373.83,5751.72,6322.71,18145.66,10314.76,10124.77,16837.48,15299.97]
+      "months": [
+        "2019-10",
+        "2019-11",
+        "2019-12",
+        "2020-01",
+        "2020-02",
+        "2020-03",
+        "2020-04",
+        "2020-05",
+        "2020-06",
+        "2020-07",
+        "2020-08",
+        "2020-09",
+        "2020-10",
+        "2020-11",
+        "2020-12",
+        "2021-01",
+        "2021-02",
+        "2021-03",
+        "2021-04",
+        "2021-05",
+        "2021-06",
+        "2021-07",
+        "2021-08",
+        "2021-09",
+        "2021-10",
+        "2021-11",
+        "2021-12",
+        "2022-01",
+        "2022-02",
+        "2022-03",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11",
+        "2022-12",
+        "2023-01",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08",
+        "2023-09",
+        "2023-10",
+        "2023-11",
+        "2023-12",
+        "2024-01",
+        "2024-02",
+        "2024-03",
+        "2024-04",
+        "2024-05",
+        "2024-06",
+        "2024-07",
+        "2024-08",
+        "2024-09",
+        "2024-10",
+        "2024-11",
+        "2024-12",
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "revenue": [
+        28390.0,
+        23400.0,
+        50700.0,
+        31300.0,
+        61400.0,
+        17800.0,
+        8415.0,
+        34200.0,
+        14900.0,
+        24050.0,
+        43500.0,
+        32850.0,
+        15500.0,
+        22800.0,
+        41500.0,
+        21400.0,
+        10900.0,
+        23300.0,
+        38200.0,
+        16400.0,
+        52700.0,
+        15400.0,
+        11900.0,
+        107100.0,
+        82500.0,
+        30300.0,
+        71700.0,
+        25500.0,
+        16800.0,
+        24900.0,
+        5350.0,
+        20000.0,
+        42400.0,
+        78000.0,
+        17000.0,
+        42390.0,
+        35000.0,
+        55300.0,
+        4800.0,
+        19900.0,
+        1350.0,
+        2700.0,
+        59800.0,
+        17200.0,
+        22400.0,
+        12200.0,
+        17700.0,
+        24400.0,
+        15700.0,
+        56700.0,
+        53400.0,
+        12000.0,
+        43900.0,
+        12700.0,
+        9300.0,
+        89900.0,
+        54700.0,
+        48600.0,
+        80900.0,
+        34300.0,
+        69100.0,
+        29100.0,
+        116400.0,
+        51300.0,
+        74750.0,
+        102500.0,
+        54450.0,
+        90200.0,
+        118300.0,
+        116700.0,
+        99400.0,
+        88032.11,
+        58200.0
+      ],
+      "sales": [
+        2,
+        5,
+        9,
+        5,
+        11,
+        2,
+        3,
+        6,
+        4,
+        3,
+        5,
+        6,
+        2,
+        2,
+        4,
+        2,
+        3,
+        2,
+        4,
+        2,
+        5,
+        2,
+        2,
+        5,
+        4,
+        2,
+        5,
+        3,
+        2,
+        3,
+        2,
+        1,
+        5,
+        4,
+        1,
+        4,
+        2,
+        3,
+        1,
+        2,
+        1,
+        1,
+        6,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        4,
+        4,
+        3,
+        4,
+        2,
+        2,
+        6,
+        7,
+        5,
+        7,
+        3,
+        5,
+        4,
+        11,
+        4,
+        8,
+        12,
+        6,
+        8,
+        13,
+        10,
+        8,
+        8,
+        5
+      ],
+      "netMargin": [
+        6831.36,
+        5750.14,
+        11565.26,
+        3332.65,
+        12881.68,
+        2955.01,
+        231.04,
+        4647.27,
+        1700.6,
+        3224.71,
+        6734.34,
+        4332.64,
+        3685.48,
+        3226.51,
+        7600.61,
+        1340.49,
+        1131.75,
+        3124.41,
+        5213.82,
+        1208.24,
+        7941.28,
+        -48.43,
+        967.27,
+        11883.97,
+        9203.32,
+        5534.27,
+        1478.05,
+        2033.05,
+        91.48,
+        2476.71,
+        126.96,
+        4246.54,
+        4177.13,
+        4633.55,
+        2810.73,
+        6435.91,
+        -2013.81,
+        6590.65,
+        452.21,
+        2918.01,
+        -1806.97,
+        -1940.62,
+        12702.48,
+        3679.73,
+        4309.65,
+        3141.45,
+        3589.58,
+        472.09,
+        1139.65,
+        2441.94,
+        8030.84,
+        1384.01,
+        5218.21,
+        1662.5,
+        1242.6,
+        8178.0,
+        2572.15,
+        8572.2,
+        9583.07,
+        4496.44,
+        5691.36,
+        4807.22,
+        18857.79,
+        4258.38,
+        1012.27,
+        10373.83,
+        5751.72,
+        6322.71,
+        18145.66,
+        9761.43,
+        10124.77,
+        16360.79,
+        15079.81
+      ]
     };
     const salesOriginData = {
-      origins: ["StandVirtual","Amigo","Outro","Redes Sociais","Google","Referência","OLX","Visita ao Stand"],
-      sales: [140,40,21,16,4,4,2,1],
-      revenue: [1708540.0,347650.0,198200.0,141950.0,32100.0,43600.0,15000.0,11382.11]
+      "origins": [
+        "StandVirtual",
+        "Sem origem",
+        "Amigo",
+        "Outro",
+        "Redes Sociais",
+        "Google",
+        "Referência",
+        "OLX",
+        "Visita ao Stand"
+      ],
+      "sales": [
+        150,
+        67,
+        42,
+        22,
+        16,
+        4,
+        4,
+        2,
+        1
+      ],
+      "revenue": [
+        1708540.0,
+        559705.0,
+        347650.0,
+        198200.0,
+        141950.0,
+        32100.0,
+        43600.0,
+        15000.0,
+        11382.11
+      ]
     };
     const sales2025Data = {
-      months: ["2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12"],
-      sales: [4,11,4,8,12,5,8,13,10,8,8,5],
-      salesDelta: [null,7,-7,4,4,-7,3,5,-3,-2,0,-3],
-      revenue: [29100.0,116400.0,51300.0,74750.0,102500.0,54450.0,90200.0,118300.0,116700.0,99400.0,88032.11,58200.0]
+      "months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "sales": [
+        4,
+        11,
+        4,
+        8,
+        12,
+        6,
+        8,
+        13,
+        10,
+        8,
+        8,
+        5
+      ],
+      "salesDelta": [
+        null,
+        7,
+        -7,
+        4,
+        4,
+        -6,
+        2,
+        5,
+        -3,
+        -2,
+        0,
+        -3
+      ],
+      "revenue": [
+        29100.0,
+        116400.0,
+        51300.0,
+        74750.0,
+        102500.0,
+        54450.0,
+        90200.0,
+        118300.0,
+        116700.0,
+        99400.0,
+        88032.11,
+        58200.0
+      ]
+    };
+    const salesMakeModelData = {
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "makesByYear": {
+        "2019": {
+          "labels": [
+            "Opel",
+            "Mercedes-Benz",
+            "BMW",
+            "Ford",
+            "Skoda",
+            "SEAT",
+            "Outros"
+          ],
+          "values": [
+            3,
+            2,
+            2,
+            1,
+            1,
+            1,
+            6
+          ]
+        },
+        "2020": {
+          "labels": [
+            "Opel",
+            "Smart",
+            "Renault",
+            "Audi",
+            "SEAT",
+            "MINI",
+            "Outros"
+          ],
+          "values": [
+            12,
+            5,
+            5,
+            4,
+            4,
+            4,
+            19
+          ]
+        },
+        "2021": {
+          "labels": [
+            "Renault",
+            "Audi",
+            "BMW",
+            "Ford",
+            "Volkswagen",
+            "Fiat",
+            "Outros"
+          ],
+          "values": [
+            6,
+            4,
+            3,
+            3,
+            2,
+            2,
+            18
+          ]
+        },
+        "2022": {
+          "labels": [
+            "Volkswagen",
+            "Audi",
+            "BMW",
+            "Renault",
+            "Opel",
+            "Volvo",
+            "Outros"
+          ],
+          "values": [
+            8,
+            5,
+            3,
+            3,
+            2,
+            1,
+            8
+          ]
+        },
+        "2023": {
+          "labels": [
+            "Citroën",
+            "Volkswagen",
+            "Mitsubishi",
+            "BMW",
+            "Fiat",
+            "MINI",
+            "Outros"
+          ],
+          "values": [
+            3,
+            3,
+            2,
+            2,
+            2,
+            1,
+            9
+          ]
+        },
+        "2024": {
+          "labels": [
+            "Volkswagen",
+            "Renault",
+            "Mercedes-Benz",
+            "BMW",
+            "Peugeot",
+            "Fiat",
+            "Outros"
+          ],
+          "values": [
+            6,
+            5,
+            5,
+            4,
+            3,
+            3,
+            26
+          ]
+        },
+        "2025": {
+          "labels": [
+            "Volkswagen",
+            "Peugeot",
+            "Renault",
+            "Fiat",
+            "Citroën",
+            "BMW",
+            "Outros"
+          ],
+          "values": [
+            15,
+            11,
+            9,
+            6,
+            6,
+            5,
+            45
+          ]
+        }
+      },
+      "modelsByYear": {
+        "2019": {
+          "labels": [
+            "Corsa",
+            "CLK 230",
+            "525",
+            "Fiesta",
+            "Superb",
+            "Leon",
+            "Zafira",
+            "Kangoo",
+            "Outros"
+          ],
+          "values": [
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            7
+          ]
+        },
+        "2020": {
+          "labels": [
+            "ForTwo Coupé",
+            "Corsa",
+            "Coupé",
+            "Clio",
+            "Tigra TwinTop",
+            "5",
+            "Ibiza",
+            "Astra GTC",
+            "Outros"
+          ],
+          "values": [
+            5,
+            5,
+            4,
+            2,
+            2,
+            2,
+            2,
+            2,
+            29
+          ]
+        },
+        "2021": {
+          "labels": [
+            "ForTwo Coupé",
+            "Golf Variant",
+            "Clio",
+            "Fiesta",
+            "TT Coupé",
+            "Twingo",
+            "Coupé",
+            "A8",
+            "Outros"
+          ],
+          "values": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            23
+          ]
+        },
+        "2022": {
+          "labels": [
+            "Meriva",
+            "Polo",
+            "Golf Variant",
+            "A6 Avant",
+            "V40",
+            "Mégane Cabrio",
+            "116",
+            "A3 Sportback",
+            "Outros"
+          ],
+          "values": [
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            18
+          ]
+        },
+        "2023": {
+          "labels": [
+            "Coupé",
+            "ML 270",
+            "500",
+            "3",
+            "Space Star",
+            "C5",
+            "Carens",
+            "Scirocco",
+            "Outros"
+          ],
+          "values": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            14
+          ]
+        },
+        "2024": {
+          "labels": [
+            "Scirocco",
+            "Clio",
+            "SLK 200",
+            "Aygo",
+            "Note",
+            "V60",
+            "3008",
+            "Monster",
+            "Outros"
+          ],
+          "values": [
+            3,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            38
+          ]
+        },
+        "2025": {
+          "labels": [
+            "3008",
+            "Polo",
+            "208",
+            "500",
+            "C3",
+            "Golf Variant",
+            "6",
+            "Clio",
+            "Outros"
+          ],
+          "values": [
+            5,
+            5,
+            4,
+            4,
+            3,
+            3,
+            2,
+            2,
+            69
+          ]
+        }
+      }
+    };
+    const salesBrandMonthlyData = {
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "monthsByYear": {
+        "2019": [
+          "2019-10",
+          "2019-11",
+          "2019-12"
+        ],
+        "2020": [
+          "2020-01",
+          "2020-02",
+          "2020-03",
+          "2020-04",
+          "2020-05",
+          "2020-06",
+          "2020-07",
+          "2020-08",
+          "2020-09",
+          "2020-10",
+          "2020-11",
+          "2020-12"
+        ],
+        "2021": [
+          "2021-01",
+          "2021-02",
+          "2021-03",
+          "2021-04",
+          "2021-05",
+          "2021-06",
+          "2021-07",
+          "2021-08",
+          "2021-09",
+          "2021-10",
+          "2021-11",
+          "2021-12"
+        ],
+        "2022": [
+          "2022-01",
+          "2022-02",
+          "2022-03",
+          "2022-04",
+          "2022-05",
+          "2022-06",
+          "2022-07",
+          "2022-08",
+          "2022-09",
+          "2022-10",
+          "2022-11",
+          "2022-12"
+        ],
+        "2023": [
+          "2023-01",
+          "2023-02",
+          "2023-03",
+          "2023-04",
+          "2023-05",
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2023-12"
+        ],
+        "2024": [
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12"
+        ],
+        "2025": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ]
+      },
+      "brandsByYear": {
+        "2019": [
+          "Opel",
+          "Mercedes-Benz",
+          "BMW",
+          "Ford",
+          "Skoda",
+          "SEAT",
+          "Renault",
+          "Smart",
+          "Suzuki",
+          "Lancia",
+          "Audi",
+          "Citroën"
+        ],
+        "2020": [
+          "Opel",
+          "Smart",
+          "Renault",
+          "Audi",
+          "SEAT",
+          "MINI",
+          "Fiat",
+          "Alfa Romeo",
+          "Peugeot",
+          "Mercedes-Benz",
+          "Mazda",
+          "Volkswagen",
+          "Ford",
+          "Nissan",
+          "Citroën",
+          "Hyundai",
+          "Toyota",
+          "Skoda"
+        ],
+        "2021": [
+          "Renault",
+          "Audi",
+          "BMW",
+          "Ford",
+          "Volkswagen",
+          "Fiat",
+          "Volvo",
+          "SEAT",
+          "MINI",
+          "Smart",
+          "Peugeot",
+          "Hyundai",
+          "Alfa Romeo",
+          "Nissan",
+          "Mazda",
+          "Jeep",
+          "Jaguar",
+          "Porsche",
+          "Opel"
+        ],
+        "2022": [
+          "Volkswagen",
+          "Audi",
+          "BMW",
+          "Renault",
+          "Opel",
+          "Volvo",
+          "Alfa Romeo",
+          "Smart",
+          "Land Rover",
+          "Mitsubishi",
+          "Mercedes-Benz",
+          "Nissan",
+          "Fiat",
+          "Skoda"
+        ],
+        "2023": [
+          "Citroën",
+          "Volkswagen",
+          "Mitsubishi",
+          "BMW",
+          "Fiat",
+          "MINI",
+          "Mercedes-Benz",
+          "Opel",
+          "Renault",
+          "Peugeot",
+          "Toyota",
+          "Ford",
+          "Kia",
+          "Mazda",
+          "SEAT"
+        ],
+        "2024": [
+          "Volkswagen",
+          "Renault",
+          "Mercedes-Benz",
+          "BMW",
+          "Peugeot",
+          "Fiat",
+          "Toyota",
+          "Nissan",
+          "Mazda",
+          "Citroën",
+          "Ford",
+          "Honda",
+          "Opel",
+          "MG",
+          "Jaguar",
+          "Hyundai",
+          "Aprilia",
+          "KTM",
+          "Kia",
+          "SEAT",
+          "Ducati",
+          "MINI",
+          "Audi",
+          "Volvo"
+        ],
+        "2025": [
+          "Volkswagen",
+          "Peugeot",
+          "Renault",
+          "Fiat",
+          "Citroën",
+          "BMW",
+          "Audi",
+          "SEAT",
+          "Ducati",
+          "Toyota",
+          "Honda",
+          "Opel",
+          "Mazda",
+          "Ford",
+          "Alfa Romeo",
+          "Mercedes-Benz",
+          "Land Rover",
+          "Nissan",
+          "Dacia",
+          "MG",
+          "Smart",
+          "KTM",
+          "MINI",
+          "Volvo",
+          "Skoda",
+          "DS"
+        ]
+      },
+      "seriesByYear": {
+        "2019": {
+          "Opel": [
+            0,
+            2,
+            1
+          ],
+          "Mercedes-Benz": [
+            0,
+            0,
+            2
+          ],
+          "BMW": [
+            1,
+            0,
+            1
+          ],
+          "Ford": [
+            0,
+            0,
+            1
+          ],
+          "Skoda": [
+            0,
+            0,
+            1
+          ],
+          "SEAT": [
+            0,
+            0,
+            1
+          ],
+          "Renault": [
+            0,
+            0,
+            1
+          ],
+          "Smart": [
+            0,
+            0,
+            1
+          ],
+          "Suzuki": [
+            0,
+            1,
+            0
+          ],
+          "Lancia": [
+            0,
+            1,
+            0
+          ],
+          "Audi": [
+            0,
+            1,
+            0
+          ],
+          "Citroën": [
+            1,
+            0,
+            0
+          ]
+        },
+        "2020": {
+          "Opel": [
+            0,
+            0,
+            0,
+            1,
+            3,
+            0,
+            2,
+            2,
+            3,
+            0,
+            0,
+            1
+          ],
+          "Smart": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Renault": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Audi": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "SEAT": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "MINI": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Fiat": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Alfa Romeo": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "Peugeot": [
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Mercedes-Benz": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Mazda": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Volkswagen": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Ford": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Nissan": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Citroën": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Hyundai": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Toyota": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Skoda": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "2021": {
+          "Renault": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "Audi": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "BMW": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "Ford": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Volkswagen": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Fiat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "Volvo": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "SEAT": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "MINI": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Smart": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Peugeot": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Hyundai": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Alfa Romeo": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Nissan": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "Mazda": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Jeep": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Jaguar": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Porsche": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "Opel": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "2022": {
+          "Volkswagen": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "Audi": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "BMW": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "Renault": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "Opel": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Volvo": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "Alfa Romeo": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "Smart": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Land Rover": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Mitsubishi": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Mercedes-Benz": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Nissan": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Fiat": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Skoda": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "2023": {
+          "Citroën": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Volkswagen": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Mitsubishi": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "BMW": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Fiat": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "MINI": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "Mercedes-Benz": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Opel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "Renault": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Peugeot": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Toyota": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Ford": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Kia": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Mazda": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "SEAT": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "2024": {
+          "Volkswagen": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1,
+            2,
+            1,
+            0,
+            0
+          ],
+          "Renault": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Mercedes-Benz": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "BMW": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Peugeot": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Fiat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          "Toyota": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Nissan": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Mazda": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "Citroën": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Ford": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Honda": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Opel": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "MG": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "Jaguar": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "Hyundai": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Aprilia": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "KTM": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Kia": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "SEAT": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Ducati": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "MINI": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "Audi": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Volvo": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "2025": {
+          "Volkswagen": [
+            2,
+            1,
+            0,
+            1,
+            1,
+            1,
+            3,
+            2,
+            1,
+            2,
+            1,
+            0
+          ],
+          "Peugeot": [
+            0,
+            1,
+            0,
+            2,
+            1,
+            0,
+            2,
+            3,
+            1,
+            0,
+            1,
+            0
+          ],
+          "Renault": [
+            0,
+            2,
+            0,
+            2,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1,
+            1
+          ],
+          "Fiat": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "Citroën": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            2,
+            0,
+            0,
+            1
+          ],
+          "BMW": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            1,
+            0,
+            0
+          ],
+          "Audi": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "SEAT": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            1,
+            0,
+            1
+          ],
+          "Ducati": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "Toyota": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Honda": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Opel": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Mazda": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Ford": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Alfa Romeo": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Mercedes-Benz": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "Land Rover": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "Nissan": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "Dacia": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "MG": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "Smart": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "KTM": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "MINI": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Volvo": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Skoda": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "DS": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
     };
     const customersOriginData = {
       origins: ["stand_virtual","Sem origem","friend","other","social_media","google","reference","olx","stand_visit"],
@@ -554,6 +3082,122 @@
       olx: "OLX",
       stand_visit: "Stand Visit"
     };
+
+    function getAdsLocale() {
+      return currentLang === "en" ? "en-US" : "pt-PT";
+    }
+
+    function formatNumber(value) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) return "—";
+      return new Intl.NumberFormat(getAdsLocale()).format(number);
+    }
+
+    function formatCurrency(value) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) return "—";
+      return new Intl.NumberFormat(getAdsLocale(), {
+        style: "currency",
+        currency: "EUR",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(number);
+    }
+
+    function formatPercent(value) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) return "—";
+      return `${number.toFixed(2)}%`;
+    }
+
+    function formatPeriod(period) {
+      if (!period || typeof period !== "string") return null;
+      const [year, month] = period.split("-");
+      const yearNum = Number(year);
+      const monthNum = Number(month);
+      if (!Number.isFinite(yearNum) || !Number.isFinite(monthNum)) {
+        return period;
+      }
+      const date = new Date(yearNum, monthNum - 1, 1);
+      return new Intl.DateTimeFormat(getAdsLocale(), {
+        month: "short",
+        year: "numeric"
+      }).format(date);
+    }
+
+    function renderAdsSummary() {
+      const totalSpendEl = document.getElementById("ads-total-spend");
+      if (!totalSpendEl) return;
+
+      const reports = Array.isArray(adsReportsData.reports)
+        ? adsReportsData.reports
+        : [];
+      const validReports = reports.filter(
+        (report) => report && report.status === "ok" && report.overall
+      );
+
+      const totalViewsEl = document.getElementById("ads-total-views");
+      const avgCpvEl = document.getElementById("ads-avg-cpv");
+      const bestCtrEl = document.getElementById("ads-best-ctr");
+      const periodEl = document.getElementById("ads-period-value");
+      const reportsEl = document.getElementById("ads-reports-value");
+      const bestCtrNameEl = document.getElementById("ads-best-ctr-name");
+
+      if (!validReports.length) {
+        totalSpendEl.textContent = "—";
+        if (totalViewsEl) totalViewsEl.textContent = "—";
+        if (avgCpvEl) avgCpvEl.textContent = "—";
+        if (bestCtrEl) bestCtrEl.textContent = "—";
+        if (periodEl) periodEl.textContent = "—";
+        if (reportsEl) reportsEl.textContent = "—";
+        if (bestCtrNameEl) bestCtrNameEl.textContent = "—";
+        return;
+      }
+
+      let totalSpend = 0;
+      let totalViews = 0;
+      const periods = [];
+      const funnels = [];
+
+      validReports.forEach((report) => {
+        const overall = report.overall || {};
+        const spend = Number(overall.spend);
+        const views = Number(overall.landingPageViews);
+        if (Number.isFinite(spend)) totalSpend += spend;
+        if (Number.isFinite(views)) totalViews += views;
+        if (report.period) periods.push(report.period);
+        if (Array.isArray(report.funnels)) funnels.push(...report.funnels);
+      });
+
+      let bestCtr = null;
+      let bestCtrName = "";
+      funnels.forEach((funnel) => {
+        const ctr = Number(funnel.ctr);
+        if (!Number.isFinite(ctr)) return;
+        if (bestCtr === null || ctr > bestCtr) {
+          bestCtr = ctr;
+          bestCtrName = funnel.name || "";
+        }
+      });
+
+      const sortedPeriods = periods.filter(Boolean).sort();
+      let periodLabel = "—";
+      if (sortedPeriods.length) {
+        const start = formatPeriod(sortedPeriods[0]) || sortedPeriods[0];
+        const end = formatPeriod(sortedPeriods[sortedPeriods.length - 1]) || sortedPeriods[sortedPeriods.length - 1];
+        periodLabel = start === end ? start : `${start} - ${end}`;
+      }
+
+      totalSpendEl.textContent = formatCurrency(totalSpend);
+      if (totalViewsEl) totalViewsEl.textContent = formatNumber(totalViews);
+      if (avgCpvEl) {
+        avgCpvEl.textContent = totalViews ? formatCurrency(totalSpend / totalViews) : "—";
+      }
+      if (bestCtrEl) bestCtrEl.textContent = formatPercent(bestCtr);
+      if (periodEl) periodEl.textContent = periodLabel;
+      if (reportsEl) reportsEl.textContent = formatNumber(validReports.length);
+      if (bestCtrNameEl) bestCtrNameEl.textContent = bestCtrName || "—";
+    }
 
     function renderSalesChart() {
       const chartEl = document.getElementById("sales-live-chart");
@@ -628,20 +3272,8 @@
         hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
       };
 
-      const revenueTrace = {
-        x: salesOriginData.origins,
-        y: salesOriginData.revenue,
-        type: "scatter",
-        mode: "lines+markers",
-        name: "Receita",
-        yaxis: "y2",
-        line: { color: "#39c0e0", width: 2 },
-        marker: { size: 6 },
-        hovertemplate: "%{x}<br>Receita: €%{y:,.0f}<extra></extra>"
-      };
-
       const layout = {
-        margin: { l: 60, r: 60, t: 20, b: 80 },
+        margin: { l: 60, r: 30, t: 20, b: 80 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
         xaxis: {
@@ -654,23 +3286,10 @@
           titlefont: { color: "#f4738f" },
           tickfont: { color: "#cbd5f5" },
           gridcolor: "rgba(148,163,184,0.15)"
-        },
-        yaxis2: {
-          title: "Receita (€)",
-          overlaying: "y",
-          side: "right",
-          tickfont: { color: "#cbd5f5" },
-          titlefont: { color: "#39c0e0" }
-        },
-        legend: {
-          orientation: "h",
-          y: 1.1,
-          x: 0,
-          font: { color: "#e2e8f0" }
         }
       };
 
-      Plotly.newPlot(chartEl, [salesTrace, revenueTrace], layout, {
+      Plotly.newPlot(chartEl, [salesTrace], layout, {
         displayModeBar: false,
         responsive: true
       });
@@ -707,6 +3326,168 @@
         },
         yaxis: {
           title: "Carros vendidos",
+          titlefont: { color: "#8be9b4" },
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function initSalesMakeModelYearSelect() {
+      const selectEl = document.getElementById("sales-make-model-year-select");
+      if (!selectEl || selectEl.dataset.ready) return;
+
+      salesMakeModelData.years.forEach((year) => {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        selectEl.appendChild(option);
+      });
+      selectEl.value = salesMakeModelData.years[salesMakeModelData.years.length - 1];
+      selectEl.addEventListener("change", () => {
+        renderSalesMakeChart();
+        renderSalesModelChart();
+        renderSalesBrandMonthlyChart(true);
+      });
+      selectEl.dataset.ready = "true";
+    }
+    function renderSalesMakeChart() {
+      const chartEl = document.getElementById("sales-make-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      initSalesMakeModelYearSelect();
+      const yearSelect = document.getElementById("sales-make-model-year-select");
+      const year = yearSelect?.value || salesMakeModelData.years[salesMakeModelData.years.length - 1];
+      const data = salesMakeModelData.makesByYear[year] || { labels: [], values: [] };
+
+      const trace = {
+        labels: data.labels,
+        values: data.values,
+        type: "pie",
+        hole: 0.45,
+        sort: false,
+        marker: {
+          colors: ["#8be9b4", "#39c0e0", "#f4738f", "#facc15", "#a855f7", "#60a5fa", "#94a3b8"]
+        },
+        textinfo: "percent",
+        hovertemplate: "%{label}<br>Vendas: %{value}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 10, r: 10, t: 10, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        legend: {
+          orientation: "h",
+          y: -0.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        },
+        font: { color: "#e2e8f0" }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSalesModelChart() {
+      const chartEl = document.getElementById("sales-model-chart");
+      if (!chartEl || !window.Plotly) return;
+
+      initSalesMakeModelYearSelect();
+      const yearSelect = document.getElementById("sales-make-model-year-select");
+      const year = yearSelect?.value || salesMakeModelData.years[salesMakeModelData.years.length - 1];
+      const data = salesMakeModelData.modelsByYear[year] || { labels: [], values: [] };
+
+      const trace = {
+        labels: data.labels,
+        values: data.values,
+        type: "pie",
+        hole: 0.45,
+        sort: false,
+        marker: {
+          colors: ["#39c0e0", "#8be9b4", "#f59e0b", "#f472b6", "#a3e635", "#60a5fa", "#f97316", "#c084fc", "#94a3b8"]
+        },
+        textinfo: "percent",
+        hovertemplate: "%{label}<br>Vendas: %{value}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 10, r: 10, t: 10, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        legend: {
+          orientation: "h",
+          y: -0.1,
+          x: 0,
+          font: { color: "#e2e8f0" }
+        },
+        font: { color: "#e2e8f0" }
+      };
+
+      Plotly.newPlot(chartEl, [trace], layout, {
+        displayModeBar: false,
+        responsive: true
+      });
+    }
+    function renderSalesBrandMonthlyChart(forceReset = false) {
+      const chartEl = document.getElementById("sales-brand-monthly-chart");
+      const selectEl = document.getElementById("sales-brand-monthly-select");
+      if (!chartEl || !selectEl || !window.Plotly) return;
+
+      initSalesMakeModelYearSelect();
+      const yearSelect = document.getElementById("sales-make-model-year-select");
+      const year = yearSelect?.value || salesBrandMonthlyData.years[salesBrandMonthlyData.years.length - 1];
+      const months = salesBrandMonthlyData.monthsByYear[year] || [];
+      const brands = salesBrandMonthlyData.brandsByYear[year] || [];
+      const series = salesBrandMonthlyData.seriesByYear[year] || {};
+
+      if (!selectEl.dataset.ready || selectEl.dataset.year !== year || forceReset) {
+        const prev = selectEl.value;
+        selectEl.innerHTML = "";
+        brands.forEach((brand) => {
+          const option = document.createElement("option");
+          option.value = brand;
+          option.textContent = brand;
+          selectEl.appendChild(option);
+        });
+        selectEl.value = prev && brands.includes(prev) ? prev : (brands[0] || "");
+        selectEl.dataset.ready = "true";
+        selectEl.dataset.year = year;
+        if (!selectEl.dataset.listener) {
+          selectEl.addEventListener("change", () => renderSalesBrandMonthlyChart());
+          selectEl.dataset.listener = "true";
+        }
+      }
+
+      const brand = selectEl.value;
+      const sales = series[brand] || months.map(() => 0);
+
+      const trace = {
+        x: months,
+        y: sales,
+        type: "bar",
+        name: "Vendas",
+        marker: { color: "rgba(139,233,180,0.7)" },
+        hovertemplate: "%{x}<br>Vendas: %{y}<extra></extra>"
+      };
+
+      const layout = {
+        margin: { l: 60, r: 30, t: 20, b: 40 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: {
+          tickangle: -35,
+          tickfont: { color: "#cbd5f5" },
+          gridcolor: "rgba(148,163,184,0.15)"
+        },
+        yaxis: {
+          title: "Vendas",
           titlefont: { color: "#8be9b4" },
           tickfont: { color: "#cbd5f5" },
           gridcolor: "rgba(148,163,184,0.15)"
@@ -1043,7 +3824,11 @@
         tab_ads: "Meta Ads",
         tab_sales: "Vendas",
         tab_customers: "Clientes",
+        tab_competitors: "Concorrentes",
         tab_sources: "Fontes",
+        ads_panel_title: "Meta Ads",
+        ads_toggle_numbers: "Números",
+        ads_toggle_graphs: "Gráficos",
         landing_badge: "AutoTrust Overview",
         landing_title: "Resumo centralizado",
         landing_subtitle: "Escolha a area para explorar: Meta Ads, Vendas ou Clientes. Cada aba traz graficos completos e recomendacoes.",
@@ -1124,6 +3909,11 @@
         sales_chart_live_title: "Desempenho mensal (receita e volume)",
         sales_origin_chart_title: "Origem das vendas no período",
         sales_yearly_chart_title: "Total de carros vendidos por ano",
+        sales_make_chart_title: "Vendas por marca",
+        sales_model_chart_title: "Vendas por modelo",
+        sales_brand_monthly_title: "Vendas mensais por marca",
+        sales_brand_label: "Marca:",
+        sales_make_model_year_label: "Ano:",
         sales_monthly_title: "Vendas mensais",
         sales_monthly_year_label: "Ano:",
         sales_change_title: "Variação mensal de vendas",
@@ -1157,6 +3947,14 @@
         customers_alignment_title: "Clientes vs vendas por origem (mensal)",
         customers_alignment_filter: "Origem:",
         customers_margin_title: "Margem liquida por cliente (por origem)",
+        competitors_title: "Análise de Concorrentes",
+        competitors_source_hint: "Base: data/competitors.json",
+        competitors_overview_title: "Visão geral",
+        competitors_overview_body: "Os concorrentes já estão estruturados em JSON para análise. Próximo passo: adicionar métricas e insights.",
+        competitors_next_title: "Próximos passos",
+        competitors_next_1: "• Definir critérios (preço, inventário, alcance digital, região).",
+        competitors_next_2: "• Pontuar por categoria para gerar ranking.",
+        competitors_next_3: "• Cruzar com canais de aquisição e ofertas.",
         sources_title: "Fontes",
         source_csv: "CSV: data/autotrust_ads.csv",
         source_report: "Relatório comparativo: outputs/reports/comparative_report.md",
@@ -1165,7 +3963,12 @@
         howto_title: "Como visualizar",
         howto_1: "Abra este arquivo diretamente no navegador: outputs/reports/dashboard.html.",
         howto_2: "Os painéis interativos usam os exports do Plotly em outputs/charts/.",
-        howto_3: "Atualize os dados e rode python src/main.py para regenerar os gráficos antes de recarregar a página."
+        howto_3: "Atualize os dados e rode python src/main.py para regenerar os gráficos antes de recarregar a página.",
+        update_command_label: "Atualizar dashboards de vendas:",
+        update_command_copy: "Copiar comando",
+        update_command_copied: "Comando copiado.",
+        update_command_fallback: "Copie manualmente.",
+        update_command_alt: "Alternativa: python3 src/sales_dashboard.py"
       },
       en: {
         period_label: "Sep–Nov 2025",
@@ -1182,7 +3985,11 @@
         tab_ads: "Meta Ads",
         tab_sales: "Sales",
         tab_customers: "Customers",
+        tab_competitors: "Competitors",
         tab_sources: "Sources",
+        ads_panel_title: "Meta Ads",
+        ads_toggle_numbers: "Numbers",
+        ads_toggle_graphs: "Charts",
         landing_badge: "AutoTrust Overview",
         landing_title: "One place to start",
         landing_subtitle: "Choose where to explore: Meta Ads, Sales, or Customers. Each tab opens full charts and recommendations.",
@@ -1263,6 +4070,11 @@
         sales_chart_live_title: "Monthly performance (revenue and volume)",
         sales_origin_chart_title: "Sales sources over the period",
         sales_yearly_chart_title: "Total cars sold per year",
+        sales_make_chart_title: "Sales by make",
+        sales_model_chart_title: "Sales by model",
+        sales_brand_monthly_title: "Monthly sales by make",
+        sales_brand_label: "Make:",
+        sales_make_model_year_label: "Year:",
         sales_monthly_title: "Monthly sales",
         sales_monthly_year_label: "Year:",
         sales_change_title: "Monthly sales change",
@@ -1296,6 +4108,14 @@
         customers_alignment_title: "Clients vs sales by source (monthly)",
         customers_alignment_filter: "Source:",
         customers_margin_title: "Net margin per client (by source)",
+        competitors_title: "Competitor Analysis",
+        competitors_source_hint: "Source: data/competitors.json",
+        competitors_overview_title: "Overview",
+        competitors_overview_body: "Competitors are structured in JSON for analysis. Next step: add metrics and insights.",
+        competitors_next_title: "Next steps",
+        competitors_next_1: "• Define criteria (pricing, inventory, digital reach, region).",
+        competitors_next_2: "• Score by category to generate a ranking.",
+        competitors_next_3: "• Cross-check with acquisition channels and offers.",
         sources_title: "Sources",
         source_csv: "CSV: data/autotrust_ads.csv",
         source_report: "Comparative report: outputs/reports/comparative_report.md",
@@ -1304,13 +4124,33 @@
         howto_title: "How to view",
         howto_1: "Open this file directly in your browser: outputs/reports/dashboard.html.",
         howto_2: "Interactive panels use Plotly exports in outputs/charts/.",
-        howto_3: "Update data and run python src/main.py to regenerate charts before refreshing."
+        howto_3: "Update data and run python src/main.py to regenerate charts before refreshing.",
+        update_command_label: "Update sales dashboards:",
+        update_command_copy: "Copy command",
+        update_command_copied: "Command copied.",
+        update_command_fallback: "Copy manually.",
+        update_command_alt: "Alternative: python3 src/sales_dashboard.py"
       }
     };
 
     const tabButtons = document.querySelectorAll("[data-tab-target]");
     const tabPanels = document.querySelectorAll("[data-tab-panel]");
     const tabLinks = document.querySelectorAll("[data-tab-link]");
+    const adsViewButtons = document.querySelectorAll("[data-ads-view]");
+    const adsPanels = document.querySelectorAll("[data-ads-panel]");
+    let currentAdsView = "numbers";
+
+    function setAdsView(view) {
+      currentAdsView = view;
+      adsPanels.forEach((panel) => {
+        panel.classList.toggle("hidden", panel.dataset.adsPanel !== view);
+      });
+      adsViewButtons.forEach((btn) => {
+        const isActive = btn.dataset.adsView === view;
+        btn.classList.toggle("tab-active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    }
 
     function setTab(tab) {
       currentTab = tab;
@@ -1324,6 +4164,9 @@
         renderSalesChart();
         renderSalesOriginChart();
         renderSalesYearlyChart();
+        renderSalesMakeChart();
+        renderSalesModelChart();
+        renderSalesBrandMonthlyChart();
         renderSales2025MonthlyChart();
         renderSales2025ChangeChart();
       }
@@ -1341,8 +4184,19 @@
     tabLinks.forEach((btn) =>
       btn.addEventListener("click", () => setTab(btn.dataset.tabLink))
     );
+    adsViewButtons.forEach((btn) =>
+      btn.addEventListener("click", () => setAdsView(btn.dataset.adsView))
+    );
 
     const langButtons = document.querySelectorAll("[data-set-lang]");
+    const copyButton = document.getElementById("copy-sales-command");
+    const copyStatus = document.getElementById("copy-sales-command-status");
+
+    function setCopyStatus(key) {
+      if (!copyStatus) return;
+      const dict = translations[currentLang] || translations.pt;
+      copyStatus.textContent = dict[key] || "";
+    }
     function applyLang(lang) {
       currentLang = lang === "en" ? "en" : "pt";
       const dict = translations[lang] || translations.pt;
@@ -1351,6 +4205,9 @@
         const key = el.dataset.i18n;
         if (dict[key]) el.textContent = dict[key];
       });
+      if (copyStatus) {
+        copyStatus.textContent = "";
+      }
       langButtons.forEach((btn) => {
         btn.classList.toggle("lang-active", btn.dataset.setLang === lang);
       });
@@ -1364,8 +4221,42 @@
     langButtons.forEach((btn) =>
       btn.addEventListener("click", () => applyLang(btn.dataset.setLang))
     );
+    if (copyButton) {
+      copyButton.addEventListener("click", async () => {
+        const cmd = "make refresh-sales";
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(cmd);
+            setCopyStatus("update_command_copied");
+          } else {
+            setCopyStatus("update_command_fallback");
+          }
+        } catch (err) {
+          setCopyStatus("update_command_fallback");
+        }
+        if (copyStatus) {
+          setTimeout(() => {
+            copyStatus.textContent = "";
+          }, 2000);
+        }
+      });
+    }
+    function getInitialTab() {
+      const params = new URLSearchParams(window.location.search);
+      const paramTab = params.get("tab");
+      const hashTab = window.location.hash ? window.location.hash.replace("#", "") : "";
+      const desired = paramTab || hashTab;
+      if (desired && document.querySelector(`[data-tab-panel="${desired}"]`)) {
+        return desired;
+      }
+      return "landing";
+    }
+
     applyLang("pt");
-    setTab("landing");
+    if (adsViewButtons.length) {
+      setAdsView(currentAdsView);
+    }
+    setTab(getInitialTab());
   </script>
 </body>
 </html>

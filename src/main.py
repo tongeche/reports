@@ -10,6 +10,9 @@ import pandas as pd
 import plotly.express as px
 from dotenv import load_dotenv
 
+from competitors_data import refresh_competitors_json
+from index_summary import refresh_index_summary
+from sales_dashboard import refresh_sales_dashboard
 
 load_dotenv()
 
@@ -17,6 +20,12 @@ DATA_FILE = Path(os.getenv("DATA_FILE") or "data/autotrust_ads.csv")
 OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR") or "outputs")
 CHARTS_DIR = Path(os.getenv("CHARTS_DIR") or OUTPUT_DIR / "charts")
 REPORTS_DIR = Path(os.getenv("REPORTS_DIR") or OUTPUT_DIR / "reports")
+SALES_DATA_FILE = Path(os.getenv("SALES_DATA_FILE") or "data/sale2025122315296397.xlsx")
+COMPETITOR_FILE = Path(os.getenv("COMPETITOR_FILE") or "data/competitor.xlsx")
+COMPETITORS_JSON = Path(os.getenv("COMPETITORS_JSON") or "data/competitors.json")
+DASHBOARD_DOCS = Path(os.getenv("DASHBOARD_DOCS") or "docs/dashboard.html")
+DASHBOARD_REPORT = Path(os.getenv("DASHBOARD_REPORT") or REPORTS_DIR / "dashboard.html")
+INDEX_DOCS = Path(os.getenv("INDEX_DOCS") or "docs/index.html")
 PLOT_FORMAT = os.getenv("PLOT_FORMAT", "png")
 PLOT_DPI = int(os.getenv("PLOT_DPI", "150"))
 
@@ -354,6 +363,13 @@ def main() -> None:
     charts = plot_all_charts(df)
     interactive_charts = plot_interactive_charts(df)
     report_path = generate_comparative_report(df, monthly, charts, interactive_charts)
+    updated_dashboards = refresh_sales_dashboard(
+        SALES_DATA_FILE, (DASHBOARD_DOCS, DASHBOARD_REPORT)
+    )
+    competitors_json = refresh_competitors_json(COMPETITOR_FILE, COMPETITORS_JSON)
+    updated_index = refresh_index_summary(
+        SALES_DATA_FILE, COMPETITORS_JSON, (INDEX_DOCS,)
+    )
 
     print("=== AutoTrust Meta Ads Analysis ===")
     print(f"Data rows: {len(df)}")
@@ -366,6 +382,16 @@ def main() -> None:
     for path in interactive_charts:
         print(f"- {path}")
     print(f"\nComparative report: {report_path}")
+    if updated_dashboards:
+        print("\nUpdated sales dashboards:")
+        for path in updated_dashboards:
+            print(f"- {path}")
+    if competitors_json:
+        print(f"\nUpdated competitors JSON: {competitors_json}")
+    if updated_index:
+        print("\nUpdated index summary:")
+        for path in updated_index:
+            print(f"- {path}")
 
 
 if __name__ == "__main__":
